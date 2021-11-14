@@ -1,0 +1,77 @@
+\chapter{Einleitung}
+
+
+
+\section{Beiträge dieser Arbeit}
+
+Im Rahmen dieser Bachelorarbeit wurde ein Framework konzipiert und
+implementiert, welcher es ermöglicht, Veranstaltungen, welche sich über größere
+Räume verteilen, mit einer Web-App zu unterstützen. Die Unterstützung gilt
+Veranstaltenden sowie Teilnehmenden.
+
+Teilnehmenden wird durch die übersichtliche Darstellung wichtiger Informationen
+zur Veranstaltung ein roter Pfaden geboten. Dies geschieht mit Hilfe einer
+übersichtlichen Anzeige der PoIs (Point of Interest), sowohl auf einer Karte,
+als auch in Listenform. Zudem können weitere Informationen, inklusive
+multimedialer Inhalte, zu den einzelnen PoIs eingesehen werden. Des Weiteren
+ermöglichen das virtuelle Besuchen von PoIs per QR-Code und Abzeichen,
+Teilnehmende zur Ausführung von bestimmten gewünschten Aktionen zu lenken.
+
+Veranstaltende nutzen eine Web-Oberfläche, um die Veranstaltung zu erstellen und
+zu verwalten. Hierzu zählt das Eintragen der PoIs, Abzeichen und Hilfseinträge,
+sowie das Abschicken von Push-Benachrichtigung an alle Teilnehmenden. Zusätzlich
+werden über die Web-App Daten zu besuchten PoIs, erhaltenen Abzeichen und
+Feedback gesammelt. Diese Daten können anschließend zur Auswertung der
+Veranstaltung genutzt werden.
+
+\section{Verwandte Arbeiten}
+
+Die Idee dieser Arbeit entstammt der im Rahmen eines Bachelorprojekts
+entstandenen EMI-Award-App~\cite{Canzler2021}, welche bereits März 2021
+eingesetzt wurde, um die verschiedenen studentischen Projekte des EMI-Awards in
+der Stadt Lübeck auszustellen. Beim EMI-Award handelt es sich um eine jährliche
+Veranstaltung des Studiengangs Medieninformatik, bei welcher die „die
+kreativsten und gelungensten Gruppenergebnisse aus der
+Erstsemester-Veranstaltung ‚Einführung in die Medieninformatik‘ (EMI)
+ausgezeichnet [werden]“ \cite{UniversitatzuLubeck2021}. Die App ermöglichte das
+unter anderem das Einsehen, virtuelle Besuchen und Bewerten von verschiedenen
+Stationen. Eine Besonderheit stellt die AR-Komponente der App dar. Nach dem
+erfolgreichen Scannen des QR-Codes einer Station wurde zunächst, abhängig vom
+Gerät des Nutzers, eine AR- beziehungsweise VR-Szene angezeigt, in welcher ein
+Planet, symbolisch für die Station stehend, schwebte und angetippt werden
+musste. Zudem konnten verschiedene Errungenschaften durch bestimmte Aktionen erhalten werden. Insbesondere in der Konzeptionsphase dieser Arbeit wurden die
+Evaluationsergebnisse der EMI-Award-App stark einbezogen und als Grundlage für
+den Prototyp genutzt.
+
+\section{Aufbau der Arbeit}
+
+Zu Beginn der Arbeit wurde eine Literaturrecherche durchgeführt. In dieser
+wurden vergleichbare Projekte, sowie grundlegende Konzepte für Veranstaltungen
+gesucht. Gleichzeitig wurden die Ergebnisse der Evaluation der EMI-Award-App
+gesichtet, um die dort gewonnen Erkenntnisse zur Implementierung von Web-Apps
+sowie deren Einsatz zu erhalten. Daraufhin wurden Interviews mit teilnehmenden
+und veranstaltenden Personen durchgeführt. Die Durchführung mit veranstaltenden
+Personen erfasste relevante Veranstaltungstypen, sowie wertvolle Funktionen aus
+organisatorischer Sicht. Hingegen erfassten die Interviews mit teilnehmenden
+Personen Erfahrungen mit digital unterstützen Veranstaltungen und hilfreiche
+vorhandene und gewünschte Funktionen.
+
+Anschließend wurden die Funktionen des Frameworks erarbeitet und
+Designanforderungen festgehalten. Hierbei wurden vorhandene Evaluationen der
+EMI-Award-App berücksichtigt und nach dem menschenzentrierten Gestaltungsprozess
+vorgegangen. Aus den Designanforderungen wurden Konzepte für die verschiedenen
+Ansichten und ihre Komponenten erstellt. Zudem wurden Konzepte für die benötigte
+Infrastruktur und ihren Aufbau angefertigt.
+
+Unterstützt durch die erstellen Konzepte wurden Frontend und Backend der
+Anwendung implementiert. Um die Softwarequalität bei der gegebenen Komplexität
+des Frameworks garantieren zu können, wurden Softwaretests eingesetzt, welche
+die grundlegende Logik der verschiedenen Funktionen des Backends überprüfen
+sollten. Des Weiteren wurde ein hohes Maß an Automation angestrebt, um die
+Softwarequalität kontinuierlich zu überprüfen und die verwendete Zeit für
+repetitive Aufgaben zu minimieren.
+
+Darauf folgend wurde der Framework im Rahmen der Stadt- und Campusrallye der
+Vorwoche an der Universität zu Lübeck eingesetzt und anschließend evaluiert.
+Hierzu wurde für Teilnehmende eine quantitative Online-Befragung durchgeführt,
+während die Veranstaltenden im Anschluss zum Einsatz interviewt wurden.

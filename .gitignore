@@ -1,0 +1,15 @@
+**/*.log
+**/*.out
+**/*.aux
+
+**/*.toc
+**/*.xml
+
+**/*.synctex*
+**/*-blx.bib
+**/*.gz
+**/*.bbl
+**/*.blg
+
+**/*.pdf
+!res/*.pdf
