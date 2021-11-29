@@ -319,7 +319,7 @@
 %
 \setlength\lineskip{1\p@}
 \setlength\normallineskip{1\p@}
-\renewcommand\baselinestretch{}
+\renewcommand\baselinestretch{1.25}
 \setlength\parskip{0\p@ \@plus \p@}
 \@lowpenalty   51
 \@medpenalty  151

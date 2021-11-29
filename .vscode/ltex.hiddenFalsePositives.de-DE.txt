@@ -9,3 +9,11 @@
 {"rule":"GERMAN_SPELLER_RULE","sentence":"^\\Qalegrya modern design\\E$"}
 {"rule":"Z_ANSTATT_T","sentence":"^\\QHingegen erfassten die Interviews mit teilnehmenden Personen Erfahrungen mit digital unterstützen Veranstaltungen und hilfreiche vorhandene und potentielle Funktionen.\\E$"}
 {"rule":"Z_ANSTATT_T","sentence":"^\\QAnschließend wurden potentielle Funktionen des Frameworks erarbeitet\\E$"}
+{"rule":"ALLE","sentence":"^\\QUmsetzung Alle Waren und Dienstleistungen werden in Auftrag gegeben und koordiniert.\\E$"}
+{"rule":"DE_CASE","sentence":"^\\QInitiation Es wird geforscht, um ein Konzept zu erstellen und zu validieren.\\E$"}
+{"rule":"DE_CASE","sentence":"^\\QDurchführung Die veranstaltungsbezogenen Aktivitäten starten.\\E$"}
+{"rule":"EMPFOHLENE_ZUSAMMENSCHREIBUNG","sentence":"^\\QDie Interviews mit Veranstaltenden und Teilnehmenden wurden qualitativ und semistrukturiert, mit Hilfe eines Interviewleifadens, durchgeführt\\E$"}
+{"rule":"DE_CASE","sentence":"^\\QSoziodemografische Daten der Veranstaltenden ID Geschlecht Vorerfahrung V1 w 11 Jahre\\E$"}
+{"rule":"DE_CASE","sentence":"^\\QZu den Benutzergruppen gehören Veranstaltende, sowie Teilnehmende der Veranstaltung\\E$"}
+{"rule":"DE_CASE","sentence":"^\\QZu den Benutzergruppen gehören Veranstaltende, sowie Teilnehmende einer Veranstaltung.\\E$"}
+{"rule":"PRP_VER_PRGK","sentence":"^\\QDie Aufgaben eines/r Event Manager/in umfassen zusätzlich die allgemeine Organisation und Aufgaben im Marketing \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q, jedoch ist die Berufsbezeichnung „Event Manager/in“ rechtlich nicht geschützt.\\E$"}
