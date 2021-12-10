@@ -406,6 +406,10 @@
 \renewcommand\thesubsection{\thesection.\@arabic\c@subsection}
 \newcommand\@chapapp{\chaptername}
 \newcommand\appendix{%
+  \listoftables
+  \addcontentsline{toc}{chapter}{Tabellen}
+  \listoffigures
+  \addcontentsline{toc}{chapter}{Abbildungen}
   \printbibliography
   \uzl@bibliography@printedtrue
   \par
@@ -1189,6 +1193,7 @@
 %%
 
 \RequirePackage[unicode,breaklinks,bookmarksnumbered,hidelinks]{hyperref}
+\RequirePackage{caption}
 
 \pdfstringdefDisableCommands{%
   \let\UzLStyle\@gobble

@@ -28,6 +28,9 @@
 
 \addbibresource{sources.bib}
 
+\graphicspath{ {./res/images/} }
+
+\newcommand{\textgraphics}[2][height=.5cm]{$\vcenter{\hbox{\includegraphics[#1]{#2}}}$}
 
 \begin{document}
 
@@ -35,8 +38,6 @@
 \setlength{\parskip}{1em}
 
 \input{chapter/introduction.tex}
-
-\input{chapter/state_of_the_art.tex}
 
 \input{chapter/analysis.tex}
 
@@ -50,6 +51,6 @@
 
 \appendix
 
-\input{chapter/glossary.tex}
+\input{chapter/appendix.tex}
 
 \end{document}

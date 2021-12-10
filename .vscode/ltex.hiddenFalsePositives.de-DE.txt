@@ -17,3 +17,5 @@
 {"rule":"DE_CASE","sentence":"^\\QZu den Benutzergruppen gehören Veranstaltende, sowie Teilnehmende der Veranstaltung\\E$"}
 {"rule":"DE_CASE","sentence":"^\\QZu den Benutzergruppen gehören Veranstaltende, sowie Teilnehmende einer Veranstaltung.\\E$"}
 {"rule":"PRP_VER_PRGK","sentence":"^\\QDie Aufgaben eines/r Event Manager/in umfassen zusätzlich die allgemeine Organisation und Aufgaben im Marketing \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q, jedoch ist die Berufsbezeichnung „Event Manager/in“ rechtlich nicht geschützt.\\E$"}
+{"rule":"DE_CASE","sentence":"^\\QDie hier analysierte Vorgehensweise in der Organisation von Veranstaltungen basiert auf dem EMBOK-Model \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q und den Aussagen der interviewten Veranstaltenden.\\E$"}
+{"rule":"DE_CASE","sentence":"^\\QDer Framework unterstützt Veranstaltende und Teilnehmende in verschiedenen Phasen einer Veranstaltung.\\E$"}

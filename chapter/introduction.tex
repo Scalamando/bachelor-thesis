@@ -1,31 +1,31 @@
 \chapter{Einleitung}
 
-% Keine Veränderung in der Veranstaltungsorganisation in den letzten 20 Jahren
-%
-% Digitale Medien erleichtern den Zugang zu Veranstaltungen enorm
-%   - Webinars, Online Konferenzen & Training & Workshops
-%
-% Jedoch: face-to-face Interaktion kann nicht ersetzt werden.
-%   - Grundbedürfnis des Menschen (Maslow Pyramide)
-%       - Soziale Interaktion
-
 In den letzten 20 Jahren hat sich am Kern der Veranstaltungsorganisation wenig
 verändert, jedoch bietet moderne Technik Veranstaltungen eine größere Bühne als
 je zuvor. Digitale Medien haben in den letzten 10 Jahren den Zugang zu
-Veranstaltungen enorm erleichtert \cite{Bladen2017}. Webinars, Online-
-Konferenzen, -Training und -Workshops bieten Menschen quer über die Welt verteilt
-die Möglichkeit, an Veranstaltungen teilzunehmen und dabei zu wählen, was sie
-wann und wie sehen möchten. Oft werden hier große Plattformen genutzt, um die
-Infrastruktur aufzubauen. Jedoch fehlt reinen Online Veranstaltungen ein
-wichtiger Aspekt von physisch stattfindenden Veranstaltungen: die Face-to-face
-Interaktion. Diese Interaktion bedient viele der psychologischen menschlichen
-Grundbedürfnisse \cite{Maslow1943} und stellt somit einen bedeutenden Aspekt
-von Veranstaltungen dar.
+Veranstaltungen enorm erleichtert \cite{Bladen2017}. Webinars,
+Online-Konferenzen, -Training und -Workshops bieten Menschen quer über die Welt
+verteilt die Möglichkeit, an Veranstaltungen teilzunehmen und dabei zu wählen,
+was sie wann und wie sehen möchten. Jedoch fehlt reinen Online Veranstaltungen
+ein wichtiger Aspekt von örtlich stattfindenden Veranstaltungen: die
+Face-to-face Interaktion. Soziale Interaktion ist ein wichtiges
+psychologisches Grundbedürfnis \cite{Maslow1943}.
 
-% Erfolg der EMI-Award-App
-%
-% Coroni
-
+Anfang 2021 waren soziale Interaktionen durch die pandemische Lage nur
+eingeschränkt empfohlen. Zum EMI-Award 2021 wurde deshalb am Institut für
+Multimediale und Interaktive Systeme (IMIS) der Universität zu Lübeck im Rahmen
+eines Bachelor-Projekts die EMI-Award-App umgesetzt \cite{Canzler2021}. Beim EMI-Award handelt es sich um eine jährliche
+Veranstaltung des Studiengangs Medieninformatik, bei welcher die „die
+kreativsten und gelungensten Gruppenergebnisse aus der
+Erstsemester-Veranstaltung ‚Einführung in die Medieninformatik‘ (EMI)
+ausgezeichnet [werden]“ \cite{UniversitatzuLubeck2021}. Im
+Gegensatz zu den vorherigen Jahren konnten die Projekte der Studenten nicht im
+Foyer des Audimax an der Universität zu Lübeck vorgestellt werden. Die App
+ermöglichte das Ansehen und Bewerten der im gesamten Raum Lübeck verteilten
+Projekte. Innerhalb von 2 Wochen wurde die Web-App von über 300
+Personen genutzt. Teilnehmende erhielten die Möglichkeit, die Projekte in ihrer
+eigenen Geschwindigkeit zu erkunden. Zudem ging aus persönlichen Berichten
+hervor, dass Teilnehmende an Projektstandorten öfter aufeinandertrafen.
 
 % App, welche Veranstaltungen digital unterstüzt
 %   - Nutzer einen roten Pfaden bieten
@@ -47,31 +47,76 @@ von Veranstaltungen dar.
 
 \section{Ziele dieser Arbeit} \label{sec:goals}
 
-Im Rahmen dieser Bachelorarbeit wurde ein Framework konzipiert und
-implementiert, welcher es ermöglicht, Veranstaltungen, welche sich über größere
-Räume verteilen, mit einer Web-App zu unterstützen. Die Unterstützung gilt
-Veranstaltenden sowie Teilnehmenden.
+Im Rahmen dieser Bachelorarbeit wurde eine Erweiterung und Verallgemeinerung der
+EMI-Award-App in Form eines flexiblen AR-Event-App Frameworks für ortsbasierte
+Veranstaltungen konzipiert und entwickelt. Dabei wurde die Organisation von
+Veranstaltungen und Teilnahme näher analysiert. Zudem wurden die Vor- und
+Nachteile der bestehenden Anwendung einbezogen. Der Framework unterstützt
+Veranstaltende ab der „Umsetzung“ und Teilnehmende ab der „Durchführung“ einer Veranstaltung.
+
+Veranstaltende können über ein Online-Dashboard ihre Veranstaltung verwalten.
+Dort können verschiedene Standorte, Abzeichen und Hilfseinträge anlegt werden
+und Push-Nachrichten sowie Feedbackanfragen an alle Teilnehmenden abgeschickt
+werden. Zusätzlich werden über die Web-App Daten zu besuchten Standorten,
+erhaltenen Abzeichen und Feedback gesammelt. Diese Daten können anschließend zur
+Auswertung der Veranstaltung genutzt werden.
 
 Teilnehmenden wird durch die übersichtliche Darstellung wichtiger Informationen
 zur Veranstaltung ein roter Pfaden geboten. Dies geschieht mit Hilfe einer
-übersichtlichen Anzeige der PoIs (Point of Interest), sowohl auf einer Karte,
-als auch in Listenform. Zudem können weitere Informationen, inklusive
-multimedialer Inhalte, zu den einzelnen PoIs eingesehen werden. Des Weiteren
-ermöglichen das virtuelle Besuchen von PoIs per QR-Code und Abzeichen,
+übersichtlichen Anzeige der Standorte, sowohl auf einer interaktiven Karte,
+als auch in Listenform. Zudem können weitere Informationen und
+multimediale Inhalte zu den einzelnen Standorten eingesehen werden. Das virtuelle Besuchen von Standorten per QR-Code und Abzeichen,
 Teilnehmende zur Ausführung von bestimmten gewünschten Aktionen zu lenken.
-
-Veranstaltende nutzen eine Web-Oberfläche, um die Veranstaltung zu erstellen und
-zu verwalten. Hierzu zählt das Eintragen der PoIs, Abzeichen und Hilfseinträge,
-sowie das Abschicken von Push-Benachrichtigung an alle Teilnehmenden. Zusätzlich
-werden über die Web-App Daten zu besuchten PoIs, erhaltenen Abzeichen und
-Feedback gesammelt. Diese Daten können anschließend zur Auswertung der
-Veranstaltung genutzt werden.
 
 \section{Aufbau der Arbeit}
 
-Die Arbeit gliedert sich in einen theoretischen Teil, welcher die Grundlagen
-erforscht und Anforderungen festlegt, und einen praktischen Teil, welcher die
-Implementierung des Frameworks umfasst.
+% Herczeg
+
+In dieser Arbeit wurde nach dem menschenzentrierten Gestaltungsprozess nach DIN
+EN ISO 9241-210 (s. \autoref{fig:din-hcd}) vorgegangen.
+
+Im zweiten
+
+\begin{figure}[htpb]
+    \renewcommand\baselinestretch{1}
+    \centering
+    \tikzset{
+        textbox/.style={
+                text width=4cm,
+                text centered,
+                align=center
+            },
+        arrow/.style={
+                ->
+            }
+    }
+    \tikz [thesis box shapes, baseline, anchor=base]{
+        \node [block] (1) [textbox] at (-3, 8) {Den menschenzentrierten
+            Gestaltungsprozess planen};
+        \node [block] (2) [textbox] at (0, 3.75) {Den Nutzungskontext verstehen und
+            beschreiben};
+        \node [block] (3) [textbox] at (4.5, 0) {Die Nutzungsanforderungen
+            spezifizieren};
+        \node [block] (4) [textbox] at (0, -3) {Gestaltungslösungen entwickeln,
+            die die Nutzungsanforderungen erfüllen};
+        \node [block] (5) [textbox] at (-4.5, 0.25) {Gestaltungslösungen aus der
+            Benutzerperspektive evaluieren};
+        \node [block] (6) [textbox] at (-6, 4.5) {Gestaltungslösung
+            erfüllt die Nutzungsanforderungen};
+        \draw[arrow] (1.south) to [out=270, in=90] (2.north);
+        \draw[arrow, bend left=45] (2.east) to (3.north);
+        \draw[arrow, bend left=45] (3.south) to (4.east);
+        \draw[arrow, bend left=45] (4.west) to (5.south);
+        \draw[arrow] (5.west) to [out=180, in=270] (6.south);
+        \draw[arrow, dashed, bend left=45] (5.north) to (2.west);
+        \draw[arrow, dashed, bend left=35] (5.north) to (3.north);
+        \draw[arrow, dashed, bend left=75] (5.north) to (4.north);
+        \node [fill=white, fill opacity=0.7, text width=4cm, text opacity=1] (7) at (-3.5, 2) {Iteration, soweit
+            Evaluationsergebnisse Bedarf hierfür aufzeigen};
+    }
+    \caption{Der menschenzentrierte Gestaltungsprozess \cite{iso-9241-210}}
+    \label{fig:din-hcd}
+\end{figure}
 
 
 
