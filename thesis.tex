@@ -28,9 +28,39 @@
 
 \addbibresource{sources.bib}
 
+
+%%%%%%%%%%%%
+% GRAFIKEN %
+%%%%%%%%%%%%
+
 \graphicspath{ {./res/images/} }
 
 \newcommand{\textgraphics}[2][height=.5cm]{$\vcenter{\hbox{\includegraphics[#1]{#2}}}$}
+
+
+%%%%%%%%%%%%%%%%
+% ANFODERUNGEN %
+%%%%%%%%%%%%%%%%
+
+\usepackage{array}
+\usepackage{etoolbox}
+
+\newcommand\anfletter{Q}
+
+\newcommand\setanf[1]{\renewcommand\anfletter{#1}}
+
+\newcounter{anfnumbers}
+\newcommand\anfrownumber{\refstepcounter{anfnumbers}\textbf{/\anfletter\arabic{anfnumbers}0/}\def\@currentlabel{/\anfletter\arabic{anfnumbers}0/}\label{anf:\anfletter\arabic{anfnumbers}0}}
+
+\newcommand{\anfref}[2]{\hyperref[anf:#1#2]{/#1#2/}}
+
+\preto\tabular{\setcounter{anfnumbers}{0}}
+
+
+
+%%%%%%%%%%%%
+% DOKUMENT %
+%%%%%%%%%%%%
 
 \begin{document}
 
