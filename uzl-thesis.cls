@@ -1193,7 +1193,9 @@
 %%
 
 \RequirePackage[unicode,breaklinks,bookmarksnumbered,hidelinks]{hyperref}
-\RequirePackage{caption}
+\RequirePackage[labelfont=bf,textfont=md]{caption}
+
+\DeclareCaptionFormat{plain}{\textcolor{uzlstructure}{#1#2}#3\par}
 
 \pdfstringdefDisableCommands{%
   \let\UzLStyle\@gobble
@@ -1731,7 +1733,7 @@
 %%%%%%%%%%%%%%%%%%%%
 
 \RequirePackage{tikz}
-\usetikzlibrary{arrows.meta,positioning,shapes}
+\usetikzlibrary{arrows.meta,positioning,shapes,calc}
 
 
 \tikzset{

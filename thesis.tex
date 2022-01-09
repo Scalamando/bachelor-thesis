@@ -39,22 +39,35 @@
 
 
 %%%%%%%%%%%%%%%%
-% ANFODERUNGEN %
+% ANFORDERUNGEN %
 %%%%%%%%%%%%%%%%
 
 \usepackage{array}
 \usepackage{etoolbox}
+\usepackage{longtable}
 
 \newcommand\anfletter{Q}
 
 \newcommand\setanf[1]{\renewcommand\anfletter{#1}}
 
-\newcounter{anfnumbers}
-\newcommand\anfrownumber{\refstepcounter{anfnumbers}\textbf{/\anfletter\arabic{anfnumbers}0/}\def\@currentlabel{/\anfletter\arabic{anfnumbers}0/}\label{anf:\anfletter\arabic{anfnumbers}0}}
+\newcounter{anfnumber}
+\newcounter{anfsubnumber}
+\newcommand\showanfnumber{
+    \textbf{/\anfletter\arabic{anfnumber}\arabic{anfsubnumber}/}
+    \def\@currentlabel{/\arabic{anfnumber}\arabic{anfsubnumber}/}
+    \label{anf:\anfletter\arabic{anfnumber}\arabic{anfsubnumber}}
+}
 
-\newcommand{\anfref}[2]{\hyperref[anf:#1#2]{/#1#2/}}
+\newcommand\anfrow{\setcounter{anfsubnumber}{0}\refstepcounter{anfnumber}\showanfnumber}
+\newcommand\anfsubrow{\refstepcounter{anfsubnumber}\showanfnumber}
 
-\preto\tabular{\setcounter{anfnumbers}{0}}
+\newcommand{\anfref}[1]{\hyperref[anf:#1]{/#1/}}
+
+\preto\tabular{\setcounter{anfnumber}{0}}
+\preto\tabular{\setcounter{anfsubnumber}{0}}
+
+\preto\longtable{\setcounter{anfnumber}{0}}
+\preto\longtable{\setcounter{anfsubnumber}{0}}
 
 
 
