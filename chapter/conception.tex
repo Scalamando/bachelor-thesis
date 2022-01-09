@@ -2,6 +2,51 @@
 
 Nisi et sed provident esse accusamus consequuntur praesentium qui. Eaque vel non dolores aliquam fuga voluptas quia sit. Vel ut rem et in quis quo inventore quidem. Enim quam voluptatum atque et. Consequuntur repellendus quia voluptate vel quia et suscipit soluta. Fugiat iste corporis voluptatem molestiae.
 
+\section{Funktionalität}
+
+Im Folgenden werden die konzipierten Funktionalitäten des Systems vorgestellt,
+welche die zuvor festgelegten Anforderungen (s. \autoref{sec:analysis-anf})
+erfüllen sollen. Die Funktionalitäten der EMI-Award-App dienen als Grundlage.
+Jedoch verstoßen einige Funktionalitäten und deren konkrete Umsetzung gegen die
+zehn Usability Heuristiken nach \textcite{Nielsen1994}. Die zehn Usability Heuristiken (s.
+\autoref{table:nielsen}) werden im Verlauf mit ihren IDs referenziert, falls sie verletzt
+werden.
+
+\begin{table}[htpb]
+    \def\arraystretch{1.25}
+    \centering
+    \caption{Die Zehn Usability Heuristiken \cite{Nielsen1994}}
+    \label{table:nielsen}
+    \begin{tabular}{ll}
+        \uzlhline
+        \uzlemph{ID}  & \uzlemph{Heuristik}                                           \\
+        \uzlhline  H1 & Sichtbarkeit des Systemstatus                                 \\
+        H2            & Übereinstimmung von System und Wirklichkeit                   \\
+        H3            & Nutzerkontrolle und Freiheit                                  \\
+        H4            & Beständigkeit und Standards                                   \\
+        H5            & Fehlervermeidung                                              \\
+        H6            & Wiedererkennung statt Erinnerung                              \\
+        H7            & Flexibilität und Effizienz                                    \\
+        H8            & Ästhetisches und minimalistisches Design                      \\
+        H9            & Hilfestellung beim Erkennen, Bewerten und Beheben von Fehlern \\
+        H10           & Hilfe und Dokumentation                                       \\
+        \uzlhline
+    \end{tabular}
+\end{table}
+
+Das Karten-Popup der EMI-Award-App mit Kurzinformationen zu Stationen wies
+einige Probleme auf. Die empfohlene Mindestschriftgröße beträgt 16px für
+Smartphones im Abstand von 30cm \cite{DBSV2022}. Das Popup verwendet jedoch eine
+Schriftgröße von 12px und ist somit zu klein. Des Weiteren nutzen Titel und
+Kurzbeschreibung identische Typografie. Der Abstand ist zudem gleich mit dem
+Zeilenabstand der Texte. Es liegt somit kein visueller Unterschied zwischen
+Titel und Kurzbeschreibung vor. Außerdem gibt es keinen Indikator dafür, ob die
+Station bereits besucht wurde. Somit müssen Nutzer:innen sich den Besucht-Status
+in der Stationsliste anschauen und merken, um auf der Karte darüber informiert
+zu sein (H1, H6).
+
+% TODO: DBSV zitieren
+
 \section{Systemarchitektur}
 
 % Speichern von Nutzerdaten ohne konkrete Anmeldung
