@@ -472,7 +472,7 @@ womöglich überhaupt an Events teilnehmen können (bspw. Gebärdensprache in Fo
 von Videos, Videos für Blinde, etc.).
 
 
-\section{Formalisierte Anforderungen} \label{sec:analysis-implic}
+\section{Formalisierte Anforderungen} \label{sec:analysis-anf}
 
 In diesem Abschnitt werden die systematisch formalisierten Anforderungen
 dargelegt, welche die Ergebnisse der gesamten Analyse nach
@@ -643,22 +643,21 @@ welche die Anforderungen vereinheitlicht \cite{Balzert2009}.
         \node [block] (1a) [textbox, medium, right=of origin] {\textbf{Element}\linebreak„Die Komponente <Name>“};
         \node [block] (1b) [textbox, medium, above=0.35cm of 1a] {\textbf{Element}\linebreak„Das System“};
 
-        \coordinate [right=0.35cm of {$(1a.east)!0.5!(1b.east)$}] (1X);
+        \coordinate [right=0.175cm of {$(1a.east)!0.5!(1b.east)$}] (1X);
 
-        \node [block] (2a) [textbox, small, right=0.35cm of 1X] {\textbf{Mittlere Priorität}\linebreak„soll“};
+        \node [block] (2a) [textbox, small, right=0.175cm of 1X] {\textbf{Mittlere Priorität}\linebreak„soll“};
         \node [block] (2b) [textbox, small, above=0.35cm of 2a] {\textbf{Hohe Priorität}\linebreak„muss“};
         \node [block] (2c) [textbox, small, below=0.35cm of 2a] {\textbf{Niedrige Priorität}\linebreak„sollte in Zukunft“};
 
-        \coordinate [right=0.35cm of 2a] (2X);
+        \coordinate [right=0.175cm of 2a] (2X);
 
-        \node [block] (3a) [textbox, big, right=0.35cm of 2X] {\textbf{Benutzerinteraktion}\linebreak„<Wem> die Möglichkeit bieten“};
+        \node [block] (3a) [textbox, big, right=0.175cm of 2X] {\textbf{Benutzerinteraktion}\linebreak„<Wem> die Möglichkeit bieten“};
         \node [block] (3b) [textbox, big, above=0.35cm of 3a] {\textbf{Selbstständige Systemaktivität}\linebreak„“};
         \node [block] (3c) [textbox, big, below=0.35cm of 3a] {\textbf{Schnittstellenanforderungen}\linebreak„fähig sein“};
 
         \node [block] (4) [textbox, medium, right=0.35cm of 3a] {\textbf{Bezug}\linebreak„<Objekt \& Ergänzung des Objektes>“};
 
-        \node [block] (5) [textbox, medium, right=0.35cm of 4, yshift=-2cm]
-        {\textbf{Bei Qualitätsanforderungen}\linebreak„<Qualität>“};
+        \node [block] (5) [textbox, medium, right=0.35cm of 4, yshift=-2cm] {\textbf{Bei Qualitätsanforderungen}\linebreak„<Qualität>“};
 
         \node [block] (6) [textbox, medium, right=0.35cm of 5, yshift=2cm] {\textbf{Funktionalität}\linebreak„<Prozesswort>“};
 
