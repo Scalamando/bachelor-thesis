@@ -8,9 +8,8 @@ Im Folgenden werden die konzipierten Funktionalitäten des Systems vorgestellt,
 welche die zuvor festgelegten Anforderungen (s. \autoref{sec:analysis-anf})
 erfüllen sollen. Die Funktionalitäten der EMI-Award-App dienen als Grundlage.
 Jedoch verstoßen einige Funktionalitäten und deren konkrete Umsetzung gegen die
-zehn Usability Heuristiken nach \textcite{Nielsen1994}. Die zehn Usability Heuristiken (s.
-\autoref{table:nielsen}) werden im Verlauf mit ihren IDs referenziert, falls sie verletzt
-werden.
+zehn Usability Heuristiken nach \textcite{Nielsen1994}. Die Usability Heuristiken (s.
+\autoref{table:nielsen}) werden im Verlauf mit ihren IDs referenziert.
 
 \begin{table}[htpb]
     \def\arraystretch{1.25}
@@ -34,18 +33,41 @@ werden.
     \end{tabular}
 \end{table}
 
-Das Karten-Popup der EMI-Award-App mit Kurzinformationen zu Stationen wies
-einige Probleme auf. Die empfohlene Mindestschriftgröße beträgt 16px für
-Smartphones im Abstand von 30cm \cite{DBSV2022}. Das Popup verwendet jedoch eine
-Schriftgröße von 12px und ist somit zu klein. Des Weiteren nutzen Titel und
-Kurzbeschreibung identische Typografie. Der Abstand ist zudem gleich mit dem
-Zeilenabstand der Texte. Es liegt somit kein visueller Unterschied zwischen
-Titel und Kurzbeschreibung vor. Außerdem gibt es keinen Indikator dafür, ob die
-Station bereits besucht wurde. Somit müssen Nutzer:innen sich den Besucht-Status
-in der Stationsliste anschauen und merken, um auf der Karte darüber informiert
-zu sein (H1, H6).
+% TODO: Station und Abezeichen Aufbau festlegen
+% Aufbau Station (welche Information gehört zu einer Station?)
+% Aufbau Abzeichen (welche Information gehört zu Abzeichen?)
+% Aufbau Hilfe (welche Information gehört zu einem Hilfseintrag?)
 
-% TODO: DBSV zitieren
+Der Kern der EMI-Award-App war die Darstellung der verschiedenen
+Projektstandorte, sowohl als Kartenmarker, Listeneintrag und Einzelansicht. Um
+diese Funktionalität auf beliebige Veranstaltungen auszuweiten, muss zunächst
+definiert werden, was eine Station an Informationen beinhaltet. Aus der
+EMI-Award-App konnten die folgenden Informationen entnommen werden:
+\textit{Titel, Icon, Standort, ID, Kurzbeschreibung, ausführliche Beschreibung,
+mediale Inhalte}
+
+Aufgrund des variablen räumlichen Kontextes, ist eine Verteilung der Stationen
+über Kilometer große Räume möglich. Hierdurch ist die Distanz zu den
+verschiedenen Stationen eine durchaus wichtige Information für Teilnehmende
+(H1). Als Konsquenz wird die Distanz in verschiedenen relevanten Stellen des
+User Interfaces angezeigt, welche in den folgenden Absätzen näher erläutert
+werden.
+
+Das Karten-Popup (s. \autoref{fig:emi-intro-map}) der EMI-Award-App mit
+Kurzinformationen zu Stationen benötigt durch die hinzugekommenen Anforderungen,
+sowie bestehenden Problemen, eine Überarbeitung. Aufgrund der Die empfohlene
+Mindestschriftgröße beträgt 16px für Smartphones im Abstand von 30cm
+\cite{DBSV2022}. Das Popup verwendet jedoch eine Schriftgröße von 12px und ist
+somit zu klein. Des Weiteren nutzen Titel und Kurzbeschreibung identische
+Typografie. Der Abstand ist zudem gleich mit dem Zeilenabstand der Texte. Es
+liegt somit kein visueller Unterschied zwischen Titel und Kurzbeschreibung vor.
+Außerdem gibt es keinen Indikator dafür, ob die Station bereits besucht wurde.
+Somit müssen Nutzer:innen sich den Besucht-Status in der Stationsliste anschauen
+und merken, um auf der Karte darüber informiert zu sein (H1, H6).
+% - Icons im Popup, da klein und durch Veranstalter bestimmbar statt generischer
+%   Planet
+% - Durch Distanz + Icon an Info dazu, sehr viele Informationen -> Ausblenden
+%   von Sekundär Informationen (H8)
 
 \section{Systemarchitektur}
 
