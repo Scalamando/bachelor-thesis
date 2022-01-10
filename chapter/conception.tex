@@ -6,10 +6,16 @@ Nisi et sed provident esse accusamus consequuntur praesentium qui. Eaque vel non
 
 Im Folgenden werden die konzipierten Funktionalitäten des Systems vorgestellt,
 welche die zuvor festgelegten Anforderungen (s. \autoref{sec:analysis-anf})
-erfüllen sollen. Die Funktionalitäten der EMI-Award-App dienen als Grundlage.
-Jedoch verstoßen einige Funktionalitäten und deren konkrete Umsetzung gegen die
-zehn Usability Heuristiken nach \textcite{Nielsen1994}. Die Usability Heuristiken (s.
-\autoref{table:nielsen}) werden im Verlauf mit ihren IDs referenziert.
+erfüllen sollen. Zuerst werden die übernommenen und überarbeiteten
+Funktionalitäten der EMI-Award-App dargelegt. Anschließend werden neue
+Funktionalitäten vorgestellt.
+
+\subsection{Übernommene Funktionalitäten}
+
+Die Funktionalitäten der EMI-Award-App dienen für diese Arbeit als Grundlage.
+Jedoch beachten einige von ihnen nicht die zehn Usability Heuristiken nach
+\textcite{Nielsen1994}. Die Usability Heuristiken (s. \autoref{table:nielsen})
+werden im Verlauf mit ihren IDs referenziert.
 
 \begin{table}[htpb]
     \def\arraystretch{1.25}
@@ -17,23 +23,46 @@ zehn Usability Heuristiken nach \textcite{Nielsen1994}. Die Usability Heuristike
     \caption{Die Zehn Usability Heuristiken \cite{Nielsen1994}}
     \label{table:nielsen}
     \begin{tabular}{ll}
-        \uzlhline
-        \uzlemph{ID}  & \uzlemph{Heuristik}                                           \\
-        \uzlhline  H1 & Sichtbarkeit des Systemstatus                                 \\
-        H2            & Übereinstimmung von System und Wirklichkeit                   \\
-        H3            & Nutzerkontrolle und Freiheit                                  \\
-        H4            & Beständigkeit und Standards                                   \\
-        H5            & Fehlervermeidung                                              \\
-        H6            & Wiedererkennung statt Erinnerung                              \\
-        H7            & Flexibilität und Effizienz                                    \\
-        H8            & Ästhetisches und minimalistisches Design                      \\
-        H9            & Hilfestellung beim Erkennen, Bewerten und Beheben von Fehlern \\
-        H10           & Hilfe und Dokumentation                                       \\
+        \uzlhline%
+        \uzlemph{ID} & \uzlemph{Heuristik}                                           \\
+        \uzlhline%
+        H1           & Sichtbarkeit des Systemstatus                                 \\
+        H2           & Übereinstimmung von System und Wirklichkeit                   \\
+        H3           & Nutzerkontrolle und Freiheit                                  \\
+        H4           & Beständigkeit und Standards                                   \\
+        H5           & Fehlervermeidung                                              \\
+        H6           & Wiedererkennung statt Erinnerung                              \\
+        H7           & Flexibilität und Effizienz                                    \\
+        H8           & Ästhetisches und minimalistisches Design                      \\
+        H9           & Hilfestellung beim Erkennen, Bewerten und Beheben von Fehlern \\
+        H10          & Hilfe und Dokumentation                                       \\
         \uzlhline
     \end{tabular}
 \end{table}
 
-% TODO: Station und Abezeichen Aufbau festlegen
+\begin{table}[htpb]
+    \def\arraystretch{1.25}
+    \centering
+    \caption{Übernommene Funktionalitäten der EMI-Award-App}
+    \label{table:funk-old}
+    \begin{tabular}{lll}
+        \uzlhline%
+        \uzlemph{ID} & \uzlemph{Titel}                 \\
+        \uzlhline%
+        Ft-1         & Interaktive Karte mit Stationen \\
+        Ft-2         & Auflistung der Stationen        \\
+        Ft-3         & Virtuelles Besuchen mit QR-Code \\
+        Ft-4         & Abzeichen                       \\
+        Ft-5         & Bedienungshilfe                 \\
+        Ft-6         & Einleitende Slideshow           \\
+        \uzlhline
+    \end{tabular}
+\end{table}
+
+\subsection{Neue Funktionalitäten}
+
+
+% TODO: Station und Abzeichen Aufbau festlegen
 % Aufbau Station (welche Information gehört zu einer Station?)
 % Aufbau Abzeichen (welche Information gehört zu Abzeichen?)
 % Aufbau Hilfe (welche Information gehört zu einem Hilfseintrag?)
@@ -44,20 +73,20 @@ diese Funktionalität auf beliebige Veranstaltungen auszuweiten, muss zunächst
 definiert werden, was eine Station an Informationen beinhaltet. Aus der
 EMI-Award-App konnten die folgenden Informationen entnommen werden:
 \textit{Titel, Icon, Standort, ID, Kurzbeschreibung, ausführliche Beschreibung,
-mediale Inhalte}
+    mediale Inhalte}.
 
-Aufgrund des variablen räumlichen Kontextes, ist eine Verteilung der Stationen
+Aufgrund des variablen räumlichen Kontextes ist eine Verteilung der Stationen
 über Kilometer große Räume möglich. Hierdurch ist die Distanz zu den
 verschiedenen Stationen eine durchaus wichtige Information für Teilnehmende
-(H1). Als Konsquenz wird die Distanz in verschiedenen relevanten Stellen des
-User Interfaces angezeigt, welche in den folgenden Absätzen näher erläutert
+(H1). Als Konsequenz wird die Distanz in verschiedenen relevanten Stellen des
+User-Interfaces angezeigt, welche in den folgenden Absätzen näher erläutert
 werden.
 
-Das Karten-Popup (s. \autoref{fig:emi-intro-map}) der EMI-Award-App mit
+Das Karten-Pop-up (s. \autoref{fig:emi-intro-map}) der EMI-Award-App mit
 Kurzinformationen zu Stationen benötigt durch die hinzugekommenen Anforderungen,
 sowie bestehenden Problemen, eine Überarbeitung. Aufgrund der Die empfohlene
-Mindestschriftgröße beträgt 16px für Smartphones im Abstand von 30cm
-\cite{DBSV2022}. Das Popup verwendet jedoch eine Schriftgröße von 12px und ist
+Mindestschriftgröße beträgt 16 px für Smartphones im Abstand von 30 cm
+\cite{DBSV2022}. Das Pop-up verwendet jedoch eine Schriftgröße von 12 px und ist
 somit zu klein. Des Weiteren nutzen Titel und Kurzbeschreibung identische
 Typografie. Der Abstand ist zudem gleich mit dem Zeilenabstand der Texte. Es
 liegt somit kein visueller Unterschied zwischen Titel und Kurzbeschreibung vor.
@@ -68,6 +97,10 @@ und merken, um auf der Karte darüber informiert zu sein (H1, H6).
 %   Planet
 % - Durch Distanz + Icon an Info dazu, sehr viele Informationen -> Ausblenden
 %   von Sekundär Informationen (H8)
+
+Da Abzeichen ebenfalls selbstständig erstellt werden können
+sollen, wurden auch für diese die Informationen zusammengefasst: \textit{Titel,
+    Beschreibung, Icon, Erfolgsbedingung}.
 
 \section{Systemarchitektur}
 
