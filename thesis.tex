@@ -38,9 +38,9 @@
 \newcommand{\textgraphics}[2][height=.5cm]{$\vcenter{\hbox{\includegraphics[#1]{#2}}}$}
 
 
-%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%
 % ANFORDERUNGEN %
-%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%
 
 \usepackage{array}
 \usepackage{etoolbox}
@@ -69,7 +69,10 @@
 \preto\longtable{\setcounter{anfnumber}{0}}
 \preto\longtable{\setcounter{anfsubnumber}{0}}
 
-
+%%%%%%%
+% REF %
+%%%%%%%
+\newcommand{\ssecref}[1]{\hyperref[{#1}]{\autoref*{#1}: \nameref*{#1}}}
 
 %%%%%%%%%%%%
 % DOKUMENT %

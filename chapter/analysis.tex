@@ -157,7 +157,7 @@ Weil das Ziel dieser Arbeit die Unterstützung ab der Umsetzung ist (s.
 \autoref{sec:goals}), werden die Phasen „Umsetzung“, „Durchführung“ und
 „Schließung“ näher betrachtet.
 
-\subsection{Umsetzung} \label{sec:analysis-org-umsetzung}
+\subsection{Umsetzung} \label{ssec:analysis-org-umsetzung}
 
 In dieser Phase werden die herausgearbeiteten Pläne umgesetzt. Hierbei werden
 Umfang, Zeitpläne, Kosten, Kommunikation und Risiken überwacht und kontrolliert,
@@ -170,7 +170,7 @@ die Kommunikationsinfrastruktur eingewiesen werden. Aufgrund von mangelnden
 technischen Fähigkeiten können bei komplexeren Infrastrukturen Probleme
 auftreten (V2).
 
-\subsection{Durchführung} \label{sec:analysis-org-durchfuehrung}
+\subsection{Durchführung} \label{ssec:analysis-org-durchfuehrung}
 
 Mit Beginn der Durchführung ändert sich die Dynamik der Veranstaltung bedeutend.
 Aufgrund der Anwesenheit von Teilnehmenden sind tiefgreifende Änderungen nun
@@ -186,7 +186,7 @@ Interaktionen und Erfahrungen der Teilnehmenden zunächst im Hintergrund.
 Abgesehen von kritischem Feedback, wird die Erfahrung erst während der
 Schließung erfasst und ausgewertet (V2).
 
-\subsection{Schließung} \label{sec:analysis-org-schliessung}
+\subsection{Schließung} \label{ssec:analysis-org-schliessung}
 
 % Bedeutung Evaluation aus Finischen Case S.57-59 Mischung Quantitativ &
 % Qualitativ Evaluation S.61
@@ -212,7 +212,7 @@ in diesem Abschnitt die Benutzergruppen des Frameworks festgelegt und näher
 analysiert. Zu den Benutzergruppen gehören Veranstaltende, sowie Teilnehmende
 einer Veranstaltung.
 
-\subsection{Veranstaltende}
+\subsection{Veranstaltende} \label{ssec:analysis-user-v}
 
 Inzwischen existieren weltweit tausende Einrichtungen, welche formale
 Qualifikationen und Ausbildungen im Veranstaltungsmanagement anbieten. Jedoch
@@ -230,7 +230,7 @@ Veranstaltung beliebiger Größe zu organisieren. Dementsprechend können keine
 bestimmten Qualifikationen für Veranstaltende angenommen werden.
 % TODO: Und was bringt das??
 
-\subsection{Teilnehmende}
+\subsection{Teilnehmende} \label{ssec:analysis-user-t}
 
 Die Teilnehmenden einer Veranstaltung unterscheiden sich stark in ihren
 soziodemografischen Daten je nach Typ der Veranstaltung. Im Kontext der Arbeit
@@ -303,7 +303,7 @@ ein unbeschränkter räumlicher Kontext ergibt. Folglich muss das System für di
 Teilnehmenden mobil einsetzbar sein.
 
 
-\section{Analyse des bestehenden Systems}
+\section{Analyse des bestehenden Systems} \label{sec:analysis-old}
 
 An dieser Stelle wird die Implementation und Evaluation der
 \textit{EMI-Award-App} vorgestellt, welche die Grundlage des neuen Systems bildet.
@@ -315,6 +315,13 @@ An dieser Stelle wird die Implementation und Evaluation der
 % Mockups
 %   - Bereits getestet
 %   - Grobe Struktur beibehalten
+
+\subsection{Funktionalitäten} \label{ssec:analysis-old-funk}
+
+Die Funktionalitäten der EMI-Award-App gliedern sich in zwei Kategorien:
+Funktionalitäten für Teilnehmende und Funktionalitäten für Veranstaltende.
+Im Folgenden werden zuerst die Seite der Teilnehmenden beschrieben und
+anschließend auf die Möglichkeiten der Veranstaltenden eingegangen.
 
 Die \textit{EMI-Award-App} ermöglichte das augmentierte Besuchen, Einsehen und
 Bewerten der EMI-Award-Projekte und bildet die Grundlage dieser Arbeit (s.
@@ -422,12 +429,43 @@ erklärt, welche jederzeit über die Navigationsleiste erreichbar ist (s.
     \label{fig:emi-help}
 \end{figure}
 
-Die EMI-Award-App wurde als progressive Web-App (PWA) realisiert und war unter
-\url{https://app.emi-award.de} verfügbar.
+Aus Veranstaltendensicht konnte die EMI-Award-App bereits rudimentär verwaltet
+werden. Stationen, Abzeichen, Hilfseinträge, die Einführung und sammelbare
+Objekte ließen sich über eine Web-Oberfläche eintragen und jederzeit verändern.
+Jedoch wurden Besuche und gesammelte Abzeichen vom System nicht erfasst und
+waren somit nicht auswertbar. Auch die gesammelten Daten, darunter z. B. die
+Anzahl der registrierten Teilnehmenden, waren nicht einsehbar.
 
-Durch die bekannte Evaluation werden die sich etablierten Funktionen in dem
-neuen System wiederfinden, außerdem werden die bereits analysierten Punkte in
-der Problemanalyse, sowie in den funktionellen Anforderungen mit kombiniert.
+\subsection{Benutzeroberfläche} \label{ssec:analysis-old-ui}
+
+Im Allgemeinen ist die verwendete Schriftgröße der Benutzeroberfläche zu klein.
+Die empfohlene Mindestschriftgröße beträgt 16 px für Smartphones im Abstand von
+30 cm \cite{DIN1450}. Große Teile der Benutzeroberfläche verwenden jedoch eine
+Schriftgröße von 16 px oder weniger.
+
+Zudem weist das Karten-Pop-up (s. \autoref{fig:emi-intro-map}) mit
+Kurzinformationen zu Stationen einige Probleme auf. Das Pop-up verwendet eine
+Schriftgröße von 12 px und ist somit deutlich zu klein. Des Weiteren nutzen
+Titel und Kurzbeschreibung identische Typografie. Der Abstand ist ebenfalls
+identisch mit dem Zeilenabstand der Texte. Es liegt somit kein visueller
+Unterschied zwischen Titel und Kurzbeschreibung vor. \\
+Außerdem gibt es keinen Indikator dafür, ob die Station bereits besucht wurde.
+Somit müssen Nutzer:innen sich den Besucht-Status in der Stationsliste anschauen
+und merken, um auf der Karte darüber informiert zu sein. Dies steht im Gegensatz
+zur 6. Usability Heuristik nach \textcite{Nielsen1994}, welche besagt, dass
+Nutzer:innen nicht gezwungen sein sollten, sich Informationen zwischen Ansichten
+zu merken. Stattdessen sollten die Informationen direkt ersichtlich sein.
+
+
+\subsection{Technische Umsetzung} \label{ssec:analysis-old-tech}
+
+Die EMI-Award-App wurde als progressive Web-App (PWA) mit dem \textit{Vue.js}
+Framework realisiert und war unter \url{https://app.emi-award.de} verfügbar. Die
+Web-Oberfläche für Veranstaltende wurde basierend auf \textit{Strapi CMS}
+entwickelt. Da der Fokus des zugehörigen Bachelorprojekts auf der Entwicklung
+einer App für den EMI-Award lag, wurden die Funktionalitäten speziell und
+nicht-anpassbar auf diesen zugeschnitten. Somit müssen sämtliche Teilsysteme
+überarbeitet werden, um diese zu verallgemeinern.
 
 
 \section{Problemanalyse} \label{sec:analysis-problems}
@@ -436,7 +474,7 @@ Während Planung, Durchführung und Nachbereitung von Veranstaltungen können
 Probleme auftreten, welche die Organisation erschweren. Ähnlich treten bei der
 Teilnahme Probleme auf, welche die Erfahrung beeinträchtigen können.
 
-\subsection{Organisation} \label{sec:analysis-problems-orga}
+\subsection{Organisation} \label{ssec:analysis-problems-orga}
 
 In der Organisation von Veranstaltungen treten vor allem Probleme in der
 Kommunikation auf. Je nach Größe der Veranstaltung können eine Vielzahl an
@@ -460,7 +498,8 @@ Teilnehmenden (V1). Oft werden für die Datensammlung nur Schätzungen verwendet
 Allgemein besteht die Datensammlung in der Nachbesprechung aus Aussagen von
 Veranstaltenden oder deren Angehörigen und Freunden (V2).
 
-\subsection{Teilnahme}
+\subsection{Teilnahme} \label{ssec:analysis-problems-teil}
+
 Durch die Interviews mit Teilnehmenden konnte festgestellt werden, dass
 Schwierigkeiten in der Navigation von Veranstaltungen zu finden sind. Daher
 besteht die Nachfrage nach einer Unterstützung in der Wegfindung und eine
@@ -504,6 +543,9 @@ realitätsnah Vorstellungen der Zukunft darstellen.
         \anfrow & Teilnehmende werden motiviert und
         unterstützt, sich in der Veranstaltung zurechtzufinden.
         \\
+        \anfrow & Teilnehmende können auf Wunsch der Veranstaltenden dazu
+        motiviert werden, sich sozial auszutauschen
+        \\
         \uzlhline
     \end{tabular}
 \end{center}
@@ -542,6 +584,9 @@ Formulierung von Zielen \cite{Pohl2008}.
         \anfrow    & Teilnehmende sollen ab Beginn der Veranstaltung in der Lage
         sein, für ihre aktive Teilnahme belohnt zu werden.
         \\
+        \anfrow    & Teilnehmende sollen in der Lage
+        sein, die veranstaltungsbezogenen Aktivitäten mit anderen Personen gemeinsam abzuschließen
+        \\
         \anfrow    & Das System soll Informationen zugänglich präsentieren.
         \\
         \anfrow    & Veranstaltende sollen in der Lage sein, das Design des
@@ -552,6 +597,7 @@ Formulierung von Zielen \cite{Pohl2008}.
         \uzlhline
     \end{longtable}
 \end{center}
+\vspace{-3cm}
 
 \subsection{Rahmenbedingungen}
 
@@ -587,7 +633,7 @@ wurden aus der Benutzer und Kontextanalyse abgeleitet.
         \uzlhline
     \end{longtable}
 \end{center}
-\vspace{-2cm}
+\vspace{-3cm}
 
 \subsection{Kontext und Überblick}
 
@@ -605,6 +651,7 @@ Im Folgenden wird Bezug auf das aktuelle System genommen.
         \uzlhline
     \end{tabular}
 \end{center}
+\vspace{-1cm}
 
 \subsection{Funktionale Anforderungen}
 
@@ -711,21 +758,33 @@ welche die Anforderungen vereinheitlicht \cite{Balzert2009}.
         einzusehen (\anfref{Z80}).                                                   \\
         \anfrow    & Das System \textit{muss} Teilnehmenden ab Beginn der
         Veranstaltung die Möglichkeit bieten, jederzeit Informationen
-        einzusehen (\anfref{Z40}).                                                   \\
+        einzusehen (\anfref{Z30}).
+        \\
+        \anfrow    & Das System \textit{muss} Teilnehmenden ab Beginn der
+        Veranstaltung die Möglichkeit bieten, eine Einführung in den Kontext der
+        Veranstaltung zu erhalten (\anfref{Z30}).
+        \\
+        \anfrow    & Das System \textit{muss} Teilnehmenden ab Beginn der
+        Veranstaltung die Möglichkeit bieten, jederzeit hilfreiche Einträge bei Fragen einzusehen (\anfref{Z40}).
+        \\
+        \anfrow    & Das System \textit{muss} Teilnehmenden ab Beginn der
+        Veranstaltung die Möglichkeit bieten, Abzeichen für bestimmte Handlungen
+        zu verleihen (\anfref{Z50}).                                                 \\
         \anfrow    & Das System \textit{muss} Veranstaltenden die
         Möglichkeit bieten, Teilnehmenden jederzeit Benachrichtigungen zu
-        senden (s. \autoref{sec:analysis-problems-orga}: Organisation, \anfref{Z21}).
+        senden (s. \ssecref{ssec:analysis-problems-orga}, \anfref{Z21}).
         \\
-        \anfrow    & Das System \textit{soll} Veranstaltenden die
-        Möglichkeit bieten, Teilnehmende jederzeit um Feedback bitten (s. \autoref{sec:analysis-problems-orga}: Organisation, \anfref{Z22}).
-        \\
+        \anfrow    & Das System \textit{soll} Veranstaltenden die Möglichkeit
+        bieten, Teilnehmende jederzeit um Feedback bitten (s.
+        \ssecref{ssec:analysis-problems-orga}, \anfref{Z22}).                        \\
         \anfrow    & Das System \textit{soll} Veranstaltenden die
         Möglichkeit bieten, die Rahmendaten der Veranstaltung jederzeit
         einzutragen oder zu ändern (\anfref{Z10}).
         \\
+        \anfrow    & Das System \textit{soll} Teilnehmenden die Möglichkeit
+        bieten, als Gruppe Stationen zu besuchen und Abzeichen abzuschließen.        \\
         \anfrow    & Das System \textit{sollte in Zukunft} fähig sein,
-        Informationen in verschiedenen Sprachen darzustellen (\anfref{Z70}).
-        \\
+        Informationen in verschiedenen Sprachen darzustellen (\anfref{Z70}).         \\
         \anfrow    & Das System \textit{sollte in Zukunft} Teilnehmenden die
         Möglichkeit bieten, Veranstaltende jederzeit zu kontaktieren (\anfref{Z23}). \\
         \anfrow    & Das System \textit{sollte in Zukunft} umfassende
@@ -735,6 +794,7 @@ welche die Anforderungen vereinheitlicht \cite{Balzert2009}.
         \uzlhline
     \end{longtable}
 \end{center}
+\vspace{-3cm}
 
 \subsection{Qualitätsanforderungen}
 
@@ -746,7 +806,7 @@ der Anforderungsschablone (s. \autoref{fig:anf-schablone}) orientiert.
 \setanf{Q}
 \begin{center}
     \def\arraystretch{1.5}
-    \begin{tabular}{m{0.08\textwidth}m{0.85\textwidth}}
+    \begin{longtable}{m{0.08\textwidth}m{0.85\textwidth}}
         \uzlhline
         \anfrow & Das System \textit{muss} den Grundsätzen der DIN EN ISO
         9241-110:2019-09 (Ergonomie der Mensch-System-Interaktion - Teil 110:
@@ -758,7 +818,10 @@ der Anforderungsschablone (s. \autoref{fig:anf-schablone}) orientiert.
         \anfrow & Das System \textit{muss} zuverlässig und ohne Störung im Dauerbetrieb laufen.
         \\
         \anfrow & Das System \textit{muss} die zehn Usability Heuristiken
-        \cite{Nielsen1994} beachten.                                                                                       \\
+        \cite{Nielsen1994} beachten. (\anfref{Z60})
+        \\
+        \anfrow & Das System \textit{soll} die Richtlinien des Deutschen
+        Blinden- und Sehbehindertenverbandes berücksichtigen \cite{DBSV2022}.                                              \\
         \anfrow & Das System \textit{soll} beim Zugriff über das Internet eine gesicherte Übertragung (HTTPS) ermöglichen.
         \\
         \anfrow & Das System \textit{soll} alle Benutzerinteraktionen in unter fünf Sekunden ausführen.
@@ -767,7 +830,7 @@ der Anforderungsschablone (s. \autoref{fig:anf-schablone}) orientiert.
         genutzt werden können.
         \\
         \uzlhline
-    \end{tabular}
+    \end{longtable}
 \end{center}
 
 % Während der Veranstaltung Fokus Überwachung und Sicherstellung der Aktivitäten

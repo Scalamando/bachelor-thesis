@@ -12,10 +12,119 @@ Funktionalitäten vorgestellt.
 
 \subsection{Übernommene Funktionalitäten}
 
-Die Funktionalitäten der EMI-Award-App dienen für diese Arbeit als Grundlage.
-Jedoch beachten einige von ihnen nicht die zehn Usability Heuristiken nach
-\textcite{Nielsen1994}. Die Usability Heuristiken (s. \autoref{table:nielsen})
-werden im Verlauf mit ihren IDs referenziert.
+Die Funktionalitäten der EMI-Award-App dienen für diese Arbeit als Grundlage. Um
+die Systemarchitektur später einfacher abbilden zu können, werden die
+Funktionalitäten nach Nutzungsgruppe gruppiert (s. \autoref{table:funk-old}).
+Aufgrund der abweichenden Anforderungen zur EMI-Award-App müssen einige
+Funktionalitäten angepasst werden. Im Folgenden werden die übernommenen und
+überarbeiteten Funktionalitäten für Veranstaltende und Teilnehmende präsentiert.
+
+\begin{table}[htpb]
+    \def\arraystretch{1.25}
+    \centering
+    \caption{Übernommene Funktionalitäten der EMI-Award-App}
+    \label{table:funk-old}
+    \begin{tabular}{lll}
+        \uzlhline%
+        \uzlemph{ID} & \uzlemph{Titel}                            & \uzlemph{Anforderungen} \\
+        \uzlhline%
+        Ft-V-1       & Eintragen und Verwalten von Stationen      & \anfref{F11}            \\
+        Ft-V-2       & Eintragen und Verwalten von Abzeichen      & \anfref{F12}            \\
+        Ft-V-3       & Eintragen und Verwalten von Hilfseinträgen & \anfref{F13}            \\
+        Ft-V-4       & Eintragen und Verwalten der Einführung     & \anfref{F14}            \\
+        Ft-T-1       & Interaktive Karte mit Stationen            & \anfref{F30}            \\
+        Ft-T-2       & Auflistung der Stationen                   & \anfref{F30}            \\
+        Ft-T-3       & Virtuelles Besuchen mit QR-Code            &                         \\
+        Ft-T-4       & Abzeichen                                  & \anfref{F60}            \\
+        Ft-T-5       & Bedienungshilfe                            & \anfref{F50}            \\
+        Ft-T-6       & Einleitende Slideshow                      & \anfref{F40}            \\
+        \uzlhline
+    \end{tabular}
+\end{table}
+
+Für die Veranstaltenden wurden einige Anpassungen vorgenommen. Das Eintragen der
+Stationen (Ft-V-1), Abzeichen (Ft-V-2), Hilfseinträge (Ft-V-3) und Einführung
+(Ft-V-4) muss an die Verallgemeinerung des Frameworks angepasst werden. Da der
+Kontext der EMI-Award-App sehr spezifisch ist, waren die Anpassungsmöglichkeiten
+auf das nötige beschränkt. Konkret wurden einige Daten in der App fest
+eingebaut. Dies umschließt die Icons von Stationen und Abzeichen, die
+Abschlussbedingung der einzelnen Abzeichen, sowie die Bilder der Einführung.
+Dies wird durch das Auswählen eines eigenen Icons oder Bildes, sowie der
+Abschlussbedingung pro Abzeichen ersetzt. Zudem werden zwei neue
+Abschlussbedingungen eingeführt: eine Textabgabe und eine Bildabgabe, welche von
+Veranstaltenden manuell akzeptiert oder abgelehnt werden muss.
+
+Die Hilfseinträge (Ft-V-3) werden weitergehend überarbeitet, um eine größere
+Anzahl an Einträgen übersichtlich zu ermöglichen. Hierzu werden die Einträge
+nach Kategorie erstellt und in einem „Frage \& Antwort“ (FAQ) Format angegeben.
+Somit wäre eine mögliche Frage „Wann endet die Veranstaltung?“, eingeordnet in
+der Kategorie „Organisatorisches“.
+% TODO: Markdown wichtig?
+
+Eine weitere Überarbeitung betrifft das Eintragen und Verwalten der Einführung
+(Ft-V-4), welche nun weitere Folienformate unterstützt. Das Layout der
+EMI-Award-App hat ein festgesetztes Bild mit anpassbarem Text darunter
+angezeigt. Stattdessen werden drei neue Formate eingeführt: Titelfolie (Bild +
+Text), Bildfolie (Text + Bild) und eine ausschließliche Textfolie.
+
+\subsection{Neue Funktionalitäten}
+
+\begin{table}[htpb]
+    \def\arraystretch{1.25}
+    \centering
+    \caption{Neue Funktionalitäten}
+    \label{table:funk-new}
+    \begin{tabular}{lll}
+        \uzlhline%
+        \uzlemph{ID} & \uzlemph{Titel}                    & \uzlemph{Anforderungen}    \\
+        \uzlhline%
+        Ft-V-5       & Benachrichtigungen an Teilnehmende & \anfref{F70}               \\
+        Ft-V-6       & Feedbackanfragen                   & \anfref{F80}               \\
+        Ft-V-7       & Statistiken zur Veranstaltung      & \anfref{F20}               \\
+        Ft-V-8       & Zentrales Dashboard zur Verwaltung & \anfref{F10}, \anfref{F90} \\
+        Ft-T-7       & Gruppen                            & \anfref{F100}              \\
+        Ft-T-8       & Text- und Bildabzeichen            & \anfref{F60}               \\
+        \uzlhline
+    \end{tabular}
+\end{table}
+
+% - Icons im Popup, da klein und durch Veranstalter bestimmbar statt generischer
+%   Planet
+% - Durch Distanz + Icon an Info dazu, sehr viele Informationen -> Ausblenden
+%   von Sekundär Informationen (H8)
+
+
+% TODO: Station und Abzeichen Aufbau festlegen
+% Aufbau Station (welche Information gehört zu einer Station?)
+% Aufbau Abzeichen (welche Information gehört zu Abzeichen?)
+% Aufbau Hilfe (welche Information gehört zu einem Hilfseintrag?)
+
+Der Kern der EMI-Award-App war die Darstellung der verschiedenen
+Projektstandorte, sowohl als Kartenmarker, Listeneintrag und Einzelansicht. Um
+diese Funktionalität auf beliebige Veranstaltungen auszuweiten, muss zunächst
+definiert werden, was eine Station an Informationen beinhaltet. Aus der
+EMI-Award-App konnten die folgenden Informationen entnommen werden:
+\textit{Titel, Icon, Standort, ID, Kurzbeschreibung, ausführliche Beschreibung,
+    mediale Inhalte}.
+
+Aufgrund des variablen räumlichen Kontextes ist eine Verteilung der Stationen
+über Kilometer große Räume möglich. Hierdurch ist die Distanz zu den
+verschiedenen Stationen eine durchaus wichtige Information für Teilnehmende
+(H1). Als Konsequenz wird die Distanz in verschiedenen relevanten Stellen des
+User-Interfaces angezeigt, welche in den folgenden Absätzen näher erläutert
+werden.
+
+
+Da Abzeichen ebenfalls selbstständig erstellt werden können
+sollen, wurden auch für diese die Informationen zusammengefasst: \textit{Titel,
+    Beschreibung, Icon, Erfolgsbedingung}.
+
+\section{Interface-Design}
+
+
+Einige Teile der Benutzeroberfläche beachten die zehn Usability Heuristiken
+nach \textcite{Nielsen1994} nicht. Die Usability Heuristiken (s.
+\autoref{table:nielsen}) werden im Verlauf mit ihren IDs referenziert.
 
 \begin{table}[htpb]
     \def\arraystretch{1.25}
@@ -40,67 +149,8 @@ werden im Verlauf mit ihren IDs referenziert.
     \end{tabular}
 \end{table}
 
-\begin{table}[htpb]
-    \def\arraystretch{1.25}
-    \centering
-    \caption{Übernommene Funktionalitäten der EMI-Award-App}
-    \label{table:funk-old}
-    \begin{tabular}{lll}
-        \uzlhline%
-        \uzlemph{ID} & \uzlemph{Titel}                 \\
-        \uzlhline%
-        Ft-1         & Interaktive Karte mit Stationen \\
-        Ft-2         & Auflistung der Stationen        \\
-        Ft-3         & Virtuelles Besuchen mit QR-Code \\
-        Ft-4         & Abzeichen                       \\
-        Ft-5         & Bedienungshilfe                 \\
-        Ft-6         & Einleitende Slideshow           \\
-        \uzlhline
-    \end{tabular}
-\end{table}
 
-\subsection{Neue Funktionalitäten}
-
-
-% TODO: Station und Abzeichen Aufbau festlegen
-% Aufbau Station (welche Information gehört zu einer Station?)
-% Aufbau Abzeichen (welche Information gehört zu Abzeichen?)
-% Aufbau Hilfe (welche Information gehört zu einem Hilfseintrag?)
-
-Der Kern der EMI-Award-App war die Darstellung der verschiedenen
-Projektstandorte, sowohl als Kartenmarker, Listeneintrag und Einzelansicht. Um
-diese Funktionalität auf beliebige Veranstaltungen auszuweiten, muss zunächst
-definiert werden, was eine Station an Informationen beinhaltet. Aus der
-EMI-Award-App konnten die folgenden Informationen entnommen werden:
-\textit{Titel, Icon, Standort, ID, Kurzbeschreibung, ausführliche Beschreibung,
-    mediale Inhalte}.
-
-Aufgrund des variablen räumlichen Kontextes ist eine Verteilung der Stationen
-über Kilometer große Räume möglich. Hierdurch ist die Distanz zu den
-verschiedenen Stationen eine durchaus wichtige Information für Teilnehmende
-(H1). Als Konsequenz wird die Distanz in verschiedenen relevanten Stellen des
-User-Interfaces angezeigt, welche in den folgenden Absätzen näher erläutert
-werden.
-
-Das Karten-Pop-up (s. \autoref{fig:emi-intro-map}) der EMI-Award-App mit
-Kurzinformationen zu Stationen benötigt durch die hinzugekommenen Anforderungen,
-sowie bestehenden Problemen, eine Überarbeitung. Aufgrund der Die empfohlene
-Mindestschriftgröße beträgt 16 px für Smartphones im Abstand von 30 cm
-\cite{DBSV2022}. Das Pop-up verwendet jedoch eine Schriftgröße von 12 px und ist
-somit zu klein. Des Weiteren nutzen Titel und Kurzbeschreibung identische
-Typografie. Der Abstand ist zudem gleich mit dem Zeilenabstand der Texte. Es
-liegt somit kein visueller Unterschied zwischen Titel und Kurzbeschreibung vor.
-Außerdem gibt es keinen Indikator dafür, ob die Station bereits besucht wurde.
-Somit müssen Nutzer:innen sich den Besucht-Status in der Stationsliste anschauen
-und merken, um auf der Karte darüber informiert zu sein (H1, H6).
-% - Icons im Popup, da klein und durch Veranstalter bestimmbar statt generischer
-%   Planet
-% - Durch Distanz + Icon an Info dazu, sehr viele Informationen -> Ausblenden
-%   von Sekundär Informationen (H8)
-
-Da Abzeichen ebenfalls selbstständig erstellt werden können
-sollen, wurden auch für diese die Informationen zusammengefasst: \textit{Titel,
-    Beschreibung, Icon, Erfolgsbedingung}.
+\section{Frameworks}
 
 \section{Systemarchitektur}
 
@@ -113,8 +163,11 @@ sollen, wurden auch für diese die Informationen zusammengefasst: \textit{Titel,
 
 % Usability QR-Code Reader
 
-\section{Frontend}
 
+
+%!%%%%%%%%%%!%
+%! Frontend !%
+%!%%%%%%%%%%!%
 % inclusive Design
 %   - Mehrsprachig
 %   - A11y (Aria, W3C Empfehlungen)
@@ -123,8 +176,9 @@ sollen, wurden auch für diese die Informationen zusammengefasst: \textit{Titel,
 
 % Tailwindcss Design-System verwendet
 
-\section{Backend}
-
+%!%%%%%%%%%!%
+%! Backend !%
+%!%%%%%%%%%!%
 % Komplexe Modellierung: Gruppen / Einzel
 
 % Darstellung der Datenbank Relation
