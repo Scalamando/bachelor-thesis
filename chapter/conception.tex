@@ -52,7 +52,7 @@ Abschlussbedingung der einzelnen Abzeichen, sowie die Bilder der Einführung.
 Dies wird durch das Auswählen eines eigenen Icons oder Bildes, sowie der
 Abschlussbedingung pro Abzeichen ersetzt. Zudem werden zwei neue
 Abschlussbedingungen eingeführt: eine Textabgabe und eine Bildabgabe, welche von
-Veranstaltenden manuell akzeptiert oder abgelehnt werden muss.
+Veranstaltenden manuell akzeptiert oder abgelehnt werden kann.
 
 Die Hilfseinträge (Ft-V-3) werden weitergehend überarbeitet, um eine größere
 Anzahl an Einträgen übersichtlich zu ermöglichen. Hierzu werden die Einträge
@@ -69,6 +69,10 @@ Text), Bildfolie (Text + Bild) und eine ausschließliche Textfolie.
 
 \subsection{Neue Funktionalitäten}
 
+Um alle aufgestellten Anforderungen abzudecken, wurden zudem einige neue
+Funktionalitäten konzipiert. Diese werden in \autoref{table:funk-new}
+präsentiert und im Folgenden näher ausgeführt.
+
 \begin{table}[htpb]
     \def\arraystretch{1.25}
     \centering
@@ -76,55 +80,93 @@ Text), Bildfolie (Text + Bild) und eine ausschließliche Textfolie.
     \label{table:funk-new}
     \begin{tabular}{lll}
         \uzlhline%
-        \uzlemph{ID} & \uzlemph{Titel}                    & \uzlemph{Anforderungen}    \\
+        \uzlemph{ID} & \uzlemph{Titel}                    & \uzlemph{Anforderungen}   \\
         \uzlhline%
-        Ft-V-5       & Benachrichtigungen an Teilnehmende & \anfref{F70}               \\
-        Ft-V-6       & Feedbackanfragen                   & \anfref{F80}               \\
-        Ft-V-7       & Statistiken zur Veranstaltung      & \anfref{F20}               \\
-        Ft-V-8       & Zentrales Dashboard zur Verwaltung & \anfref{F10}, \anfref{F90} \\
-        Ft-T-7       & Gruppen                            & \anfref{F100}              \\
-        Ft-T-8       & Text- und Bildabzeichen            & \anfref{F60}               \\
+        Ft-V-5       & Benachrichtigungen an Teilnehmende & \anfref{F70}              \\
+        Ft-V-6       & Feedbackanfragen                   & \anfref{F80}              \\
+        Ft-V-7       & Statistiken zur Veranstaltung      & \anfref{F20}              \\
+        Ft-V-8       & Zentrales Dashboard zur Verwaltung & \anfref{F10}~\anfref{F90} \\
+        Ft-T-7       & Gruppen                            & \anfref{F100}             \\
+        Ft-T-8       & Text- und Bildabzeichen            & \anfref{F60}              \\
         \uzlhline
     \end{tabular}
 \end{table}
 
-% - Icons im Popup, da klein und durch Veranstalter bestimmbar statt generischer
-%   Planet
-% - Durch Distanz + Icon an Info dazu, sehr viele Informationen -> Ausblenden
-%   von Sekundär Informationen (H8)
 
+Die Benachrichtigungen in \textit{Ft-V-5} können von Veranstaltenden über das
+Dashboard in \textit{Ft-V-8} an Teilnehmende gesendet werden. Die
+Benachrichtigungen bestehen dabei aus Titel und einem Textinhalt. Alle bereits
+gesendeten Benachrichtigungen können in einer Tabelle eingesehen werden. Die
+Teilnehmenden erhalten beim Senden einer Benachrichtigung in der Web-App eine
+Push-Benachrichtigung, welche die Eingaben der Veranstaltenden beinhaltet.
+Sollten Teilnehmende zum Zeitpunkt des Absendens der Benachrichtigung die
+Web-App nicht offen haben, so wird die Benachrichtigung zum nächsten Öffnen der
+App präsentiert.
 
-% TODO: Station und Abzeichen Aufbau festlegen
-% Aufbau Station (welche Information gehört zu einer Station?)
-% Aufbau Abzeichen (welche Information gehört zu Abzeichen?)
-% Aufbau Hilfe (welche Information gehört zu einem Hilfseintrag?)
+Die Feedbackanfragen aus \textit{Ft-V-6} geschehen in ähnlicher Form wie
+\textit{Ft-V-5}. Erneut können Veranstaltende über das Dashboard aus
+\textit{Ft-V-8} anfragen abschicken, welche Teilnehmende mit einem
+Feedbackdialog präsentiert. Im Gegensatz zur Benachrichtigung können
+Veranstaltende bei einer Feedbackanfrage einen Titel und auswählbare Gründe für
+ein schlechtes Feedback angeben, um jedem Veranstaltungstypen gerecht zu werden.
+Teilnehmende können aus drei möglichen Bewertungen wählen: „Gut“, „Mittelmäßig“
+und „Schlecht“, welche als Emojis präsentiert werden. Bei einer Wahl von
+„Mittelmäßig“ oder „Schlecht“ können Teilnehmende anschließend aus den, von
+Veranstaltenden angegeben, Gründen auswählen und alternativ einen eigenen Grund
+angeben. Das abgesendete Feedback wird Veranstaltenden anschließend im Dashboard
+dargelegt.
 
-Der Kern der EMI-Award-App war die Darstellung der verschiedenen
-Projektstandorte, sowohl als Kartenmarker, Listeneintrag und Einzelansicht. Um
-diese Funktionalität auf beliebige Veranstaltungen auszuweiten, muss zunächst
-definiert werden, was eine Station an Informationen beinhaltet. Aus der
-EMI-Award-App konnten die folgenden Informationen entnommen werden:
-\textit{Titel, Icon, Standort, ID, Kurzbeschreibung, ausführliche Beschreibung,
-    mediale Inhalte}.
+Zusätzlich werden auch die Statistiken aus \textit{Ft-V-7} im
+Dashboard aus \textit{Ft-V-8} angezeigt. Diese werden unterteilt in „Stationen“,
+„Abzeichen“, „Teilnehmende“ und „Feedback“. Zu Stationen, Abzeichen und
+Teilnehmenden werden die kumulativen, täglichen und durchschnittlichen täglichen
+Besuche, neue Teilnehmende und Abzeichenabschlüsse angezeigt. Für Stationen und
+Abzeichen werden zusätzlich die kumulativen Besuche und Abschlüsse pro Station
+und Abzeichen angezeigt. Die kumulativen und täglichen Daten werden in Form
+eines Graphen angezeigt. \\
+In der Kategorie Feedback werden die insgesamt eingetroffenen Antworten, ihre
+Bewertungen und die drei häufigsten angegebenen Gründe für schlechte Bewertungen
+angezeigt. Zudem werden alle Antworten individuell in einer Tabelle dargestellt,
+in der auch die eigenen Gründe der Teilnehmenden vorhanden sind.
 
-Aufgrund des variablen räumlichen Kontextes ist eine Verteilung der Stationen
-über Kilometer große Räume möglich. Hierdurch ist die Distanz zu den
-verschiedenen Stationen eine durchaus wichtige Information für Teilnehmende
-(H1). Als Konsequenz wird die Distanz in verschiedenen relevanten Stellen des
-User-Interfaces angezeigt, welche in den folgenden Absätzen näher erläutert
-werden.
+Das Dashboard aus \textit{Ft-V-8} beinhaltet, neben den bereits erläuterten
+Funktionen, eine Ansicht zur Bearbeitung der Abzeicheneinreichungen und
+Eintragung und Verwaltung der Rahmendaten. Alle offenen Einreichungen für
+Abzeichen, welche eine manuelle Bearbeitung bedürfen, werden in einer Liste
+angezeigt und können ausgewählt, um die Einreichung zu betrachten und zu
+bewerten. Die Rahmendaten der Veranstaltung lassen sich separat davon verwalten.
+Sie umfassen Titel, Logo, Anfang und Ende der Veranstaltung, sowie optionale
+Funktionen, ein Link zu weiteren Informationen der Veranstaltung, das initiale
+Zentrum der interaktiven Karte und rechtliche Informationen wie Impressum und
+Datenschutzerklärung.
 
+Des Weiteren haben Teilnehmende die Möglichkeit Aktivitäten als Gruppen
+(\textit{Ft-T-7}) abzuschließen. Hierzu gehört das Besuchen von Stationen und
+das Abschließen von Abzeichen. Beim ersten Aufruf wird Teilnehmenden die
+Möglichkeit gegeben eine Gruppe zu erstellen oder einer Gruppe beizutreten. Dies
+geschieht über das Scannen des QR-Codes eines Gruppenmitglieds oder alternativ
+mit der manuellen Eingabe des Gruppen-Codes. Zudem können Teilnehmende die
+Gruppe jederzeit verlassen, eine neue erstellen oder einer anderen Beitreten.
+Die Gruppen-Funktion kann von Veranstaltenden im Dashboard aus \textit{Ft-V-8}
+eingestellt werden. Gruppen können erforderlich, optional oder ausgeschaltet
+sein.
 
-Da Abzeichen ebenfalls selbstständig erstellt werden können
-sollen, wurden auch für diese die Informationen zusammengefasst: \textit{Titel,
-    Beschreibung, Icon, Erfolgsbedingung}.
+Die letzte neue Funktionalität bilden die neuen Text- und Bildabzeichen aus
+\textit{Ft-T-8}. Durch sie erhalten Teilnehmende die Möglichkeit kleine Texte
+oder Bilder bei entsprechenden Abzeichen abzugeben. Nach der Abgabe können
+Veranstaltende, wie in der Dashboard-Funktionalität beschrieben, die Einreichung
+akzeptieren oder ablehnen. Sollte die Einreichung abgelehnt werden, können
+Teilnehmende erneut eine Abgabe einreichen. Andernfalls wird das Abzeichen als
+abgeschlossen markiert.
 
 \section{Interface-Design}
 
-
-Einige Teile der Benutzeroberfläche beachten die zehn Usability Heuristiken
-nach \textcite{Nielsen1994} nicht. Die Usability Heuristiken (s.
-\autoref{table:nielsen}) werden im Verlauf mit ihren IDs referenziert.
+In diesem Abschnitt wird die Benutzeroberfläche aus Sicht der Teilnehmenden und
+Veranstaltenden vorgestellt. Die Grundlage der Benutzeroberfläche bildet der
+Entwurf der EMI-Award-App, welcher im Rahmen des dazugehörigen Bachelorprojekts
+bereits evaluiert wurde. Es wurden einige Anpassungen vorgenommen, um die
+Usability Heuristiken nach \textcite{Nielsen1994} zu beachten. Diese
+werden im Verlauf mit ihren IDs referenziert (s. \autoref{table:nielsen}).
 
 \begin{table}[htpb]
     \def\arraystretch{1.25}
@@ -149,6 +191,33 @@ nach \textcite{Nielsen1994} nicht. Die Usability Heuristiken (s.
     \end{tabular}
 \end{table}
 
+Aufgrund des zugrunde gelegten Entwurfs der EMI-Award-App wurde direkt mit einem
+High-Fidelity Prototypen begonnen.
+
+% Design System
+% - Schriftgrößen
+% - Schriftgewichtungen
+% - Farblos -> Anpassbar
+%
+% Schriftart: Inter
+% - Hohes Mittellängen-Schriftgrößen Verhältnis -> Sehr gut lesbar (DVSG)
+%
+% Schriftgröße: Laut DVSG Rechner mindestens 13px bei 30cm, 0.5 Visus, 0.7 MSV
+% und 150 ppi
+%
+% Iconsatz: Heroicons
+
+Aufgrund des variablen räumlichen Kontextes ist eine Verteilung der Stationen
+über Kilometer große Räume möglich. Hierdurch ist die Distanz zu den
+verschiedenen Stationen eine durchaus wichtige Information für Teilnehmende
+(H1). Als Konsequenz wird die Distanz in verschiedenen relevanten Stellen des
+User-Interfaces angezeigt, welche in den folgenden Absätzen näher erläutert
+werden.
+
+% - Icons im Popup, da klein und durch Veranstalter bestimmbar statt generischer
+%   Planet
+% - Durch Distanz + Icon an Info dazu, sehr viele Informationen -> Ausblenden
+%   von Sekundär Informationen (H8)
 
 \section{Frameworks}
 
