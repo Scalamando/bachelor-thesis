@@ -4,11 +4,11 @@ Nisi et sed provident esse accusamus consequuntur praesentium qui. Eaque vel non
 
 \section{Funktionalität}
 
-Im Folgenden werden die konzipierten Funktionalitäten des Systems vorgestellt,
-welche die zuvor festgelegten Anforderungen (s. \autoref{sec:analysis-anf})
-erfüllen sollen. Zuerst werden die übernommenen und überarbeiteten
-Funktionalitäten der EMI-Award-App dargelegt. Anschließend werden neue
-Funktionalitäten vorgestellt.
+Im Folgenden werden die zuvor konzipierten Funktionalitäten des Systems
+vorgestellt, welche die zuvor festgelegten Anforderungen (s.
+\autoref{sec:analysis-anf}) erfüllen sollen. Zuerst werden die übernommenen und
+überarbeiteten Funktionalitäten der EMI-Award-App dargelegt. Anschließend werden
+neue Funktionalitäten vorgestellt.
 
 \subsection{Übernommene Funktionalitäten}
 
@@ -48,15 +48,15 @@ Stationen (Ft-V-1), Abzeichen (Ft-V-2), Hilfseinträge (Ft-V-3) und Einführung
 Kontext der EMI-Award-App sehr spezifisch ist, waren die Anpassungsmöglichkeiten
 auf das nötige beschränkt. Konkret wurden einige Daten in der App fest
 eingebaut. Dies umschließt die Icons von Stationen und Abzeichen, die
-Abschlussbedingung der einzelnen Abzeichen, sowie die Bilder der Einführung.
-Dies wird durch das Auswählen eines eigenen Icons oder Bildes, sowie der
-Abschlussbedingung pro Abzeichen ersetzt. Zudem werden zwei neue
-Abschlussbedingungen eingeführt: eine Textabgabe und eine Bildabgabe, welche von
-Veranstaltenden manuell akzeptiert oder abgelehnt werden kann.
+Abschlussbedingung der einzelnen Abzeichen, sowie die Bilder der Einführung. All
+diese Einstellungen sind nun frei anpassbar.\\
+Zudem werden zwei neue Abschlussbedingungen eingeführt: eine Textabgabe und
+eine Bildabgabe, welche von Veranstaltenden manuell akzeptiert oder abgelehnt
+werden können.
 
 Die Hilfseinträge (Ft-V-3) werden weitergehend überarbeitet, um eine größere
-Anzahl an Einträgen übersichtlich zu ermöglichen. Hierzu werden die Einträge
-nach Kategorie erstellt und in einem „Frage \& Antwort“ (FAQ) Format angegeben.
+Anzahl an Einträgen übersichtlich anzuzeigen. Hierzu werden die Einträge
+nach Kategorie gruppiert und in einem „Frage \& Antwort“ (FAQ) Format angegeben.
 Somit wäre eine mögliche Frage „Wann endet die Veranstaltung?“, eingeordnet in
 der Kategorie „Organisatorisches“.
 % TODO: Markdown wichtig?
@@ -87,7 +87,7 @@ präsentiert und im Folgenden näher ausgeführt.
         Ft-V-7       & Statistiken zur Veranstaltung      & \anfref{F20}              \\
         Ft-V-8       & Zentrales Dashboard zur Verwaltung & \anfref{F10}~\anfref{F90} \\
         Ft-T-7       & Gruppen                            & \anfref{F100}             \\
-        Ft-T-8       & Text- und Bildabzeichen            & \anfref{F60}              \\
+        Ft-T-8       & Manuelle Abzeichen                 & \anfref{F60}              \\
         \uzlhline
     \end{tabular}
 \end{table}
@@ -114,7 +114,7 @@ und „Schlecht“, welche als Emojis präsentiert werden. Bei einer Wahl von
 „Mittelmäßig“ oder „Schlecht“ können Teilnehmende anschließend aus den, von
 Veranstaltenden angegeben, Gründen auswählen und alternativ einen eigenen Grund
 angeben. Das abgesendete Feedback wird Veranstaltenden anschließend im Dashboard
-dargelegt.
+präsentiert.
 
 Zusätzlich werden auch die Statistiken aus \textit{Ft-V-7} im
 Dashboard aus \textit{Ft-V-8} angezeigt. Diese werden unterteilt in „Stationen“,
@@ -130,15 +130,15 @@ angezeigt. Zudem werden alle Antworten individuell in einer Tabelle dargestellt,
 in der auch die eigenen Gründe der Teilnehmenden vorhanden sind.
 
 Das Dashboard aus \textit{Ft-V-8} beinhaltet, neben den bereits erläuterten
-Funktionen, eine Ansicht zur Bearbeitung der Abzeicheneinreichungen und
-Eintragung und Verwaltung der Rahmendaten. Alle offenen Einreichungen für
-Abzeichen, welche eine manuelle Bearbeitung bedürfen, werden in einer Liste
-angezeigt und können ausgewählt, um die Einreichung zu betrachten und zu
-bewerten. Die Rahmendaten der Veranstaltung lassen sich separat davon verwalten.
-Sie umfassen Titel, Logo, Anfang und Ende der Veranstaltung, sowie optionale
-Funktionen, ein Link zu weiteren Informationen der Veranstaltung, das initiale
-Zentrum der interaktiven Karte und rechtliche Informationen wie Impressum und
-Datenschutzerklärung.
+Funktionen, eine Ansicht zur Bearbeitung der eingereichten Text- und
+Bildabzeichen, sowie Eintragung und Verwaltung der Rahmendaten. Alle offenen
+Einreichungen für Abzeichen, welche eine manuelle Bearbeitung bedürfen, werden
+in einer Liste angezeigt und können ausgewählt werden, um die Einreichung zu
+betrachten und zu bewerten. Die Rahmendaten der Veranstaltung lassen sich
+separat davon verwalten. Sie umfassen Titel, Logo, Anfang und Ende der
+Veranstaltung, sowie optionale Funktionen, ein Link zu weiteren Informationen
+der Veranstaltung, das initiale Zentrum der interaktiven Karte und rechtliche
+Informationen wie Impressum und Datenschutzerklärung.
 
 Des Weiteren haben Teilnehmende die Möglichkeit Aktivitäten als Gruppen
 (\textit{Ft-T-7}) abzuschließen. Hierzu gehört das Besuchen von Stationen und
@@ -151,13 +151,18 @@ Die Gruppen-Funktion kann von Veranstaltenden im Dashboard aus \textit{Ft-V-8}
 eingestellt werden. Gruppen können erforderlich, optional oder ausgeschaltet
 sein.
 
-Die letzte neue Funktionalität bilden die neuen Text- und Bildabzeichen aus
-\textit{Ft-T-8}. Durch sie erhalten Teilnehmende die Möglichkeit kleine Texte
+Abschließend stellen manuelle Abzeichen aus \textit{Ft-T-8} die letzte neue
+Funktionalität dar, welche die manuelle Bearbeitung durch Veranstaltende
+benötigen. Dazu gehören Text- und Bildabzeichen, sowie das manuelle Bestätigen
+eines Abzeichens. Durch sie erhalten Teilnehmende die Möglichkeit kleine Texte
 oder Bilder bei entsprechenden Abzeichen abzugeben. Nach der Abgabe können
 Veranstaltende, wie in der Dashboard-Funktionalität beschrieben, die Einreichung
 akzeptieren oder ablehnen. Sollte die Einreichung abgelehnt werden, können
 Teilnehmende erneut eine Abgabe einreichen. Andernfalls wird das Abzeichen als
-abgeschlossen markiert.
+abgeschlossen markiert. \\
+Insgesamt gibt es somit nun folgende Abschlussbedingungen: \textit{Anzahl
+    besuchter Stationen}, \textit{Abschließen aller (anderen) Abzeichen},
+\textit{Textabgabe}, \textit{Bildabgabe} und \textit{Manuelles akzeptieren}
 
 \section{Interface-Design}
 
@@ -192,7 +197,8 @@ werden im Verlauf mit ihren IDs referenziert (s. \autoref{table:nielsen}).
 \end{table}
 
 Aufgrund des zugrunde gelegten Entwurfs der EMI-Award-App wurde direkt mit einem
-High-Fidelity Prototypen begonnen.
+High-Fidelity Prototypen begonnen. Dieser wurde mit dem Interface-Design-Tool
+Figma erstellt. Im Folgenden wird der fertige Entwurf präsentiert.
 
 % Design System
 % - Schriftgrößen
@@ -206,6 +212,8 @@ High-Fidelity Prototypen begonnen.
 % und 150 ppi
 %
 % Iconsatz: Heroicons
+
+
 
 Aufgrund des variablen räumlichen Kontextes ist eine Verteilung der Stationen
 über Kilometer große Räume möglich. Hierdurch ist die Distanz zu den
