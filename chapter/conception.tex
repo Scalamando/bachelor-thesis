@@ -10,14 +10,15 @@ vorgestellt, welche die zuvor festgelegten Anforderungen (s.
 überarbeiteten Funktionalitäten der EMI-Award-App dargelegt. Anschließend werden
 neue Funktionalitäten vorgestellt.
 
-\subsection{Übernommene Funktionalitäten}
+\subsection{Übernommene \& angepasste Funktionalitäten}
 
-Die Funktionalitäten der EMI-Award-App dienen für diese Arbeit als Grundlage. Um
-die Systemarchitektur später einfacher abbilden zu können, werden die
-Funktionalitäten nach Nutzungsgruppe gruppiert (s. \autoref{table:funk-old}).
-Aufgrund der abweichenden Anforderungen zur EMI-Award-App müssen einige
-Funktionalitäten angepasst werden. Im Folgenden werden die übernommenen und
-überarbeiteten Funktionalitäten für Veranstaltende und Teilnehmende präsentiert.
+Die Funktionalitäten der EMI-Award-App (s. \autoref{table:emi-func}) dienen für
+diese Arbeit als Grundlage. Um die Systemarchitektur später einfacher abbilden
+zu können, werden die Funktionalitäten nach Nutzungsgruppe gruppiert (s.
+\autoref{table:funk-old}). Aufgrund der abweichenden Anforderungen zur
+EMI-Award-App müssen einige Funktionalitäten angepasst werden. Im Folgenden
+werden die übernommenen und überarbeiteten Funktionalitäten für Veranstaltende
+und Teilnehmende präsentiert.
 
 \begin{table}[htpb]
     \def\arraystretch{1.25}
@@ -49,10 +50,12 @@ Kontext der EMI-Award-App sehr spezifisch ist, waren die Anpassungsmöglichkeite
 auf das nötige beschränkt. Konkret wurden einige Daten in der App fest
 eingebaut. Dies umschließt die Icons von Stationen und Abzeichen, die
 Abschlussbedingung der einzelnen Abzeichen, sowie die Bilder der Einführung. All
-diese Einstellungen sind nun frei anpassbar.\\
-Zudem werden zwei neue Abschlussbedingungen eingeführt: eine Textabgabe und
-eine Bildabgabe, welche von Veranstaltenden manuell akzeptiert oder abgelehnt
-werden können.
+diese Einstellungen sind nun frei anpassbar. Zudem werden mediale Inhalte für
+Stationen nun nicht mehr benötigt, da diese nicht für jede Veranstaltung von
+Bedeutung sind. Icons hingegen müssen für Stationen angegeben werden.\\
+Zusätzlich werden zudem zwei neue Abschlussbedingungen eingeführt: eine
+Textabgabe und eine Bildabgabe, welche von Veranstaltenden manuell akzeptiert
+oder abgelehnt werden können.
 
 Die Hilfseinträge (Ft-V-3) werden weitergehend überarbeitet, um eine größere
 Anzahl an Einträgen übersichtlich anzuzeigen. Hierzu werden die Einträge
@@ -166,12 +169,20 @@ Insgesamt gibt es somit nun folgende Abschlussbedingungen: \textit{Anzahl
 
 \section{Interface-Design}
 
-In diesem Abschnitt wird die Benutzeroberfläche aus Sicht der Teilnehmenden und
-Veranstaltenden vorgestellt. Die Grundlage der Benutzeroberfläche bildet der
-Entwurf der EMI-Award-App, welcher im Rahmen des dazugehörigen Bachelorprojekts
-bereits evaluiert wurde. Es wurden einige Anpassungen vorgenommen, um die
-Usability Heuristiken nach \textcite{Nielsen1994} zu beachten. Diese
-werden im Verlauf mit ihren IDs referenziert (s. \autoref{table:nielsen}).
+In diesem Abschnitt wird die Benutzeroberfläche aus Sicht der Veranstaltenden
+und Teilnehmenden vorgestellt.
+
+\subsection{Veranstaltende}
+
+
+
+\subsection{Teilnehmende}
+
+Die Grundlage der Benutzeroberfläche der Teilnehmenden bildet der Entwurf der
+EMI-Award-App, welcher im Rahmen des dazugehörigen Bachelorprojekts bereits
+evaluiert wurde. Es wurden einige Anpassungen vorgenommen, um die Usability
+Heuristiken nach \textcite{Nielsen1994} zu beachten (\anfref{Q40}). Diese werden im Verlauf mit
+ihren IDs referenziert (s. \autoref{table:nielsen}).
 
 \begin{table}[htpb]
     \def\arraystretch{1.25}
@@ -180,25 +191,105 @@ werden im Verlauf mit ihren IDs referenziert (s. \autoref{table:nielsen}).
     \label{table:nielsen}
     \begin{tabular}{ll}
         \uzlhline%
-        \uzlemph{ID} & \uzlemph{Heuristik}                                           \\
+        \uzlemph{ID} & \uzlemph{Heuristik}                         \\
         \uzlhline%
-        H1           & Sichtbarkeit des Systemstatus                                 \\
-        H2           & Übereinstimmung von System und Wirklichkeit                   \\
-        H3           & Nutzerkontrolle und Freiheit                                  \\
-        H4           & Beständigkeit und Standards                                   \\
-        H5           & Fehlervermeidung                                              \\
-        H6           & Wiedererkennung statt Erinnerung                              \\
-        H7           & Flexibilität und Effizienz                                    \\
-        H8           & Ästhetisches und minimalistisches Design                      \\
-        H9           & Hilfestellung beim Erkennen, Bewerten und Beheben von Fehlern \\
-        H10          & Hilfe und Dokumentation                                       \\
+        H1           & Sichtbarkeit des Systemstatus               \\
+        H2           & Übereinstimmung von System und Wirklichkeit \\
+        H4           & Beständigkeit und Standards                 \\
+        H6           & Wiedererkennung statt Erinnerung            \\
+        H7           & Flexibilität und Effizienz                  \\
+        H8           & Ästhetisches und minimalistisches Design    \\
+        H10          & Hilfe und Dokumentation                     \\
         \uzlhline
     \end{tabular}
 \end{table}
 
-Aufgrund des zugrunde gelegten Entwurfs der EMI-Award-App wurde direkt mit einem
+Da auf dem Entwurf der EMI-Award-App aufgebaut wird, wurde direkt mit einem
 High-Fidelity Prototypen begonnen. Dieser wurde mit dem Interface-Design-Tool
-Figma erstellt. Im Folgenden wird der fertige Entwurf präsentiert.
+Figma erstellt. Das Design der EMI-Award-App ist spezifisch auf die dazugehörige
+Veranstaltung abgestimmt. Um eine möglichst neutrale und anpassbare Darstellung
+zu ermöglichen (\anfref{F130}), wurde das Design dies hingehend angepasst.
+Konkret wurden bewusst auf Farben verzichtet und EMI-Award spezifische Grafiken
+entfernt oder durch Platzhalter ersetzt.
+
+\begin{figure}[htpb]
+    \begin{minipage}{.33\textwidth}
+        \centering
+        \includegraphics[width=.9\linewidth]{prototype/Karte.png}
+    \end{minipage}%
+    \begin{minipage}{.33\textwidth}
+        \centering
+        \includegraphics[width=.9\linewidth]{prototype/Karte-1.png}
+    \end{minipage}
+    \begin{minipage}{.33\textwidth}
+        \centering
+        \includegraphics[width=.9\linewidth]{prototype/Karte-2.png}
+    \end{minipage}
+    \caption{Interaktive Karte mit Projektstandorten: nichts ausgewählt (links), ausgewählt (mittig), ausgewählt und aufgeklappt (rechts)}
+    \label{fig:prototype-map}
+\end{figure}
+
+Aufgrund des variablen räumlichen Kontextes ist eine Verteilung der Stationen
+über Kilometer große Räume möglich. Hierdurch ist die Distanz zu den
+verschiedenen Stationen eine durchaus wichtige Information für Teilnehmende
+(H2). Als Konsequenz wird die Distanz in verschiedenen relevanten Stellen des
+User-Interfaces angezeigt. Eine dieser Stellen ist die interaktive Karte der
+Stationen, insbesondere das Pop-up. Jenes wurde um die Distanz zur zugehörigen
+Station ergänzt. Des Weiteren wird die Kurzbeschreibung standardmäßig
+eingeklappt (s. \autoref{fig:prototype-map}, mittig), um Teilnehmende nicht mit
+zu vielen Informationen zu konfrontieren (H7, H8). Zudem wird das Icon der
+Station nun ebenfalls in das Pop-up eingebunden, da im Gegensatz zu den
+generischen Planeten der EMI-Award-App, die Icons der Stationen von
+Veranstaltenden selbst bestimmt werden. Somit werden die Icons der Stationen mit
+diesen assoziiert, was die Wiedererkennung im Rest der Benutzeroberfläche
+erleichtert (H6). Eine weitere Ergänzung stellt ein „Jetzt Scannen“-Button dar,
+welcher direkt zur Kamera navigiert, um die Navigation zu dieser zu erleichtern
+(H7) und gleichzeitig als \textit{In-Context}-Hilfe dient (H6). Um den Fokus auf
+unbesuchte Stationen zu lenken, werden besuchte Stationen zudem mit einem Haken
+als solche markiert und kleiner dargestellt (s. \autoref{fig:prototype-map},
+links). Zusätzlich können besuchte Stationen auch komplett ausgeblendet werden.
+Beide Maßnahmen zielen darauf ab, irrelevante Informationen auf der
+Benutzeroberfläche zu vermindern oder zu vermeiden (H8). Hingegen wird die aktiv
+ausgewählte Station durch eine Umrandung noch zusätzlich hervorgehoben.
+Insgesamt wird die Struktur und Position des Pop-up angepasst, um sie populären
+Apps mit ähnlichen Funktionen anzugleichen, da die Umgangsweise mit diesen
+bereits bekannt ist und somit übertragen werden kann (H4).
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=.3\linewidth]{prototype/Stationen.png}
+    \caption{Stationsauflistung}
+    \label{fig:prototype-stations-list}
+\end{figure}
+
+Auch in der Stationsauflistung stellt die Distanz eine wichtige Information dar.
+Somit wird für jeden Eintrag die Distanz angezeigt, wobei die Einträge
+zusätzlich nach Distanz aufsteigend sortiert werden. Außerdem werden Stationen
+nach „offen“ und „besucht“ gefiltert, wobei standardmäßig die Kategorie „offen“
+angezeigt wird. Sowohl die Sortierung als auch die Filterung dienen dazu,
+Teilnehmenden zuerst die relevantesten Informationen zu präsentieren (H8).
+Konkret sind hiermit die nächstgelegenen unbesuchten Stationen gemeint. Des
+Weiteren werden für die Einträge die jeweiligen Stationsicons verwendet. Diese
+ersetzten die Bildvorschau der EMI-Award-App, da mediale Inhalte nicht mehr
+zwingend benötigt werden, Icons hingegen schon.
+
+\begin{figure}[htpb]
+    \begin{minipage}{.5\textwidth}
+        \centering
+        \includegraphics[width=.6\linewidth]{prototype/Stationen-1.png}
+    \end{minipage}%
+    \begin{minipage}{.5\textwidth}
+        \centering
+        \includegraphics[width=.6\linewidth]{prototype/Stationen-2.png}
+    \end{minipage}
+    \caption{Stationsansicht: mit (links) und ohne (rechts) mediale Inhalte}
+    \label{fig:prototype-stations-one}
+\end{figure}
+
+Die Stationsansicht ist ebenfalls von der Einführung der Distanz betroffen und
+zeigt diese ähnlich zur Stationsauflistung an.
+
+
 
 % Design System
 % - Schriftgrößen
@@ -212,15 +303,6 @@ Figma erstellt. Im Folgenden wird der fertige Entwurf präsentiert.
 % und 150 ppi
 %
 % Iconsatz: Heroicons
-
-
-
-Aufgrund des variablen räumlichen Kontextes ist eine Verteilung der Stationen
-über Kilometer große Räume möglich. Hierdurch ist die Distanz zu den
-verschiedenen Stationen eine durchaus wichtige Information für Teilnehmende
-(H1). Als Konsequenz wird die Distanz in verschiedenen relevanten Stellen des
-User-Interfaces angezeigt, welche in den folgenden Absätzen näher erläutert
-werden.
 
 % - Icons im Popup, da klein und durch Veranstalter bestimmbar statt generischer
 %   Planet
