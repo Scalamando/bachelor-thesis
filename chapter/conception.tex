@@ -2,7 +2,7 @@
 
 Nisi et sed provident esse accusamus consequuntur praesentium qui. Eaque vel non dolores aliquam fuga voluptas quia sit. Vel ut rem et in quis quo inventore quidem. Enim quam voluptatum atque et. Consequuntur repellendus quia voluptate vel quia et suscipit soluta. Fugiat iste corporis voluptatem molestiae.
 
-\section{Funktionalität}
+\section{Funktionalität} \label{sec:concept-func}
 
 Im Folgenden werden die zuvor konzipierten Funktionalitäten des Systems
 vorgestellt, welche die zuvor festgelegten Anforderungen (s.
@@ -266,7 +266,7 @@ Auch in der Stationsauflistung stellt die Distanz eine wichtige Information dar.
 Somit wird für jeden Eintrag die Distanz angezeigt, wobei die Einträge
 zusätzlich nach Distanz aufsteigend sortiert werden. Außerdem werden Stationen
 nach „offen“ und „besucht“ gefiltert, wobei standardmäßig die Kategorie „offen“
-angezeigt wird. Sowohl die Sortierung als auch die Filterung dienen dazu,
+angezeigt wird (s. \autoref{fig:prototype-stations-list}). Sowohl die Sortierung als auch die Filterung dienen dazu,
 Teilnehmenden zuerst die relevantesten Informationen zu präsentieren (H8).
 Konkret sind hiermit die nächstgelegenen unbesuchten Stationen gemeint. Des
 Weiteren werden für die Einträge die jeweiligen Stationsicons verwendet. Diese
@@ -286,8 +286,80 @@ zwingend benötigt werden, Icons hingegen schon.
     \label{fig:prototype-stations-one}
 \end{figure}
 
-Die Stationsansicht ist ebenfalls von der Einführung der Distanz betroffen und
-zeigt diese ähnlich zur Stationsauflistung an.
+Die Stationsansicht wurde ebenfalls um die Distanz ergänzt und das
+Wechseln zur Karte deutlich hervorgehoben. Da die Einbindung von medialen
+Inhalten nicht zwingend erforderlich ist, wurde dies im Entwurf berücksichtigt
+(vgl. \autoref{fig:prototype-stations-one}).
+
+\begin{figure}[htpb]
+    \begin{minipage}{.5\textwidth}
+        \centering
+        \includegraphics[width=.6\linewidth]{prototype/Kamera-1.png}
+    \end{minipage}%
+    \begin{minipage}{.5\textwidth}
+        \centering
+        \includegraphics[width=.6\linewidth]{prototype/Kamera-2.png}
+    \end{minipage}
+    \caption{Kameraansicht: QR-Scanner (links) und manuelle Eingabe (rechts)}
+    \label{fig:prototype-camera}
+\end{figure}
+
+Um die Scanner-Funktion der Kameraansicht ersichtlicher zu gestalten, wurde das
+Design an gängige QR-Scanner angepasst (H4). Hierzu wurde der Scannerbereich mit
+einem weißen Rand versehen und der restliche Bereich abgedunkelt (s.
+\autoref{fig:prototype-camera}). Zudem wurden die Icons zur verbesserten
+Sichtbarkeit zentraler positioniert und zusammengeführt. Die manuelle
+Codeeingabe und Hilfe sind mit dem Antippen des Fragezeichen-Icons erreichbar,
+während die Taschenlampe angezeigt wird, wenn das Gerät die Funktionalität
+unterstützt. Da die Codeeingabe nur schwer durch ein eindeutiges Icon
+darstellbar ist, wurde sich bewusst entschieden, die Funktionalität auszuschreiben.
+
+\begin{figure}[htpb]
+    \begin{minipage}{.5\textwidth}
+        \centering
+        \includegraphics[width=.6\linewidth]{prototype/Abzeichen.png}
+    \end{minipage}%
+    \begin{minipage}{.5\textwidth}
+        \centering
+        \includegraphics[width=.6\linewidth]{prototype/Abzeichen-1.png}
+    \end{minipage}
+    \caption{Abzeichen: Übersicht (links) und einzelne Ansicht (rechts)}
+    \label{fig:prototype-achievement}
+\end{figure}
+
+Die einzelnen Abzeichen der Abzeichenansicht unterschieden sich in der
+EMI-Award-App lediglich durch ihre Farbe. Um Veranstaltenden möglichst viele
+Freiheiten in der Anpassung zu geben, kann für jedes Abzeichen ein Icon
+festgelegt werden. Dies ersetzt die festen Icons der EMI-Award-App. Zusätzlich
+wird jedes Abzeichen mit einem zufälligen Muster hinterlegt (s.
+\autoref{fig:prototype-achievement}, links), um den Wiedererkennungswert und die
+Differenzierbarkeit zu steigern. Außerdem erleichtert dies später die farbliche
+Anpassung an die Veranstaltung (\anfref{F130}). Zudem wurde eine Einzelansicht
+für Abzeichen hinzugefügt. Diese wird für die Text- und Bildabzeichen (Ft-T-8)
+zum Einreichen benötigt und gibt Platz für ausführlichere Erklärungen oder
+weiteren Informationen zu Abzeichen (s. \autoref{fig:prototype-achievement},
+rechts).
+
+\begin{figure}[htpb]
+    \begin{minipage}{.5\textwidth}
+        \centering
+        \includegraphics[width=.6\linewidth]{prototype/Hilfe.png}
+    \end{minipage}%
+    \begin{minipage}{.5\textwidth}
+        \centering
+        \includegraphics[width=.6\linewidth]{prototype/Hilfe-1.png}
+    \end{minipage}
+    \caption{Hilfe: Übersicht (links) und einzelne Ansicht (rechts)}
+    \label{fig:prototype-help}
+\end{figure}
+
+Durch die in \autoref{sec:concept-func} beschriebenen Überarbeitung der
+Hilfe-Funktion, muss die Benutzeroberfläche angepasst werden. Um die
+Fragen übersichtlich anzuzeigen, werden sie nach den erstellten Kategorien
+gruppiert präsentiert. Die Kategorien werden dabei durch die jeweilige
+Überschrift abgegrenzt. Die Antwort zu den einzelnen Fragen wird wiederum in
+einer Einzelansicht dargestellt. Zudem wird über einen Button im oberen Bereich
+die Möglichkeit gegeben, die Einführung in die Veranstaltung (Ft-T-6) erneut zu durchlaufen.
 
 
 
