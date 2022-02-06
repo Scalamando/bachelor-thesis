@@ -59,7 +59,7 @@ oder abgelehnt werden können.
 
 Die Hilfseinträge (Ft-V-3) werden weitergehend überarbeitet, um eine größere
 Anzahl an Einträgen übersichtlich anzuzeigen. Hierzu werden die Einträge
-nach Kategorie gruppiert und in einem „Frage \& Antwort“ (FAQ) Format angegeben.
+nach Kategorie gruppiert und in einem \ac{FAQ} Format angegeben.
 Somit wäre eine mögliche Frage „Wann endet die Veranstaltung?“, eingeordnet in
 der Kategorie „Organisatorisches“.
 % TODO: Markdown wichtig?
@@ -70,7 +70,7 @@ EMI-Award-App hat ein festgesetztes Bild mit anpassbarem Text darunter
 angezeigt. Stattdessen werden drei neue Formate eingeführt: Titelfolie (Bild +
 Text), Bildfolie (Text + Bild) und eine ausschließliche Textfolie.
 
-\subsection{Neue Funktionalitäten}
+\subsection{Neue Funktionalitäten} \label{sec:func-new}
 
 Um alle aufgestellten Anforderungen abzudecken, wurden zudem einige neue
 Funktionalitäten konzipiert. Diese werden in \autoref{table:funk-new}
@@ -172,6 +172,7 @@ Insgesamt gibt es somit nun folgende Abschlussbedingungen: \textit{Anzahl
 In diesem Abschnitt wird die Benutzeroberfläche aus Sicht der Veranstaltenden
 und Teilnehmenden vorgestellt.
 
+
 \subsection{Veranstaltende}
 
 
@@ -181,8 +182,9 @@ und Teilnehmenden vorgestellt.
 Die Grundlage der Benutzeroberfläche der Teilnehmenden bildet der Entwurf der
 EMI-Award-App, welcher im Rahmen des dazugehörigen Bachelorprojekts bereits
 evaluiert wurde. Es wurden einige Anpassungen vorgenommen, um die Usability
-Heuristiken nach \textcite{Nielsen1994} zu beachten (\anfref{Q40}). Diese werden im Verlauf mit
-ihren IDs referenziert (s. \autoref{table:nielsen}).
+Heuristiken nach \textcite{Nielsen1994} zu beachten (\anfref{Q40}). Diese werden
+im Verlauf mit ihren IDs referenziert (s. \autoref{table:nielsen}).
+
 
 \begin{table}[htpb]
     \def\arraystretch{1.25}
@@ -210,7 +212,18 @@ Figma erstellt. Das Design der EMI-Award-App ist spezifisch auf die dazugehörig
 Veranstaltung abgestimmt. Um eine möglichst neutrale und anpassbare Darstellung
 zu ermöglichen (\anfref{F130}), wurde das Design dies hingehend angepasst.
 Konkret wurden bewusst auf Farben verzichtet und EMI-Award spezifische Grafiken
-entfernt oder durch Platzhalter ersetzt.
+entfernt oder durch Platzhalter ersetzt. Allgemein wurde zudem die Schriftart
+und Schriftgröße angepasst, um die Lesbarkeit nach dem \textcite{DBSV2022} zu
+gewährleisten. Als Schriftart wurde \textit{Inter} gewählt, welche durch ihr
+hohes Schriftgrößen-Mittellängen-Verhältnis (ca. 0.7, eigene Messung) besser
+lesbar ist. Weiterhin wurde darauf geachtet, dass die Schriftgröße 16px nicht
+unterschreitet.
+
+% Schriftart: Inter
+% - Hohes Mittellängen-Schriftgrößen Verhältnis -> Sehr gut lesbar (DVSG)
+%
+% Schriftgröße: Laut DVSG Rechner mindestens 13px bei 30cm, 0.5 Visus, 0.7 MSV
+% und 150 ppi
 
 \begin{figure}[htpb]
     \begin{minipage}{.33\textwidth}
@@ -254,6 +267,11 @@ ausgewählte Station durch eine Umrandung noch zusätzlich hervorgehoben.
 Insgesamt wird die Struktur und Position des Pop-up angepasst, um sie populären
 Apps mit ähnlichen Funktionen anzugleichen, da die Umgangsweise mit diesen
 bereits bekannt ist und somit übertragen werden kann (H4).
+
+% - Icons im Popup, da klein und durch Veranstalter bestimmbar statt generischer
+%   Planet
+% - Durch Distanz + Icon an Info dazu, sehr viele Informationen -> Ausblenden
+%   von Sekundär Informationen (H8)
 
 \begin{figure}[htpb]
     \centering
@@ -361,27 +379,121 @@ gruppiert präsentiert. Die Kategorien werden dabei durch die jeweilige
 einer Einzelansicht dargestellt. Zudem wird über einen Button im oberen Bereich
 die Möglichkeit gegeben, die Einführung in die Veranstaltung (Ft-T-6) erneut zu durchlaufen.
 
+\begin{figure}[htpb]
+    \begin{minipage}{.5\textwidth}
+        \centering
+        \includegraphics[width=.6\linewidth]{prototype/Gruppe.png}
+    \end{minipage}%
+    \begin{minipage}{.5\textwidth}
+        \centering
+        \includegraphics[width=.6\linewidth]{prototype/Gruppe-2.png}
+    \end{minipage}
+    \caption{Gruppen: Auswahl (links) und Mitgliederansicht (rechts)}
+    \label{fig:prototype-groups-1}
+\end{figure}
 
+Zum Erstellen und Beitreten von Gruppen wurden zwei große Buttons verwendet,
+welche ein passendes Icon nutzen, um die Funktion zu verdeutlichen (s.
+\autoref{fig:prototype-groups-1}, links). Sobald Teilnehmende Teil einer Gruppe
+sind, werden Name, QR-Code und eine Anleitung angezeigt. Der Name dient der
+Kontrolle, um Teilnehmenden zu zeigen, dass sie der richtigen Gruppe beigetreten
+sind. Zum schnellen Beitreten kann der angezeigte QR-Code (s.
+\autoref{fig:prototype-groups-1}, rechts) verwendet werden. Sollte das Scannen
+nicht funktionieren, kann über den darunter angezeigten Code manuell beigetreten
+werden. Dies wird zudem in der Anleitung unter dem Code erklärt. Weiterhin haben
+Teilnehmende am unteren Bildschirmrand die Möglichkeit die Gruppe zu verlassen.
 
-% Design System
-% - Schriftgrößen
-% - Schriftgewichtungen
-% - Farblos -> Anpassbar
-%
-% Schriftart: Inter
-% - Hohes Mittellängen-Schriftgrößen Verhältnis -> Sehr gut lesbar (DVSG)
-%
-% Schriftgröße: Laut DVSG Rechner mindestens 13px bei 30cm, 0.5 Visus, 0.7 MSV
-% und 150 ppi
-%
-% Iconsatz: Heroicons
+\begin{figure}[htpb]
+    \begin{minipage}{.5\textwidth}
+        \centering
+        \includegraphics[width=.6\linewidth]{prototype/Gruppe-1.png}
+    \end{minipage}%
+    \begin{minipage}{.5\textwidth}
+        \centering
+        \includegraphics[width=.6\linewidth]{prototype/Gruppe-3.png}
+    \end{minipage}
+    \caption{Gruppen: Erstellen (links) und Beitreten (rechts)}
+    \label{fig:prototype-groups-2}
+\end{figure}
 
-% - Icons im Popup, da klein und durch Veranstalter bestimmbar statt generischer
-%   Planet
-% - Durch Distanz + Icon an Info dazu, sehr viele Informationen -> Ausblenden
-%   von Sekundär Informationen (H8)
+Die Erstellungsansicht besteht lediglich aus einem Eingabefeld für den
+Gruppennamen (vgl. \autoref{fig:prototype-groups-2}, links). Nachdem
+Teilnehmende auf „Gruppe Erstellen“ tippen, werden sie zur Mitgliederansicht aus
+\autoref{fig:prototype-groups-1} weitergeleitet. Die Beitrittsansicht zeigt
+hingegen einen QR-Code Scanner an, welche zum Scannen des Gruppen-QR-Codes
+genutzt werden kann (s. \autoref{fig:prototype-groups-2}, rechts). Die manuelle
+Eingabe des Gruppen-Codes kann über einen großen Button am unteren Rand des Bildschirms
+erreicht werden.
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=.3\linewidth]{prototype/Notification.png}
+    \caption{Benachrichtigung am oberen Bildschirmrand}
+    \label{fig:prototype-notification}
+\end{figure}
+
+Falls Veranstaltende eine Benachrichtigung absenden, wird diese Teilnehmenden am
+oberen Bildschirmrand angezeigt (s. \autoref{fig:prototype-notification}). Die
+Benachrichtigung verschwindet dabei nicht von allein und muss von Teilnehmenden
+manuell geschlossen werden. Somit wird sichergestellt, dass Teilnehmende die
+Benachrichtigung wahrnehmen.
+
 
 \section{Frameworks}
+
+Da die Wahl von Frameworks aufgrund der unterschiedlich Arbeitsweisen und
+Funktionalitäten einen großen Einfluss auf die Systemarchitektur hat, werden an
+dieser Stelle die zu nutzenden Frameworks vorgestellt und begründet festgelegt.
+Die Grundlage der Auswahl bilden die genutzten Frameworks der EMI-Award-App,
+welche bereits in \ssecref{ssec:analysis-old-tech} aufgeführt wurden. Dabei wird
+überprüft, ob die genutzten Frameworks die neuen Anforderungen aus
+\autoref{sec:analysis-anf} berücksichtigen.
+
+Nach wie vor werden Web-Frameworks vorausgesetzt (\anfref{R10}). Auf der Seite
+des Teilnehmenden sollten diese zur offline Verfügbarkeit (\anfref{Q60}) die
+Nutzung von \acp{PWA} unterstützen. Da \acp{PWA} eine gesicherte Verbindung
+benötigen, ist die Unterstützung von HTTPS (\anfref{Q70}) ebenfalls nötig. Zudem
+muss die Darstellung von \ac{AR}/\ac{VR}-Inhalten (Ft-T3) möglich sein. Zusätzlich sollten
+die Frameworks ausgereift und umfassend getestet sein (\anfref{R60},
+\anfref{Q30}), sowie performant und kompakt (\anfref{R30}, \anfref{Q80}). Auf
+Seite der Veranstaltenden sollte der Framework das übersichtliche Verwalten der
+eingetragenen Informationen ermöglichen (\anfref{F10}) und um die vorgesehenen
+Funktionen aus \autoref{sec:concept-func} erweiterbar sein.
+
+\urldef\strapidep\url{https://github.com/strapi/strapi/network/dependents?package%5Fid=UGFja2FnZS0xODMyNjEwNQ%3D%3D}
+
+Unter Beachtung dieser Anforderungen werden die Frameworks der EMI-Award-App nun
+erneut betrachtet. Die Grundlage des Frontends bildet der progressive JavaScript
+Framework \textit{Vue.js}. Bei der Nutzung von Vue CLI kann die
+PWA-Funktionalität mithilfe des \textit{@vue/cli-plugin-pwa} Pakets schnell
+eingebunden werden. Zudem ist Vue.js mit 33.6kB \cite[{v3.2.29, minifiziert und
+            komprimiert}]{Kanodia2022} ein kompakter Framework und kleiner als die zwei
+größten Konkurrenten Angular (62.3kB) und React (42.2kB). Ebenfalls schneidet
+Vue.js in Leistungs-Benchmarks besser ab \cite{Krause2022}. Weiterhin ist Vue.js
+mit 192.814 GitHub-Sternen\footnote{Stand 05.02.2022,
+    https://github.com/vuejs/vue} der beliebteste Framework (React
+181.881\footnote{Stand 05.02.2022, \url{https://github.com/facebook/react}},
+Angular 79.393\footnote{Stand 05.02.2022,
+    \url{https://github.com/angular/angular}}), woraus sich eine ausgiebige Nutzung
+und Testung schließen lässt. \\
+Für die Einbindung der \ac{AR}/\ac{VR}-Inhalte wurde in der EMI-Award-App
+\textit{A-Frame} genutzt. Bei A-Frame handelt es sich um Web-Framework für
+\ac{XR} Erlebnisse, welcher auf der bekannten\footnote{Stand 06.02.2022: 78.787
+    GitHub-Sterne} JavaScript Bibliothek \textit{Three.js}\footnote{\url{https://github.com/mrdoob/three.js}} aufbaut. Mit 13.696
+GitHub-Sternen\footnote{Stand 06.02.2022,
+    \url{https://github.com/aframevr/aframe/}} ist A-Frame einer der beliebtesten
+Frameworks für \ac{VR}/\ac{AR}-Inhalte im Web-Kontext. Die Vorzeigeprojekte\footnote{\url{https://aframe.io/showcase/}} des Frameworks und Anzahl der
+GitHub-Sterne weißen hier ebenfalls auf seinen ausgereiften Status hin. \\
+Das Backend der EMI-Award-App baut auf dem \ac{CMS} \textit{Strapi} auf. Mit
+42.895 GitHub-Sternen\footnote{Stand 06.02.2022,
+    \url{https://github.com/strapi/strapi}} ist Strapi das beliebteste quelloffene
+\ac{CMS} auf GitHub und wird in 22.888\footnote{Stand 06.02.2022, \strapidep}
+Projekten verwendet. Das \ac{CMS} bietet eine Oberfläche zum Erstellen,
+Bearbeiten und Löschen von Informationen und lässt sich durch sein Plugin-System
+erweitern \cite{Strapi2021}.
+
+Alle aufgeführten Frameworks erfüllen die relevanten Anforderungen. Somit wurde
+sich dazu entschieden, die genutzten Frameworks der EMI-Award-App beizubehalten.
 
 \section{Systemarchitektur}
 
@@ -395,10 +507,10 @@ die Möglichkeit gegeben, die Einführung in die Veranstaltung (Ft-T-6) erneut z
 % Usability QR-Code Reader
 
 
-
 %!%%%%%%%%%%!%
 %! Frontend !%
 %!%%%%%%%%%%!%
+
 % inclusive Design
 %   - Mehrsprachig
 %   - A11y (Aria, W3C Empfehlungen)
@@ -407,9 +519,11 @@ die Möglichkeit gegeben, die Einführung in die Veranstaltung (Ft-T-6) erneut z
 
 % Tailwindcss Design-System verwendet
 
+
 %!%%%%%%%%%!%
 %! Backend !%
 %!%%%%%%%%%!%
+
 % Komplexe Modellierung: Gruppen / Einzel
 
 % Darstellung der Datenbank Relation
@@ -419,6 +533,7 @@ die Möglichkeit gegeben, die Einführung in die Veranstaltung (Ft-T-6) erneut z
 %   - Besuchs API
 %   - Benachrichtigungs API
 %   - Abzeichen API
+
 
 \section{Implikation für Implementierung}
 

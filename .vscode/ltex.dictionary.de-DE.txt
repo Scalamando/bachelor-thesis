@@ -11,3 +11,4 @@ ortsbasierte
 Awardteil
 Awardteile
 Stationsauflistung
+Strapi

@@ -37,3 +37,4 @@
 {"rule":"DE_CASE","sentence":"^\\QZu Stationen, Abzeichen und Teilnehmenden werden die kumulativen, täglichen und durchschnittlichen täglichen Besuche, neue Teilnehmende und Abzeichenabschlüsse angezeigt.\\E$"}
 {"rule":"DE_CASE","sentence":"^\\QNach der Abgabe können Veranstaltende, wie in der Dashboard-Funktionalität beschrieben, die Abgabe sie die Einreichung akzeptieren oder ablehnen.\\E$"}
 {"rule":"DE_CASE","sentence":"^\\QSowohl die Sortierung als auch die Filterung dienen dazu, Teilnehmende zuerst mit den relevantesten Informationen konfrontierten.\\E$"}
+{"rule":"DE_AGREEMENT","sentence":"^\\QDas Design orientiert sich hierbei an den Material Design Richtlinien \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q.\\E$"}

@@ -411,6 +411,7 @@
   \listoffigures
   \addcontentsline{toc}{chapter}{Abbildungen}
   \printbibliography
+  \printacronyms
   \uzl@bibliography@printedtrue
   \par
   \setcounter{chapter}{0}%
@@ -1567,7 +1568,6 @@
 
 
 
-
 %%%
 %
 % Bibliographies
@@ -1713,10 +1713,26 @@
   \fi
 }
 
+%%%
+%
+% Accronyms
+%
+%%%
+
+\RequirePackage{acro}
+
+\acsetup{
+    make-links = true,
+    pdfcomments / use = true,
+    list / template = longtable
+}
+
+
 \AtEndDocument{
   \ifuzl@bibliography@printed
   \else
     \printbibliography
+    \printacronyms
   \fi
 }
 

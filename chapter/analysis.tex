@@ -370,8 +370,7 @@ QR-Codes auf dem Schild des Standorts (s. \autoref{fig:emi-qr-code}) oder der
 manuellen Eingabe eines spezifischen Codes. Nach erfolgreichem Scannen oder
 Eingeben des Codes wird eine virtuelle Szene angezeigt. In dieser muss ein
 Planet gesucht und angetippt werden, um den Vorgang abzuschließen (s.
-\autoref{fig:emi-ar}). Je nach benutztem Gerät wird die Szene per Augmented
-Reality (AR) oder Virtual Reality angezeigt (VR). Zudem wird die Anzahl der
+\autoref{fig:emi-ar}). Je nach benutztem Gerät wird die Szene per \ac{AR} oder \ac{VR} angezeigt. Zudem wird die Anzahl der
 besuchten Standorte in der Karten- und Projektansicht anhand eines
 Fortschrittsbalkens angezeigt. Die vollständigen Informationen der Projekte
 enthalten mediale Inhalte, eine detaillierte Beschreibung und die Autoren des
@@ -387,7 +386,7 @@ werden (s. \autoref{fig:emi-project}).
         \centering
         \includegraphics[width=.6\linewidth]{emi_ar-2.png}
     \end{minipage}
-    \caption{AR/VR Szene während des virtuellen Besuchs}
+    \caption{\ac{AR}/\ac{VR} Szene während des virtuellen Besuchs}
     \label{fig:emi-ar}
 \end{figure}
 
@@ -486,13 +485,16 @@ zu merken. Stattdessen sollten die Informationen direkt ersichtlich sein.
 
 \subsection{Technische Umsetzung} \label{ssec:analysis-old-tech}
 
-Die EMI-Award-App wurde als progressive Web-App (PWA) mit dem \textit{Vue.js}
-Framework realisiert und war unter \url{https://app.emi-award.de} verfügbar. Die
-Web-Oberfläche für Veranstaltende wurde basierend auf \textit{Strapi CMS}
-entwickelt. Da der Fokus des zugehörigen Bachelorprojekts auf der Entwicklung
-einer App für den EMI-Award lag, wurden die Funktionalitäten speziell und
-nicht-anpassbar auf diesen zugeschnitten. Somit müssen sämtliche Teilsysteme
-überarbeitet werden, um diese für andere Veranstaltungen zu verallgemeinern.
+Die EMI-Award-App wurde als \ac{PWA} mit dem \textit{Vue.js}
+\cite{You2022} Framework realisiert und war unter \url{https://app.emi-award.de}
+verfügbar. Zusätzlich wurden \textit{Mapbox} \cite{Mapbox2022} für die
+interaktive Karte und \textit{A-Frame} \cite{Supermedium2021} für
+\ac{AR}/\ac{VR}-Interaktion genutzt. Die Web-Oberfläche für Veranstaltende wurde basierend
+auf \textit{Strapi} \cite{Strapi2022} entwickelt. Da der Fokus des zugehörigen
+Bachelorprojekts auf der Entwicklung einer App für den EMI-Award lag, wurden die
+Funktionalitäten speziell und nicht-anpassbar auf diesen zugeschnitten. Somit
+müssen sämtliche Teilsysteme überarbeitet werden, um diese für andere
+Veranstaltungen zu verallgemeinern.
 
 
 \section{Problemanalyse} \label{sec:analysis-problems}
@@ -630,7 +632,8 @@ Formulierung von Zielen \cite{Pohl2008}.
 
 Die Rahmenbedingungen legen organisatorische und technische Restriktionen für
 das System oder den Entwicklungsprozess fest \cite{Balzert2009}. Die Bedingungen
-wurden aus der Benutzer und Kontextanalyse abgeleitet.
+wurden aus der Benutzer und Kontextanalyse, sowie der Analyse des bestehenden
+Systems abgeleitet.
 
 \setanf{R}
 \begin{center}
@@ -850,13 +853,15 @@ der Anforderungsschablone (s. \autoref{fig:anf-schablone}) orientiert.
         \cite{Nielsen1994} beachten. (\anfref{Z60})
         \\
         \anfrow & Das System \textit{soll} die Richtlinien des Deutschen
-        Blinden- und Sehbehindertenverbandes berücksichtigen \cite{DBSV2022}.                                              \\
+        Blinden- und Sehbehindertenverbandes berücksichtigen \cite{DBSV2022}.
+        \\
+        \anfrow & Das System soll weitestgehend auch offline
+        genutzt werden können. (z. T. durch \anfref{Q30} und Herausforderungen
+        der räumlichen Dimension, wie z. B. Mobilempfang)
+        \\
         \anfrow & Das System \textit{soll} beim Zugriff über das Internet eine gesicherte Übertragung (HTTPS) ermöglichen.
         \\
         \anfrow & Das System \textit{soll} alle Benutzerinteraktionen in unter fünf Sekunden ausführen.
-        \\
-        \anfrow & Das System \textit{sollte in Zukunft} weitestgehend offline
-        genutzt werden können.
         \\
         \uzlhline
     \end{longtable}
