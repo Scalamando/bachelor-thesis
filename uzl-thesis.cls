@@ -1854,6 +1854,22 @@
   \fi
 }
 
+\lstdefinelanguage{bash}{
+  keywords={vue, cd, npm, node},
+  sensitive=true,
+  morestring=[b]',
+  morestring=[b]"
+}
+
+\lstdefinelanguage{javascript}{
+  keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
+  ndkeywords={class, export, boolean, throw, implements, import, this},
+  sensitive=false,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]',
+  morestring=[b]"
+}
 
 \lstset{%
   basewidth={.5em,.45em},

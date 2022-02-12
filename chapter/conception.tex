@@ -1,4 +1,4 @@
-\chapter{Konzeption}
+\chapter{Konzeption} \label{chapter:conception}
 
 Nisi et sed provident esse accusamus consequuntur praesentium qui. Eaque vel non dolores aliquam fuga voluptas quia sit. Vel ut rem et in quis quo inventore quidem. Enim quam voluptatum atque et. Consequuntur repellendus quia voluptate vel quia et suscipit soluta. Fugiat iste corporis voluptatem molestiae.
 
@@ -167,7 +167,7 @@ Insgesamt gibt es somit nun folgende Abschlussbedingungen: \textit{Anzahl
     besuchter Stationen}, \textit{Abschließen aller (anderen) Abzeichen},
 \textit{Textabgabe}, \textit{Bildabgabe} und \textit{Manuelles akzeptieren}
 
-\section{Interface-Design}
+\section{Interface-Design} \label{sec:interface-design}
 
 In diesem Abschnitt wird die Benutzeroberfläche aus Sicht der Veranstaltenden
 und Teilnehmenden vorgestellt.
@@ -439,7 +439,7 @@ manuell geschlossen werden. Somit wird sichergestellt, dass Teilnehmende die
 Benachrichtigung wahrnehmen.
 
 
-\section{Frameworks}
+\section{Frameworks} \label{sec:frameworks}
 
 Da die Wahl von Frameworks aufgrund der unterschiedlich Arbeitsweisen und
 Funktionalitäten einen großen Einfluss auf die Systemarchitektur hat, werden an
@@ -490,50 +490,87 @@ Das Backend der EMI-Award-App baut auf dem \ac{CMS} \textit{Strapi} auf. Mit
 \ac{CMS} auf GitHub und wird in 22.888\footnote{Stand 06.02.2022, \strapidep}
 Projekten verwendet. Das \ac{CMS} bietet eine Oberfläche zum Erstellen,
 Bearbeiten und Löschen von Informationen und lässt sich durch sein Plugin-System
-erweitern \cite{Strapi2021}.
+erweitern \cite{Strapi2021}. Das Plugin-System setzt in der Web-Oberfläche
+jedoch die Nutzung von React voraus.
 
 Alle aufgeführten Frameworks erfüllen die relevanten Anforderungen. Somit wurde
 sich dazu entschieden, die genutzten Frameworks der EMI-Award-App beizubehalten.
 
-\section{Systemarchitektur}
+\section{Systemarchitektur} \label{sec:system-architecture}
 
-% Speichern von Nutzerdaten ohne konkrete Anmeldung
+% Server & Datenbank - Strapi
+% - Strapi Server
+% - Strapi Oberfläche
+% Web-App
 
-% Usability von interaktiven Karten
-% - Alter
-% - Behinderung
-% - Technikaffinität
+Auf Grundlage der festgelegten Frameworks aus \autoref{sec:frameworks} wurde die
+Systemarchitektur entworfen, welche eine Übersicht über die technische Umsetzung
+des Systems gibt. Das System besteht im Wesentlichen aus zwei Komponenten: dem
+Strapi \ac{CMS} und der Web-App (\anfref{R10}). Jedoch wird das Strapi \ac{CMS} zur Übersicht
+in zwei weitere Teilkomponenten unterteilt: dem Backend und der
+Web-Oberfläche. Alle Komponenten und ihre Interaktionen werden im Folgenden
+näher erläutert.
 
-% Usability QR-Code Reader
+\subsection{Strapi: Backend}
 
+Die Datenbank und API von Strapi bilden den Kern des Systems. Alle Stationen,
+Stationsbesuche, Abzeichen, Benachrichtigungen und Rückmeldungen werden in der
+Datenbank des Backends gespeichert und über die API für die anderen Komponenten
+bereitgestellt. Die Logik für das Besuchen von Stationen und Abschließen von
+Abzeichen wird im Backend untergebracht und mit der API für die Web-App
+bereitgestellt.
 
-%!%%%%%%%%%%!%
-%! Frontend !%
-%!%%%%%%%%%%!%
+\subsection{Strapi: Web-Oberfläche}
 
-% inclusive Design
-%   - Mehrsprachig
-%   - A11y (Aria, W3C Empfehlungen)
+In der Web-Oberfläche von Strapi befindet sich das Dashboard für Veranstaltende.
+Die darzustellenden Daten werden hierbei aus dem Backend abgerufen. Obwohl diese
+Oberfläche ebenfalls von Strapi bereitgestellt wird, wie das eigentliche
+Backend, ist die Funktion beider Komponenten klar voneinander getrennt. Die
+Web-Oberfläche wird in React umgesetzt, da dies der von Strapi vorgegebene
+Framework ist.
 
-% Auf "Refactoring UI"-Standards geachtet
+\subsection{Web-App}
 
-% Tailwindcss Design-System verwendet
+Die Web-App stellt die Interaktionsfläche der Teilnehmenden dar. Auch die
+Web-App greift auf das Backend zu, um darzustellende Daten abzurufen und
+Aktionen, wie z. B. das Besuchen einer Station, durchzuführen. Die Web-App wird
+separat von Strapi bereitgestellt und statisch gehostet. Das Generieren der
+Web-App findet somit nur einmalig statt, im Gegensatz zum
+Server-Rendering-Ansatz, bei welchem die Seite für jeden Aufruf neu generiert
+werden muss. Auch wenn alle Komponenten auf dem gleichen Server bereitgestellt
+werden können, wird empfohlen verschiedene Server zu nutzen, um die Nutzungslast
+somit zu verteilen. Gerade größere kurzzeitige Veranstaltungen könnten das
+System andernfalls überlasten.
 
+\subsection{Interaktion der Komponenten}
 
-%!%%%%%%%%%!%
-%! Backend !%
-%!%%%%%%%%%!%
+Um die Interaktion der verschiedenen Komponenten übersichtlich zu
+veranschaulichen, werden diese grafisch dargestellt (s.
+\autoref{fig:system-interaction}).
 
-% Komplexe Modellierung: Gruppen / Einzel
+\begin{figure}[htpb]
+    \renewcommand\baselinestretch{1}
+    \centering
+    \tikzset{
+        arrow/.style={
+                ->
+            },
+    }
+    \tikz [thesis box shapes, baseline, anchor=base]{
+        \coordinate (origin);
 
-% Darstellung der Datenbank Relation
+        \node [block] (WA) [above=of origin, xshift=4cm] {\textbf{Web-App}};
+        \node [block] (SW) [above=of origin, xshift=-4cm] {\textbf{Strapi: Web-Oberfläche}};
+        \node [block] (SB) [below=of origin] {\textbf{Strapi: Backend}};
 
-% Strukturierung der API
-%   - Gruppen API
-%   - Besuchs API
-%   - Benachrichtigungs API
-%   - Abzeichen API
-
+        \draw[arrow] (WA.245) to (SB.50);
+        \draw[arrow] (SB.30) to (WA.295);
+        \draw[arrow] (SW.245) to (SB.150);
+        \draw[arrow] (SB.130) to (SW.295);
+    }
+    \caption{Interaktion der Komponenten des Systems}
+    \label{fig:system-interaction}
+\end{figure}
 
 \section{Implikation für Implementierung}
 

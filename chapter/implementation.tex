@@ -1,7 +1,75 @@
 \chapter{Implementierung}
 
-In diesem Kapitel wird die Implementierung der im letzten Kapitel erarbeiteten
-Konzeption für Frontend und Backend der Anwendung beschrieben.
+In diesem Kapitel wird die Implementierung des Backends, Frontends und
+Dashboards des Systems beschrieben. Die Implementierung basiert auf der in
+\autoref{chapter:conception} erarbeiteten Konzeption. Zunächst wird der
+generelle Aufbau des Projekts und seiner Codebasis beschrieben. Anschließend
+wird das Backend umgesetzt, welches sämtliche Daten des Systems speichert und
+die Speicherung und Manipulation dieser durch entsprechende Schnittstellen
+ermöglicht. Hiernach wird das Frontend entsprechend nach dem konzipierten
+Prototypen (s. \autoref{sec:interface-design}) realisiert. Abschließend wird das
+Dashboard implementiert.
+
+\section{Struktur des Systems}
+
+
+
+% Speichern von Nutzerdaten ohne konkrete Anmeldung
+
+% Usability von interaktiven Karten
+% - Alter
+% - Behinderung
+% - Technikaffinität
+
+% Usability QR-Code Reader
+
+
+\section{Backend}
+
+In diesem Abschnitt werden die Struktur des Backends und Implementierung der
+Funktionalitäten näher erläutert. Die zu implementierenden Funktionalitäten sind
+aus \autoref{sec:concept-func} zu entnehmen. Anschließend werden Maßnahmen zur Sicherstellung der Softwarequalität beschrieben.
+
+\subsection{Struktur eines Strapi Projekts}
+
+
+
+\subsection{Datenstruktur}
+
+\subsection{Authentifizierung}
+
+Für viele der nachfolgenden Funktionalitäten müssen Daten Nutzer-gebundene
+gespeichert werden.
+
+\subsection{Implementierung der Stationsbesuche}
+
+\subsection{Implementierung der Abzeichen}
+
+\subsection{Implementierung der Gruppen}
+
+\subsection{Implementierung der Push-Benachrichtigungen}
+
+\subsection{Implementierung der Feedback-Funktionalität}
+
+\subsection{Softwarequalität}
+
+% - Aussagekräftige Fehlermeldungen ->
+% - Softwaretests
+
+
+%!%%%%%%%%%!%
+%! Backend !%
+%!%%%%%%%%%!%
+
+% Komplexe Modellierung: Gruppen / Einzel
+
+% Darstellung der Datenbank Relation
+
+% Strukturierung der API
+%   - Gruppen API
+%   - Besuchs API
+%   - Benachrichtigungs API
+%   - Abzeichen API
 
 % Um die Softwarequalität bei der gegebenen Komplexität des Frameworks
 % garantieren zu können, wurden Softwaretests eingesetzt, welche die
@@ -17,7 +85,47 @@ Konzeption für Frontend und Backend der Anwendung beschrieben.
 %       - Automatisierte Builds
 %       - Watchtower
 
-\section{Frontend}
+% Strapi
+%   - Mangelhafte Dokumentation
+%   - Mangelhaftes Tooling
+
+% Group Plugin Implementation
+
+% Location Picker Feld Plugin Implementation
+
+% Verschiedene APIs
+%   - completion
+%   - visit
+%   - notification
+%   - feedback
+
+% Authentifizierung
+
+% Socket.IO
+
+% API-Tests mit Jest
+
+\section{Implementierung des Frontends}
+
+\subsection{Struktur}
+
+Zur Erstellung und Verwaltung des Projekts wurde das \textit{Vue CLI} genutzt.
+Vue CLI ist ein Kommandozeilenprogramm, welches die komplizierte Einrichtung und
+Verwaltung von Vue Projekten stark vereinfacht. Das Erstellen eines Projekts
+erfolgt nach Installation des Vue CLI durch den Befehl \lstinline[style=code,
+    language=bash, style=inline]{vue create <projekt-name>}.
+
+%!%%%%%%%%%%!%
+%! Frontend !%
+%!%%%%%%%%%%!%
+
+% inclusive Design
+%   - Mehrsprachig
+%   - A11y (Aria, W3C Empfehlungen)
+
+% Auf "Refactoring UI"-Standards geachtet
+
+% Tailwindcss Design-System verwendet
 
 % Vue 3
 %   - vue-cli
@@ -54,29 +162,5 @@ Konzeption für Frontend und Backend der Anwendung beschrieben.
 % Optimierungen:
 %   - Route Splitting
 %   - PWA bzw. Service Worker
-
-\section{Backend}
-
-% Strapi
-%   - Mangelhafte Dokumentation
-%   - Mangelhaftes Tooling
-
-% Group Plugin Implementation
-
-% Location Picker Feld Plugin Implementation
-
-% Verschiedene APIs
-%   - completion
-%   - visit
-%   - notification
-%   - feedback
-
-% Authentifizierung
-
-% Socket.IO
-
-% Dashboard
-
-% API-Tests mit Jest
 
 \section{Dashboard}

@@ -317,7 +317,7 @@ An dieser Stelle wird die Implementation und Evaluation der
 %   - Bereits getestet
 %   - Grobe Struktur beibehalten
 
-\subsection{Funktionalitäten} \label{ssec:analysis-old-funk}
+\subsection{Analyse der Funktionalitäten} \label{ssec:analysis-old-funk}
 
 Die Funktionalitäten der EMI-Award-App gliedern sich in zwei Kategorien:
 Funktionalitäten für Teilnehmende und Funktionalitäten für Veranstaltende.
@@ -463,11 +463,13 @@ Funktionalitäten.
     \end{tabular}
 \end{table}
 
-\subsection{Benutzeroberfläche} \label{ssec:analysis-old-ui}
+\subsection{Analyse der Benutzeroberfläche} \label{ssec:analysis-old-ui}
 
-Im Allgemeinen ist die verwendete Schriftgröße der Benutzeroberfläche zu klein.
-Die empfohlene Mindestschriftgröße beträgt 16 px für Smartphones im Abstand von
-30 cm \cite{DIN1450}. Einige Teile der Benutzeroberfläche verwenden jedoch eine
+In diesem Abschnitt werden mögliche Schwächen der Benutzeroberfläche untersucht,
+um diese in der Konzeption überarbeiten zu können. Im Allgemeinen ist die
+verwendete Schriftgröße der Benutzeroberfläche zu klein. Die empfohlene
+Mindestschriftgröße beträgt 16 px für Smartphones im Abstand von 30 cm
+\cite{DIN1450}. Einige Teile der Benutzeroberfläche verwenden jedoch eine
 Schriftgröße von nur 12 px.
 
 Das Karten-Pop-up (s. \autoref{fig:emi-intro-map}) ist von diesem Problem
@@ -483,9 +485,21 @@ Nutzer:innen nicht gezwungen sein sollten, sich Informationen zwischen Ansichten
 zu merken. Stattdessen sollten die Informationen direkt ersichtlich sein.
 
 
-\subsection{Technische Umsetzung} \label{ssec:analysis-old-tech}
+\subsection{Analyse der technischen Umsetzung} \label{ssec:analysis-old-tech}
 
-Die EMI-Award-App wurde als \ac{PWA} mit dem \textit{Vue.js}
+In der Analyse des Bachelorprojekts zur EMI-Award-App wurde festgestellt, dass
+die Entwicklung einer nativen Android- und iOS-App einen höheren Aufwand in der
+Entwicklung und Veröffentlichung darstellt. Frameworks wie Flutter
+\cite{Google2022} erleichtern die Entwicklung nativer Apps, indem der gleiche
+Code für verschiedene Plattformen genutzt werden kann. Jedoch benötigt die
+Entwicklung für iOS ein Gerät mit macOS \cite{Apple2022}. Die Veröffentlichung
+der Apps erfordert zudem ein plattformspezifisches (Apple/Google)
+Entwicklerkonto, über welches die Veröffentlichung der App verwaltet wird. Im
+Gegensatz zu Web-Apps müssen die Veröffentlichung und folgende Updates bei
+nativen Apps erst durch den Betreiber des jeweiligen App-Stores überprüft und
+freigeschaltet werden.
+
+Entsprechend wurde die EMI-Award-App als \ac{PWA} mit dem \textit{Vue.js}
 \cite{You2022} Framework realisiert und war unter \url{https://app.emi-award.de}
 verfügbar. Zusätzlich wurden \textit{Mapbox} \cite{Mapbox2022} für die
 interaktive Karte und \textit{A-Frame} \cite{Supermedium2021} für
@@ -640,7 +654,7 @@ Systems abgeleitet.
     \def\arraystretch{1.5}
     \begin{longtable}{m{0.08\textwidth}m{0.85\textwidth}}
         \uzlhline
-        \anfrow & Das System ist eine Web-Anwendung.
+        \anfrow & Das System ist eine Web-Anwendung. (s. \ssecref{ssec:analysis-old-tech})
         \\
         \anfrow & Die Zielgruppen sind Personen, welche Veranstaltungen
         organisieren und Teilnehmende dieser Veranstaltungen. Die
@@ -648,13 +662,13 @@ Systems abgeleitet.
         \\
         \anfrow & Das System wird von Veranstaltenden in einem
         Arbeitsplatzsystemkontext genutzt und von Teilnehmenden vorwiegend in
-        einem mobilen Kontext genutzt.                                  \\
+        einem mobilen Kontext genutzt.                                                     \\
         \anfrow & Das System wird über die Länge der Veranstaltung im
-        Dauerbetrieb laufen.                                            \\
+        Dauerbetrieb laufen.                                                               \\
         \anfrow & Das System soll auf Wunsch auch nach der
-        Veranstaltung noch für beliebige Zeit erreichbar sein.          \\
+        Veranstaltung noch für beliebige Zeit erreichbar sein.                             \\
         \anfrow & Das System muss unbeaufsichtigt zuverlässig lauffähig
-        sein.                                                           \\
+        sein.                                                                              \\
         \anfrow & Auf den Zielmaschinen verwendete Software:
         \newline
         Client:
