@@ -13,3 +13,4 @@ Awardteile
 Stationsauflistung
 Strapi
 Stationsbesuche
+VAPID-Schlüsseln

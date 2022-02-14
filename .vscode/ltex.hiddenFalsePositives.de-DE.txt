@@ -38,3 +38,6 @@
 {"rule":"DE_CASE","sentence":"^\\QNach der Abgabe können Veranstaltende, wie in der Dashboard-Funktionalität beschrieben, die Abgabe sie die Einreichung akzeptieren oder ablehnen.\\E$"}
 {"rule":"DE_CASE","sentence":"^\\QSowohl die Sortierung als auch die Filterung dienen dazu, Teilnehmende zuerst mit den relevantesten Informationen konfrontierten.\\E$"}
 {"rule":"DE_AGREEMENT","sentence":"^\\QDas Design orientiert sich hierbei an den Material Design Richtlinien \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q.\\E$"}
+{"rule":"COMMA_IN_FRONT_RELATIVE_CLAUSE","sentence":"^\\QAlle Gruppenmitglieder erhalten somit die neu erstelle Aktion.\\E$"}
+{"rule":"DE_AGREEMENT","sentence":"^\\QIm Vergleich zur Push API eigenen sich Nachrichten über Web-Sockets somit nur während der Nutzung der App.\\E$"}
+{"rule":"DE_AGREEMENT","sentence":"^\\QSomit kann das Endgerät, im Gegensatz zur Push API, auch Nachrichten an den Server schicken.\\E$"}

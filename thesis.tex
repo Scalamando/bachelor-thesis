@@ -28,6 +28,20 @@
 
 \addbibresource{sources.bib}
 
+\DeclareBibliographyDriver{dindriver}{%
+    \usebibmacro{begentry}%
+    \ifboolexpr{ test {\iffieldundef{shorttitle}}}
+      {\usedriver{}{\thefield{entrytype}}}
+      {\printtext[bibhyperref]{\printfield{shorttitle}}}%
+       \usebibmacro{finentry}%
+    }
+
+\DeclareCiteCommand{\citedin}[\mkbibparens]
+  {\usebibmacro{prenote}}
+  {\usedriver{}{dindriver}}
+  {\multicitedelim}
+  {\usebibmacro{postnote}}
+
 
 %%%%%%%%%%%%
 % GRAFIKEN %
@@ -72,7 +86,7 @@
 %%%%%%%
 % REF %
 %%%%%%%
-\newcommand{\ssecref}[1]{\hyperref[{#1}]{\autoref*{#1}: \nameref*{#1}}}
+\newcommand{\ssecref}[1]{\hyperref[{#1}]{\autoref*{#1}: „\nameref*{#1}“}}
 
 %%%%%%%%
 % ABBR %

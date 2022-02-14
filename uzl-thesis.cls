@@ -1621,6 +1621,12 @@
         \usebibmacro{cite}}
       {\multicitedelim}
       {\usebibmacro{postnote}}
+    \DeclareCiteCommand{\citenp}
+      {\usebibmacro{prenote}}
+      {\usebibmacro{citeindex}%
+        \usebibmacro{cite}}
+      {\multicitedelim}
+      {\usebibmacro{postnote}}
     \DeclareCiteCommand*{\cite}[\mkbibparens]
       {\usebibmacro{prenote}}
       {\usebibmacro{citeindex}%
