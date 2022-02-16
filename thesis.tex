@@ -28,20 +28,23 @@
 
 \addbibresource{sources.bib}
 
+
 \DeclareBibliographyDriver{dindriver}{%
-    \usebibmacro{begentry}%
-    \ifboolexpr{ test {\iffieldundef{shorttitle}}}
-      {\usedriver{}{\thefield{entrytype}}}
-      {\printtext[bibhyperref]{\printfield{shorttitle}}}%
-       \usebibmacro{finentry}%
-    }
+\usebibmacro{begentry}%
+\ifboolexpr{ test {\iffieldundef{shorttitle}}}
+{\usedriver{}{\thefield{entrytype}}}
+{\printtext[bibhyperref]{\printfield{shorttitle}}}%
+\usebibmacro{finentry}%
+}
 
 \DeclareCiteCommand{\citedin}[\mkbibparens]
-  {\usebibmacro{prenote}}
-  {\usedriver{}{dindriver}}
-  {\multicitedelim}
-  {\usebibmacro{postnote}}
+{\usebibmacro{prenote}}
+{\usedriver{}{dindriver}}
+{\multicitedelim}
+{\usebibmacro{postnote}}
 
+\usepackage{tabularx}
+\usepackage{threeparttable}
 
 %%%%%%%%%%%%
 % GRAFIKEN %

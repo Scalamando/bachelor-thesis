@@ -41,3 +41,4 @@
 {"rule":"COMMA_IN_FRONT_RELATIVE_CLAUSE","sentence":"^\\QAlle Gruppenmitglieder erhalten somit die neu erstelle Aktion.\\E$"}
 {"rule":"DE_AGREEMENT","sentence":"^\\QIm Vergleich zur Push API eigenen sich Nachrichten über Web-Sockets somit nur während der Nutzung der App.\\E$"}
 {"rule":"DE_AGREEMENT","sentence":"^\\QSomit kann das Endgerät, im Gegensatz zur Push API, auch Nachrichten an den Server schicken.\\E$"}
+{"rule":"GERMAN_SPELLER_RULE","sentence":"^\\QHierbei wird die Komponente nach der Art ihrer Inhalte, der sogenannten „Options“, strukturiert.\\E$"}

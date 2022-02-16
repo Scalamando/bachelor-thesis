@@ -2,35 +2,28 @@
 
 In diesem Kapitel wird die Implementierung des Backends, Frontends und
 Dashboards des Systems beschrieben. Die Implementierung basiert auf der in
-\autoref{chapter:conception} erarbeiteten Konzeption. Zunächst wird der
-generelle Aufbau des Projekts beschrieben. Anschließend wird das Backend
+\autoref{chapter:conception} erarbeiteten Konzeption.  Zunächst wird das Backend
 umgesetzt, welches sämtliche Daten des Systems speichert und die Speicherung und
 Manipulation dieser durch entsprechende Schnittstellen ermöglicht. Hiernach wird
 das Frontend entsprechend nach dem konzipierten Prototypen (s.
 \autoref{sec:interface-design}) realisiert. Abschließend wird das Dashboard
 implementiert.
 
-\section{Struktur des Systems}
-
-
-
-% Speichern von Nutzerdaten ohne konkrete Anmeldung
-
-% Usability von interaktiven Karten
-% - Alter
-% - Behinderung
-% - Technikaffinität
-
-% Usability QR-Code Reader
+% \subsection{Struktur des Systems}
 
 
 \section{Implementierung des Backends}
 
-In diesem Abschnitt werden die Struktur des Backends und Implementierung der
-Funktionalitäten näher erläutert. Die zu implementierenden Funktionalitäten sind
-aus \autoref{sec:concept-func} zu entnehmen. Anschließend werden Maßnahmen zur Sicherstellung der Softwarequalität beschrieben.
+In diesem Abschnitt werden die Struktur des Backends und die Implementierung
+seiner Funktionalitäten näher erläutert. Die zu implementierenden
+Funktionalitäten sind aus \autoref{sec:concept-func} zu entnehmen. Zunächst wird
+der Aufbau einer Strapi-Anwendung erläutert und wie diese um die benötigten
+Kern-Funktionalitäten erweitert wurde. Anschließend wird die Einbindung von
+Push-Benachrichtigungen näher beschrieben. Abschließend wird erklärt, wie die
+Feedback-Funktionalität aufbauend auf Push-Benachrichtigungen implementiert
+wurde.
 
-\subsection{Struktur eines Strapi-Projekts}
+\subsection{Struktur eines Strapi-Projekts} \label{ssec:impl-backend-structure}
 
 Im Folgenden wird die Struktur des Backends und seiner verschiedenen
 Teilkomponenten erläutert. Die Verzeichnisstruktur wird in
@@ -361,7 +354,7 @@ mit dem Server aufgebaut, welche jedoch mit dem Schließen der Web-App abbricht.
 Im Vergleich zum Web-Push Standard eigenen sich Nachrichten über Web-Sockets
 somit nur während der Nutzung der App. Jedoch werden für Web-Sockets keine
 weiteren Verschlüsselungsmethoden, neben der Nutzung von HTTPS, benötigt. Zudem
-vereinfachen JavaScript-Bibliotheken wie Socket.IO\footnote{https://socket.io/},
+vereinfachen JavaScript-Bibliotheken wie Socket.IO\footnote{\url{https://socket.io/}},
 welche in dieser Arbeit verwendet wurde, die Nutzung von Web-Sockets und
 verwenden intern weitere Methoden um eine stabile Verbindung über eine
 breite Auswahl an Geräten zu garantieren \cite{SocketIO2022}.
@@ -418,83 +411,271 @@ Antwort als POST Anfrage an \textit{/feedback/respond} gesendet.
 % - Aussagekräftige Fehlermeldungen ->
 % - Softwaretests
 
-\section{Implementierung des Frontend}
+\section{Implementierung des Frontends}
 
-\subsection{Struktur mit Vue CLI}
+\subsection{Struktur mit Vue CLI} \label{ssec:impl-frontend-structure}
 
 Zur Erstellung und Verwaltung des Projekts wurde das \textit{Vue CLI} genutzt.
-Vue CLI ist ein Kommandozeilenprogramm, welches die komplizierte Einrichtung und
-Verwaltung von Vue Projekten stark vereinfacht. Das Erstellen eines Projekts
+Vue CLI ist ein Kommandozeilenprogramm, welches die Einrichtung und Verwaltung
+von komplexeren Vue Projekten stark vereinfacht. Das Erstellen eines Projekts
 erfolgt nach Installation des Vue CLI durch den Befehl \lstinline[style=code,
-    language=bash, style=inline]{vue create <projekt-name>}.
+    language=bash, style=inline]{vue create <projekt-name>}. Während der Erstellung
+des Projekts können zusätzliche Plugins ausgewählt werden, welche einige
+Vue-spezifische oder allgemeine Funktionalitäten hinzufügen. Für dieses Projekt
+wurden die Plugins aus \autoref{table:impl-frontend-vuecli-plugins} zur
+Installation ausgewählt. Die Struktur des Vue-Projekts dieser Arbeit wird in
+\autoref{fig:impl-frontend-vuecli-dir} präsentiert. Die fettgedruckten
+Verzeichnisse sind nicht durch das Vue CLI generiert worden, sondern wurden
+manuell erstellt. Nachfolgend wird die Struktur näher erläutert.
+
+\begin{table}[htpb]
+    \caption{Gewählte Vue CLI Plugins und ihre Funktion}
+    \label{table:impl-frontend-vuecli-plugins}
+    \begin{threeparttable}[t]
+        \def\arraystretch{1.25}
+        \centering
+        \begin{tabularx}{\textwidth}{lX}
+            \uzlhline%
+            \uzlemph{Plugin}     & \uzlemph{Funktion}                                                      \\
+            \uzlhline%
+            \textbf{TypeScript}\tnote{1}  & Ermöglicht die Nutzung von TypeScript innerhalb
+            eines Vue Projekts. TypeScript ergänzt JavaScript um eine Syntax für
+            Datentypen, welche besser Vorschläge in Entwicklungsumgebungen
+            ermöglicht und vorzeitig Fehler aufzeigen kann.                                                \\
+            \textbf{PWA Support} &
+            Generiert alle nötigen Dateien und Konfigurationen, welche für die
+            Nutzung einer PWA benötigt werden. Zudem wird die Anpassung von PWAs an
+            die eigenen Bedürfnisse vereinfacht.                                                           \\
+            \textbf{Router}      &
+            Fügt \textit{vue-router}\tnote{2}und seine benötigten Dateien zum Projekt hinzu.
+            Vue-router ermöglicht das Anlegen von und Navigieren zu mehreren (Unter-)Seiten
+            innerhalb der Web-App.                                                                         \\
+            \textbf{Vuex}\tnote{3}        & Ergänzt das Projekt um einen zentralisierten
+            Speicher, welcher das einfache Verwalten von globalen Zuständen
+            ermöglicht. Dies umfasst Daten wie z. B. den Standort des Nutzers,
+            welcher in mehreren Teilen der App benötigt wird.                                              \\
+            \uzlhline
+        \end{tabularx}
+        \vspace{-0.75cm}
+        \begin{tablenotes}
+            \item [1] \url{https://www.typescriptlang.org/}
+            \item [2] \url{https://router.vuejs.org/}
+            \item [3] \url{https://vuex.vuejs.org/}
+        \end{tablenotes}
+    \end{threeparttable}
+\end{table}
+
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.45\linewidth]{impl/dir_frontend.png}
+    \caption{Verzeichnisstruktur des Frontends mit Vue CLI}
+    \label{fig:impl-frontend-vuecli-dir}
+\end{figure}
+
+Projekte, welche mit dem Vue CLI erstellt werden, gliedern sich im wesentlichen
+in zwei Ordner: \textit{public} und \textit{src}. Der \textit{public} Ordner
+beinhaltet statische Datein, wie z. B. die \textit{index.html}, welche als
+Template für die Vue-App genutzt wird. Weitere Dateien, die im \textit{public}
+Ordner gefunden werden können, sind \textit{robots.txt}, welche
+Suchmaschinen Hinweise zur Indexierung der Seite geben, und
+\textit{favicon.ico}, welches vom Browser als Tab-Icon verwendet wird.
+
+Der \textit{src} Ordner beinhaltet Code der eigentlichen Vue-App und ist in
+weitere Ordner eingeteilt. Diese Ordner unterteilen den Code der App in seine
+Aufgaben, wie z. B. das Anzeigen von Inhalten oder Abfragen von externen Daten.
+Der Einstiegspunkt der App bilden hierbei die \textit{main.ts} und
+\textit{App.vue}. In ihnen wird die Vue-App initialisiert und das Grundlegende
+Layout festgelegt. Plugins und globale Stylesheets werden hierbei in der
+\textit{main.ts} eingebunden. Die \textit{App.vue} stellt hingegen die oberste
+Vue-Kompontente dar, in welcher die gesamte Web-App dargestellt wird. Dauerhaft
+sichtbare Element, wie die Navigationsleiste, wurden hier angelegt, um
+duplizierten Code zu vermeiden.
+
+Alle eigentlichen Ansichten befinden sich im \textit{views} Ordner. Diese werden
+in Form von \textit{.vue} Dateien festgehalten. Die Ansichten selber nutzen
+meist mehrere Komponenten aus dem \textit{components} Ordner. Dies ermöglicht
+das Wiederverwenden von Komponenten in mehreren Ansichten, wodurch duplizierter
+Code vermieden werden kann. Zudem ermöglichen Komponenten das Abkapseln
+bestimmter Logik, um die Vue-App klarer zu strukturieren. Bilder und andere
+Dateien, welche fest in der App eingebunden werden, sind im \textit{assets}
+Ordner zu finden.
+
+Die einzelnen Ansichten lassen sich jeweils über ihre URL aufrufen. Hierzu wird
+diese, sowie einige weitere Optionen, innerhalb der \textit{vue-router}
+Konfiguration im \textit{router} Ordner festgelegt. Zudem beinhaltet der
+\textit{store} Ordner den im vorherigen Abschnitt erwähnten, globalen
+\textit{Vuex} Speicher. Dieser wird genutzt, um Daten wie die Position der
+Teilnehmenden oder Einstellungen abzuspeichern, da diese an vielen Stellen der
+Vue-App benötigt oder verändert werden.
+
+Alle bisher erwähnten Verzeichnisse und Dateien werden automatisch durch das Vue
+CLI generiert. Zur bessern Übersichtlichkeit wurden weitere Ordner angelegt, um
+eigene Funktionen nach Aufgabe zu gruppieren. Die \textit{models} und
+\textit{services} Ordner beinhalten Funktionen zur Abfrage von Daten aus dem
+Backend. Hierbei werden in \textit{models} die Typen der verschiedenen
+Datenstrukturen des Backends repliziert. Die Anfrage-Funktionen des
+\textit{services} Verzeichnisses nutzen diese Typen, um in der Vue-App die
+Typisierung von externen Anfragen zu erlauben. Somit können Fehler in der
+Nutzung der abgefragten Daten schneller erkannt werden. Der \textit{helpers}
+Ordner enthält einige allgemeinere, hilfreiche Funktionen, welche in vielen
+Teilen der Vue-App genutzt werden. Im \textit{middleware} Ordner sind sogenannte
+„Middlewares“ zu finden. Hierbei handelt es sich in diesem Kontext um
+Funktionen, welche bei der Navigation zwischen Ansichten aufgerufen werden, um
+z. B. zu kontrollieren, ob Teilnehmende authentifiziert sind. Das \textit{types}
+Verzeichnis enthält TypeScript Typen für Pakete, welche keine Typen besitzen.
+Somit können auch für diese Pakete die Vorteile von TypeScript genutzt werden.
+
+
+\urldef\vuemixin\url{https://vuejs.org/guide/reusability/composables.html#comparisons-with-other-techniques}
+
+Abschließend verfügt Vue.js seit der Version 3.0 über zwei verschiedene Arten,
+den Aufbau von Komponenten organisieren: die Composition API und die Options
+API. Die Options API ist hierbei die traditionelle Art Vue Komponenten zu
+organisieren und war vor Version 3.0 die einzige Möglichkeit.
+\autoref{fig:impl-frontend-vue-api-options} zeigt eine Beispiel-Komponente,
+welche die Options API nutzt. Hierbei wird die Komponente nach der Art ihrer
+Inhalte, der sogenannten „Options“, strukturiert. Alle Methoden, Variablen und
+übergebenen Werte werden jeweils gruppiert angegeben. Diese Art der
+Strukturierung ermöglicht einen einheitlichen Aufbau über große Projekte. Jedoch
+besitzt sie auch einige große Nachteile, wenn Teile der Komponente extrahiert
+und wiederverwendbar gestaltet werden sollen\footnote{\vuemixin}.
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.7\linewidth]{impl/code_options.png}
+    \caption{Beispiel-Komponente mit der Options API (Nur Script)}
+    \label{fig:impl-frontend-vue-api-options}
+\end{figure}
+
+\urldef\vuecomp\url{https://vuejs.org/guide/extras/composition-api-faq.html#why-composition-api}
+\urldef\vuets\url{https://vuejs.org/guide/extras/composition-api-faq.html#better-type-inference}
+
+Die Composition API wurde konzipiert um dieses Problem und weitere zu beheben.
+Anstatt Optionen anzugeben, werden die gewünschten Funktionalitäten importiert
+und in beliebiger Struktur genutzt. Somit kann der Code nach seiner Funktion
+gruppiert werden. Zum Vergleich ist die Composition API Version der
+Beispiel-Komponente auf \autoref{fig:impl-frontend-vue-api-composition} zu
+sehen. Zusätzlich wird TypeScript in der Composition API besser
+unterstützt\footnote{\vuets}. In dieser Arbeit wird, aufgrund der vorgestellten
+Vorteile und Empfehlung der offiziellen Dokumentation\footnote{\vuecomp}, die
+Composition API genutzt.
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.7\linewidth]{impl/code_composition.png}
+    \caption{Beispiel-Komponente mit der Composition API (Nur Script)}
+    \label{fig:impl-frontend-vue-api-composition}
+\end{figure}
+
+%\subsection{API-Kommunikation}
 
 \subsection{Komponentenstruktur}
 
-\subsection{API-Kommunikation}
+Wie in \ssecref{ssec:impl-frontend-structure} beschrieben, besteht die Vue-App
+aus einer Hierarchie an Ansichten und Komponenten. Im Folgenden wird am Beispiel
+der interaktiven Karte aufgezeigt, wie diese Strukturen entwickelt wurden.
+Hierfür wurde die Hierarchie der interaktiven Karte vereinfacht grafisch
+dargestellt (s. \autoref{fig:impl-frontend-components-structure}).
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=\linewidth]{impl/component_map.png}
+    \caption{Vereinfachter hierarchischer Aufbau der interaktiven Karte}
+    \label{fig:impl-frontend-components-structure}
+\end{figure}
+
+Den Startpunkt der Hierarchie bildet, wie bereits in
+\ssecref{ssec:impl-frontend-structure} beschrieben, die \textit{App.vue}. Im
+Beispiel ist zurzeit die Karten-Ansicht ausgewählt. Diese wird durch ihren
+zugehörigen Pfad \textit{/map} erreicht, welcher so im vue-router definiert
+wurde. Da die Aufgabe der Karte das Anzeigen aller Stationen ist, fragt die
+Karten-Ansicht eine Liste aller Stationen vom Backend an. Zusätzlich wird der
+Standort aus dem Vuex Speicher benötigt, welcher zur Berechnung der Distanz und
+dem Anzeigen auf der Karte genutzt wird. Intern überwacht die Karten-Ansicht
+zudem, welche Station aktuell ausgewählt ist.
+
+Diese Daten werden nun nach Bedarf an die Komponenten der Ansicht weitergegeben.
+Die Karten-Ansicht besteht im Wesentlichen aus zwei Unterkomponenten: der
+eigentlichen interaktiven Karte und einem Pop-up.
 
 \subsection{Implementierung der interaktiven Karte}
+
 
 \subsection{Natives App-Erlebnis}
 % Enkodierung des UI-Zustandes in der URL
 
 \subsection{Persistente Nutzerdatenspeicherung}
 
-%!%%%%%%%%%%!%
-%! Frontend !%
-%!%%%%%%%%%%!%
+Da die Nutzung der App sich über mehrere Wochen erstrecken kann (s.
+\autoref{sec:analysis-context}), ist die sichere Speicherung der Fortschritte
+der Teilnehmenden ein wichtiger Faktor. Um dies zu gewährleisten werden die
+Fortschrittsdaten auf dem Server in einem Nutzerprofil gespeichert. Dieses
+Profil wird automatisch mit dem Akzeptieren der Datenschutzerklärung erstellt.
+Da Teilnehmende keine identifizierenden Daten, wie z. B. eine E-Mail Adresse,
+angeben müssen, wird stattdessen eine eindeutige ID generiert. Diese ID basiert
+auf dem Browser Fingerprint der Teilnehmenden. Der Browser Fingerprint setzt
+sich aus vielen auslesbaren Eigenschaften des Browsers zusammen. Hierzu gehören
+z. B. die Bildschirmgröße, installierten Schriftarten, genutzte Hardware oder
+Implementierungsunterschiede der verschiedenen
+Browser\footnote{\url{https://fingerprintjs.com/blog/browser-fingerprinting-techniques/}}
+(s. \autoref{fig:impl-frontend-browser-fingerprinting}). In dieser Arbeit wird
+die JavaScript Bibliothek \textit{FinterprintJS} \cite{FingerprintJS2022}
+genutzt, um die ID zu generieren.
 
-% inclusive Design
-%   - Mehrsprachig
-%   - A11y (Aria, W3C Empfehlungen)
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=.8\linewidth]{impl/browser_fingerprinting.png}
+    \caption{Ausschnitt der genutzten Attribute zur Identifizierung des Browsers
+    \cite{FingerprintJS2022}}
+    \label{fig:impl-frontend-browser-fingerprinting}
+\end{figure}
 
-% Auf "Refactoring UI"-Standards geachtet
+Nachdem die ID generiert wurde, wird sie als Nutzername und Passwort verwendet,
+um einen neuen Account zu erstellen. Für alle weiteren Aktionen innerhalb der
+Web-App, wie z. B. dem Besuchen von Stationen, wird der Account in der Anfrage
+genutzt. Somit können die ausgeführten Aktionen im Nutzerprofil der
+Teilnehmenden hinterlegt werden. Der Vorteil des Browser Fingerprinting liegt
+hierbei in seiner Eigenschaft langlebig zu sein. Über mehrere Wochen kann
+ein Browser Fingerprint für das gleiche Gerät unverändert bleiben. Somit ist die
+Wahrscheinlichkeit hoch, dass selbst nach dem Löschen des Browserspeichers die
+gleiche ID generiert wird. Folglich wird der gleiche Nutzeraccount verwendet und
+ein Datenverlust vermieden.
 
-% Tailwindcss Design-System verwendet
 
-% Vue 3
-%   - vue-cli
-%   - SFC
-%   - MVC
-%   - Style Guide / Best Practices
-%       - script setup (recommended
-%         https://v3.vuejs.org/api/sfc-script-setup.html)
-%   - Composition API
+\section{Implementierung des Dashboards} \label{sec:impl-dashboard}
 
-% Typescript
-
-% Genutzte Libraries:
-%   - Axios
-%   - MapboxGlJS
-%   - marked (Markdown) JSDOMPurify
-%   - Iconify
-%   - Swiper
-%   - Socket.IO
-
-% Gliederung:
-%   - Controller
-%   - Service
-%   - Repository
-
-% Kamera Eigen-Implementierung
-
-% Mapbox Eigen-Implementierung
-
-% Modal Eigen-Implementierung
-
-% Service Worker - Push-Benachrichtigungen
-
-% Optimierungen:
-%   - Route Splitting
-%   - PWA bzw. Service Worker
-
-\section{Implementierung des Dashboard} \label{sec:impl-dashboard}
+In diesem Abschnitt wird die Implementierung des Dashboards präsentiert. Da es
+sich hierbei um ein Strapi Plugin handelt, wird zunächst der Aufbau eines
+Plugins beschrieben. Daraufhin wird die Implementierung der visuellen
+Aufbereitung der Daten erläutert. Abschließend wird das Location-Picker Plugin
+implementiert, welches die Eingabe von Standortdaten vereinfacht.
 
 \subsection{Aufbau eines Strapi Plugins}
 
+Nachdem in \ssecref{ssec:impl-backend-structure} bereits die grundlegende
+Struktur eines Strapi Projekts erklärt wurde, wird in diesem Abschnitt der
+Aufbau eines Plugins innerhalb Strapis näher erläutert.
+%TODO: Continue
+
 \subsection{Implementierung der Statistiken}
+
+Eine der Hauptfunktionen des Dashboards ist das Überblicken der Veranstaltung
+und seiner gesammelten Daten. Um dies zu ermöglichen wurden die Daten der
+Teilnehmenden, Stationen und Abzeichen im Dashboard visuell aufbereitet.
+Nachfolgend wird erklärt wie das \textit{victory-charts} Paket dazu genutzt
+wurde, die Statistiken zu realisieren.
+%TODO: Continue
 
 \subsection{Implementierung des Location-Picker Plugins}
 
+Der Standort einer Station ist eine seiner fundamentalen Informationen. Jedoch
+besitzt Strapi keine vorhandene Oberfläche oder Datentyp um Standortdaten
+einzutragen. Um die mühsame Eintragung von Longitude und Latitude zu vermeiden,
+wurde ein Plugin implementiert, welches das Setzen eines Standorts mithilfe
+einer interaktiven Karte ermöglicht. Im Folgenden wird die Implementierung
+dieser mit erläutert.
+%TODO: Continue
 
 \section{Nutzung des Systems}
 
