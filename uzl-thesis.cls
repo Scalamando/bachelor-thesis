@@ -412,6 +412,7 @@
   \addcontentsline{toc}{chapter}{Abbildungen}
   \printbibliography
   \printacronyms
+  \addcontentsline{toc}{chapter}{Abkürzungen}
   \uzl@bibliography@printedtrue
   \par
   \setcounter{chapter}{0}%

@@ -413,6 +413,12 @@ Antwort als POST Anfrage an \textit{/feedback/respond} gesendet.
 
 \section{Implementierung des Frontends}
 
+Dieser Abschnitt präsentiert bedeutendsten technischen Aspekte des Frontends.
+Zunächst wird der Aufbau des Projekts und die Nutzung des Vue CLI betrachtet.
+Daraufhin wird die Komponentenstruktur am Beispiel der interaktiven Karte näher
+erläutert. Abschließend werden das native App-Erlebnis und die
+Fortschrittsspeicherung aufgegriffen.
+
 \subsection{Struktur mit Vue CLI} \label{ssec:impl-frontend-structure}
 
 Zur Erstellung und Verwaltung des Projekts wurde das \textit{Vue CLI} genutzt.
@@ -492,14 +498,13 @@ Vue-Kompontente dar, in welcher die gesamte Web-App dargestellt wird. Dauerhaft
 sichtbare Element, wie die Navigationsleiste, wurden hier angelegt, um
 duplizierten Code zu vermeiden.
 
-Alle eigentlichen Ansichten befinden sich im \textit{views} Ordner. Diese werden
-in Form von \textit{.vue} Dateien festgehalten. Die Ansichten selber nutzen
-meist mehrere Komponenten aus dem \textit{components} Ordner. Dies ermöglicht
-das Wiederverwenden von Komponenten in mehreren Ansichten, wodurch duplizierter
-Code vermieden werden kann. Zudem ermöglichen Komponenten das Abkapseln
-bestimmter Logik, um die Vue-App klarer zu strukturieren. Bilder und andere
-Dateien, welche fest in der App eingebunden werden, sind im \textit{assets}
-Ordner zu finden.
+Alle Ansichten befinden sich im \textit{views} Ordner. Die Ansichten selber
+nutzen meist mehrere Komponenten aus dem \textit{components} Ordner. Dies
+ermöglicht das Wiederverwenden von Komponenten in mehreren Ansichten, wodurch
+duplizierter Code vermieden werden kann. Zudem ermöglichen Komponenten das
+Abkapseln bestimmter Logik, um die Vue-App klarer zu strukturieren. Bilder und
+andere Dateien, welche fest in der App eingebunden werden, sind im
+\textit{assets} Ordner zu finden.
 
 Die einzelnen Ansichten lassen sich jeweils über ihre URL aufrufen. Hierzu wird
 diese, sowie einige weitere Optionen, innerhalb der \textit{vue-router}
@@ -520,7 +525,7 @@ Typisierung von externen Anfragen zu erlauben. Somit können Fehler in der
 Nutzung der abgefragten Daten schneller erkannt werden. Der \textit{helpers}
 Ordner enthält einige allgemeinere, hilfreiche Funktionen, welche in vielen
 Teilen der Vue-App genutzt werden. Im \textit{middleware} Ordner sind sogenannte
-„Middlewares“ zu finden. Hierbei handelt es sich in diesem Kontext um
+„Middlewares“ zu finden. In diesem Kontext handelt es sich hierbei um
 Funktionen, welche bei der Navigation zwischen Ansichten aufgerufen werden, um
 z. B. zu kontrollieren, ob Teilnehmende authentifiziert sind. Das \textit{types}
 Verzeichnis enthält TypeScript Typen für Pakete, welche keine Typen besitzen.
@@ -543,7 +548,7 @@ und wiederverwendbar gestaltet werden sollen\footnote{\vuemixin}.
 
 \begin{figure}[htpb]
     \centering
-    \includegraphics[width=0.7\linewidth]{impl/code_options.png}
+    \includegraphics[width=0.65\linewidth]{impl/code_options.png}
     \caption{Beispiel-Komponente mit der Options API (Nur Script)}
     \label{fig:impl-frontend-vue-api-options}
 \end{figure}
@@ -563,7 +568,7 @@ Composition API genutzt.
 
 \begin{figure}[htpb]
     \centering
-    \includegraphics[width=0.7\linewidth]{impl/code_composition.png}
+    \includegraphics[width=0.65\linewidth]{impl/code_composition.png}
     \caption{Beispiel-Komponente mit der Composition API (Nur Script)}
     \label{fig:impl-frontend-vue-api-composition}
 \end{figure}
@@ -595,12 +600,14 @@ Standort aus dem Vuex Speicher benötigt, welcher zur Berechnung der Distanz und
 dem Anzeigen auf der Karte genutzt wird. Intern überwacht die Karten-Ansicht
 zudem, welche Station aktuell ausgewählt ist.
 
-Diese Daten werden nun nach Bedarf an die Komponenten der Ansicht weitergegeben.
-Die Karten-Ansicht besteht im Wesentlichen aus zwei Unterkomponenten: der
-eigentlichen interaktiven Karte und einem Pop-up.
+Diese Daten werden nach Bedarf an die Komponenten der Ansicht weitergegeben. Die
+Karten-Ansicht besteht im Wesentlichen aus zwei Unterkomponenten: der
+eigentlichen interaktiven Karte und einem Pop-up. Wie
+\autoref{fig:impl-frontend-components-structure} zu entnehmen ist, erhält die
+\textit{Map}-Komponente alle drei Daten der Karte-Ansicht, während das Pop-up
+lediglich die ausgewählte Station und den Standort übergeben bekommt.
 
-\subsection{Implementierung der interaktiven Karte}
-
+%TODO: Continue
 
 \subsection{Natives App-Erlebnis}
 % Enkodierung des UI-Zustandes in der URL
@@ -641,7 +648,6 @@ ein Browser Fingerprint für das gleiche Gerät unverändert bleiben. Somit ist 
 Wahrscheinlichkeit hoch, dass selbst nach dem Löschen des Browserspeichers die
 gleiche ID generiert wird. Folglich wird der gleiche Nutzeraccount verwendet und
 ein Datenverlust vermieden.
-
 
 \section{Implementierung des Dashboards} \label{sec:impl-dashboard}
 
