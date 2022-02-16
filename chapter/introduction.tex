@@ -75,59 +75,56 @@ gewünschten Aktionen lenken.
 
 \section{Aufbau der Arbeit}
 
-% Herczeg
+Die Entwicklung des Frameworks orientiert sich am menschenzentrierten
+Gestaltungsprozess \citedin{DINISO9241}. Der Prozess gliedert sich im Rahmen
+dieser Arbeit in vier Phasen, welche sich wie in \autoref{fig:vorgehen}
+gliedern.
 
-Das Vorgehen dieser Arbeit basiert auf dem menschenzentrierten Gestaltungsprozess nach DIN
-EN ISO 9241-210 (s. \autoref{fig:din-hcd}).
-
-Im zweiten <blablabla...>
 
 \begin{figure}[htpb]
-    \renewcommand\baselinestretch{1}
     \centering
-    \tikzset{
-        textbox/.style={
-                text width=4cm,
-                text centered,
-                align=center
-            },
-        arrow/.style={
-                ->
-            }
-    }
-    \tikz [thesis box shapes, baseline, anchor=base]{
-        \node [block] (1) [textbox] at (-3, 8) {Den menschenzentrierten
-            Gestaltungsprozess planen};
-        \node [block] (2) [textbox] at (0, 3.75) {Den Nutzungskontext verstehen und
-            beschreiben};
-        \node [block] (3) [textbox] at (4.5, 0) {Die Nutzungsanforderungen
-            spezifizieren};
-        \node [block] (4) [textbox] at (0, -3) {Gestaltungslösungen entwickeln,
-            die die Nutzungsanforderungen erfüllen};
-        \node [block] (5) [textbox] at (-4.5, 0.25) {Gestaltungslösungen aus der
-            Benutzerperspektive evaluieren};
-        \node [block] (6) [textbox] at (-6, 4.5) {Gestaltungslösung
-            erfüllt die Nutzungsanforderungen};
-        \draw[arrow] (1.south) to [out=270, in=90] (2.north);
-        \draw[arrow, bend left=45] (2.east) to (3.north);
-        \draw[arrow, bend left=45] (3.south) to (4.east);
-        \draw[arrow, bend left=45] (4.west) to (5.south);
-        \draw[arrow] (5.west) to [out=180, in=270] (6.south);
-        \draw[arrow, dashed, bend left=45] (5.north) to (2.west);
-        \draw[arrow, dashed, bend left=35] (5.north) to (3.north);
-        \draw[arrow, dashed, bend left=75] (5.north) to (4.north);
-        \node [fill=white, fill opacity=0.7, text width=4cm, text opacity=1] (7) at (-3.5, 2) {Iteration, soweit
-            Evaluationsergebnisse Bedarf hierfür aufzeigen};
-    }
-    \caption{Der menschenzentrierte Gestaltungsprozess \citedin{DINISO9241}}
-    \label{fig:din-hcd}
+    \includegraphics[width=\linewidth]{vorgehen.png}
+    \caption{Vorgehen in dieser Bachelorarbeit \citedin[][angelehnt an]{DINISO9241}}
+    \label{fig:vorgehen}
 \end{figure}
 
-
-
-
-
-
-
-
-
+% \begin{figure}[htpb]
+%     \renewcommand\baselinestretch{1}
+%     \centering
+%     \tikzset{
+%         textbox/.style={
+%                 text width=4cm,
+%                 text centered,
+%                 align=center
+%             },
+%         arrow/.style={
+%                 ->
+%             }
+%     }
+%     \tikz [thesis box shapes, baseline, anchor=base]{
+%         \node [block] (1) [textbox] at (-3, 8) {Den menschenzentrierten
+%             Gestaltungsprozess planen};
+%         \node [block] (2) [textbox] at (0, 3.75) {Den Nutzungskontext verstehen und
+%             beschreiben};
+%         \node [block] (3) [textbox] at (4.5, 0) {Die Nutzungsanforderungen
+%             spezifizieren};
+%         \node [block] (4) [textbox] at (0, -3) {Gestaltungslösungen entwickeln,
+%             die die Nutzungsanforderungen erfüllen};
+%         \node [block] (5) [textbox] at (-4.5, 0.25) {Gestaltungslösungen aus der
+%             Benutzerperspektive evaluieren};
+%         \node [block] (6) [textbox] at (-6, 4.5) {Gestaltungslösung
+%             erfüllt die Nutzungsanforderungen};
+%         \draw[arrow] (1.south) to [out=270, in=90] (2.north);
+%         \draw[arrow, bend left=45] (2.east) to (3.north);
+%         \draw[arrow, bend left=45] (3.south) to (4.east);
+%         \draw[arrow, bend left=45] (4.west) to (5.south);
+%         \draw[arrow] (5.west) to [out=180, in=270] (6.south);
+%         \draw[arrow, dashed, bend left=45] (5.north) to (2.west);
+%         \draw[arrow, dashed, bend left=35] (5.north) to (3.north);
+%         \draw[arrow, dashed, bend left=75] (5.north) to (4.north);
+%         \node [fill=white, fill opacity=0.7, text width=4cm, text opacity=1] (7) at (-3.5, 2) {Iteration, soweit
+%             Evaluationsergebnisse Bedarf hierfür aufzeigen};
+%     }
+%     \caption{Der menschenzentrierte Gestaltungsprozess \citedin{DINISO9241}}
+%     \label{fig:din-hcd}
+% \end{figure}

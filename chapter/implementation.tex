@@ -592,25 +592,112 @@ dargestellt (s. \autoref{fig:impl-frontend-components-structure}).
 
 Den Startpunkt der Hierarchie bildet, wie bereits in
 \ssecref{ssec:impl-frontend-structure} beschrieben, die \textit{App.vue}. Im
-Beispiel ist zurzeit die Karten-Ansicht ausgewählt. Diese wird durch ihren
-zugehörigen Pfad \textit{/map} erreicht, welcher so im vue-router definiert
-wurde. Da die Aufgabe der Karte das Anzeigen aller Stationen ist, fragt die
-Karten-Ansicht eine Liste aller Stationen vom Backend an. Zusätzlich wird der
-Standort aus dem Vuex Speicher benötigt, welcher zur Berechnung der Distanz und
-dem Anzeigen auf der Karte genutzt wird. Intern überwacht die Karten-Ansicht
-zudem, welche Station aktuell ausgewählt ist.
+Beispiel ist zurzeit die Karten-Ansicht ausgewählt, welche sich im
+\textit{views} Verzeichnis befindet (s. \autoref{fig:impl-frontend-dirs} links,
+\textit{Map.vue}). Diese wird durch ihren zugehörigen Pfad \textit{/map}
+erreicht, welcher so im vue-router definiert wurde. Da die Aufgabe der Karte das
+Anzeigen aller Stationen ist, fragt die Karten-Ansicht eine Liste aller
+Stationen vom Backend an. Zusätzlich wird der Standort aus dem Vuex Speicher
+benötigt, welcher zur Berechnung der Distanz und dem Anzeigen auf der Karte
+genutzt wird. Intern überwacht die Karten-Ansicht zudem, welche Station aktuell
+ausgewählt ist.
+
+\begin{figure}[htpb]
+    \centering
+    \begin{minipage}{.5\textwidth}
+        \centering
+        \includegraphics[width=.7\linewidth]{impl/dir_frontend_views.png}
+    \end{minipage}%
+    \begin{minipage}{.5\textwidth}
+        \centering
+        \includegraphics[width=.7\linewidth]{impl/dir_frontend_components.png}
+    \end{minipage}
+    \caption{Ausschnitt der Inhalte der \textit{views} und \textit{components}
+    Verzeichnisse. Die Strukturierung und Benennung der Inhalte folgt dem Vue
+    Style Guide \cite{You2022b}}
+    \label{fig:impl-frontend-dirs}
+\end{figure}
 
 Diese Daten werden nach Bedarf an die Komponenten der Ansicht weitergegeben. Die
-Karten-Ansicht besteht im Wesentlichen aus zwei Unterkomponenten: der
-eigentlichen interaktiven Karte und einem Pop-up. Wie
+Karten-Ansicht besteht hierbei im Wesentlichen aus zwei Komponenten: der
+interaktiven Karte (\textit{mapbox/Map/Map.vue}) und einem Pop-up
+(\textit{TheMapPopup.vue}), welche sich im \textit{components} Verzeichnis
+befinden (s. \autoref{fig:impl-frontend-dirs} rechts). Wie
 \autoref{fig:impl-frontend-components-structure} zu entnehmen ist, erhält die
 \textit{Map}-Komponente alle drei Daten der Karte-Ansicht, während das Pop-up
-lediglich die ausgewählte Station und den Standort übergeben bekommt.
+lediglich die ausgewählte Station und den Standort übergeben bekommt. Die
+interaktive Karte ist hierbei nur für das Anzeigen der Karte, nicht aber der
+Stationsicons, verantwortlich.
 
-%TODO: Continue
+Um die Stationen anzuzeigen wird intern die Map-Marker Komponente genutzt. Für
+jede in der Liste vorhandene Station wird eine Map-Marker Komponente
+instanziiert und mit den Daten der jeweiligen Station versorgt. Hieraus werden
+Icon und Position der Station entnommen, um diese korrekt anzuzeigen. Zudem
+übernimmt die Map-Marker Komponente die Anpassung des Icons, falls die Station
+ausgewählt ist oder bereits besucht wurde. Der Standort wiederum benötigt diese
+Logik nicht und wird separat verwendet.
+
+Die Pop-up Komponente nutzt die übergebene, ausgewählte Station um ihre
+Informationen wie Titel und Beschreibung anzuzeigen. Zusätzlich wird der
+Standort verwendet, um die Distanz zur ausgewählten Station zu berechnen und
+anzuzeigen. Intern setzen sich diese Komponenten noch aus weiteren Komponenten
+zusammen, wie z. B. einer Icon-Komponente. Zur Übersichtlichkeit und
+Verständlichkeit wurde dieses Beispiel jedoch vereinfacht.
+
+Dieser hierarchische Aufbau und die Weitergabe der Daten an untergeordnete
+Komponenten findet sich in der gesamten Vue-App wieder. Hierdurch können
+Komponenten im System an vielen Stellen wiederverwendet werden, was
+Entwicklungszeit spart und unterschiedliche Fehler in sich widerholendem Code
+vermeidet.
 
 \subsection{Natives App-Erlebnis}
 % Enkodierung des UI-Zustandes in der URL
+
+Aufgrund der technischen Limitierungen ist eine native App im Rahmen dieser
+Bachelorarbeit nicht möglich (s. \ssecref{ssec:analysis-old-tech}). Um
+Teilnehmenden trotzdem ein möglichst natives App-Erlebnis zu ermöglichen, wurden
+einige Maßnahmen eingesetzt. Nachfolgend wird erläutert wie der
+\textit{vue-router} und die \textit{PWA}-Funktionalität hierfür genutzt wurden.
+
+Traditionelle Webseiten müssen für jede aufgerufene Seite eine neue Anfrage an
+den jeweiligen Server stellen. Dies ist mit meist mit einer längeren Wartezeit
+verbunden. Jedoch werden Interaktionen bei Wartezeiten von mehr als einer
+Sekunde bereits die Gedankengänge von Nutzenden unterbrochen und die Interaktion
+fühlt sich wahrnehmbar verzögert an \cite{Nielsen1994b}. Um dieses Problem zu
+umgehen, verwendet diese Arbeit das \textit{vue-router} Paket. Im Gegensatz zu
+traditioneller Navigation zwischen Seiten wird bei der Verwendung von vue-router
+der Großteil der Navigation mithilfe von JavaScript übernommen.
+
+Anstatt bei jedem Aufruf erneut die HTML-Seite zu laden, wird nur noch eine
+HTML-Seite angefragt, welche alle benötigten Daten der restlichen Anwendung
+enthält. Bei jedem Seitenwechsel wird der Inhalt der Seite mithilfe des
+JavaScript-Codes ausgetauscht. Dies verkürzt die Ladezeit und erlaubt es, die
+Übergänge zwischen den Seiten nach Bedarf anzupassen. Das Prinzip dieser
+gebündelten Seite nennt sich \textit{Singe-Page-Application (SPA)}.
+
+Ein Nachteil von SPAs ist die Größe der Dateien beim ersten Aufruf. Um dieses
+Problem zu minimieren, werden die Dateien meist stark komprimiert. Zudem lassen
+sich verschiedene Teile der SPA nach Bedarf aufteilen und nachladen. Auch wenn
+hier wieder eine Anfrage an den Server gestellt werden muss, ist dies schneller
+als das Laden einer kompletten Seite. Zudem kann hier die PWA-Funktionalität
+genutzt werden.
+
+Progressive Web-Apps ermöglichen u. a. das Vorladen und Speichern von Webseiten,
+um diese auch offline nutzen zu können. Hierzu werden JavaScript \textit{Service
+Worker} genutzt. Service Worker sind JavaScript Prozesse, welche auf einem
+separaten Thread ausgeführt werden und auch nach dem Schließen der Seite noch
+aktiv sind. In ihnen können Dateien festgelegt werden, welche beim ersten Aufruf
+der Seite direkt geladen und gespeichert werden sollen. Obwohl dies eine längere
+Ladezeit zum ersten Aufruf bedeutet, werden alle weiteren Navigationen
+zusätzlich beschleunigt, während die übertragenen Daten minimiert werden.
+Besonders die Minimierung der übertragenen Daten spielt eine wichtige Rolle im
+mobilen Kontext durch meist begrenzte Datenvolumen in Mobilfunkverträgen.
+
+Zudem werden Service Worker benötigt, um Push-Benachrichtigungen zu empfangen.
+Die Notifications
+API\footnote{\url{https://developer.mozilla.org/en-US/docs/Web/API/Notifications_API}}
+erlaubt es native Benachrichtigungen zu erstellen, welche das native
+App-Erlebnis födern.
 
 \subsection{Persistente Nutzerdatenspeicherung}
 
