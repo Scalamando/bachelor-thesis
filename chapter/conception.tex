@@ -1,10 +1,16 @@
 \chapter{Konzeption} \label{chapter:conception}
 
-Nisi et sed provident esse accusamus consequuntur praesentium qui. Eaque vel non dolores aliquam fuga voluptas quia sit. Vel ut rem et in quis quo inventore quidem. Enim quam voluptatum atque et. Consequuntur repellendus quia voluptate vel quia et suscipit soluta. Fugiat iste corporis voluptatem molestiae.
+In diesem Abschnitt wurden, auf Basis der formalen Anforderungen,
+Funktionalitäten des Frameworks konzipiert. Hierbei wurde auf den
+Funktionalitäten des bestehenden Systems aufgebaut und weitere Funktionalitäten
+hinzugefügt, um die Anforderungen abzudecken. Anschließend wurde das
+Interface-Design der Frame\-work-Kom\-po\-nen\-ten entwickelt. Abschließend wurde
+auf Grundlage der Anforderungen die zu nutzenden Frameworks festgelegt und
+darauf aufbauend die Systemarchitektur festgelegt.
 
 \section{Funktionalität} \label{sec:concept-func}
 
-Im Folgenden werden die zuvor konzipierten Funktionalitäten des Systems
+Im Folgenden werden die konzipierten Funktionalitäten des Systems
 vorgestellt, welche die zuvor festgelegten Anforderungen (s.
 \autoref{sec:analysis-anf}) erfüllen sollen. Zuerst werden die übernommenen und
 überarbeiteten Funktionalitäten der EMI-Award-App dargelegt. Anschließend werden
@@ -167,6 +173,64 @@ Insgesamt gibt es somit nun folgende Abschlussbedingungen: \textit{Anzahl
     besuchter Stationen}, \textit{Abschließen aller (anderen) Abzeichen},
 \textit{Textabgabe}, \textit{Bildabgabe} und \textit{Manuelles akzeptieren}
 
+\section{Frameworks} \label{sec:frameworks}
+
+Da die Wahl von Frameworks aufgrund der unterschiedlich Arbeitsweisen und
+Funktionalitäten einen großen Einfluss auf das Interface-Design und die
+Systemarchitektur hat, werden an dieser Stelle die zu nutzenden Frameworks
+vorgestellt und begründet festgelegt. Die Grundlage der Auswahl bilden die
+genutzten Frameworks der EMI-Award-App, welche bereits in
+\ssecref{ssec:analysis-old-tech} aufgeführt wurden. Dabei wird überprüft, ob die
+genutzten Frameworks die neuen Anforderungen aus \autoref{sec:analysis-anf}
+berücksichtigen.
+
+Nach wie vor werden Web-Frameworks vorausgesetzt (\anfref{R10}). Auf der Seite
+des Teilnehmenden sollten diese zur offline Verfügbarkeit (\anfref{Q60}) die
+Nutzung von \acp{PWA} unterstützen. Da \acp{PWA} eine gesicherte Verbindung
+benötigen, ist die Unterstützung von HTTPS (\anfref{Q70}) ebenfalls nötig. Zudem
+muss die Darstellung von \ac{AR}/\ac{VR}-Inhalten (Ft-T3) möglich sein. Zusätzlich sollten
+die Frameworks ausgereift und umfassend getestet sein (\anfref{R60},
+\anfref{Q30}), sowie performant und kompakt (\anfref{R30}, \anfref{Q80}). Auf
+Seite der Veranstaltenden sollte der Framework das übersichtliche Verwalten der
+eingetragenen Informationen ermöglichen (\anfref{F10}) und um die vorgesehenen
+Funktionen aus \autoref{sec:concept-func} erweiterbar sein.
+
+\urldef\strapidep\url{https://github.com/strapi/strapi/network/dependents?package%5Fid=UGFja2FnZS0xODMyNjEwNQ%3D%3D}
+
+Unter Beachtung dieser Anforderungen werden die Frameworks der EMI-Award-App nun
+erneut betrachtet. Die Grundlage des Frontends bildet der progressive JavaScript
+Framework \textit{Vue.js}. Bei der Nutzung von Vue CLI kann die
+PWA-Funktionalität mithilfe des \textit{@vue/cli-plugin-pwa} Pakets schnell
+eingebunden werden. Zudem ist Vue.js mit 33.6kB \cite[{v3.2.29, minifiziert und
+            komprimiert}]{Kanodia2022} ein kompakter Framework und kleiner als die zwei
+größten Konkurrenten Angular (62.3kB) und React (42.2kB). Ebenfalls schneidet
+Vue.js in Leistungs-Benchmarks besser ab \cite{Krause2022}. Weiterhin ist Vue.js
+mit 192.814 GitHub-Sternen\footnote{Stand 05.02.2022,
+    https://github.com/vuejs/vue} der beliebteste Framework (React
+181.881\footnote{Stand 05.02.2022, \url{https://github.com/facebook/react}},
+Angular 79.393\footnote{Stand 05.02.2022,
+    \url{https://github.com/angular/angular}}), woraus sich eine ausgiebige Nutzung
+und Testung schließen lässt. \\
+Für die Einbindung der \ac{AR}/\ac{VR}-Inhalte wurde in der EMI-Award-App
+\textit{A-Frame} genutzt. Bei A-Frame handelt es sich um Web-Framework für
+\ac{XR} Erlebnisse, welcher auf der bekannten\footnote{Stand 06.02.2022: 78.787
+    GitHub-Sterne} JavaScript Bibliothek \textit{Three.js}\footnote{\url{https://github.com/mrdoob/three.js}} aufbaut. Mit 13.696
+GitHub-Sternen\footnote{Stand 06.02.2022,
+    \url{https://github.com/aframevr/aframe/}} ist A-Frame einer der beliebtesten
+Frameworks für \ac{VR}/\ac{AR}-Inhalte im Web-Kontext. Die Vorzeigeprojekte\footnote{\url{https://aframe.io/showcase/}} des Frameworks und Anzahl der
+GitHub-Sterne weißen hier ebenfalls auf seinen ausgereiften Status hin. \\
+Das Backend der EMI-Award-App baut auf dem \ac{CMS} \textit{Strapi} auf. Mit
+42.895 GitHub-Sternen\footnote{Stand 06.02.2022,
+    \url{https://github.com/strapi/strapi}} ist Strapi das beliebteste quelloffene
+\ac{CMS} auf GitHub und wird in 22.888\footnote{Stand 06.02.2022, \strapidep}
+Projekten verwendet. Das \ac{CMS} bietet eine Oberfläche zum Erstellen,
+Bearbeiten und Löschen von Informationen und lässt sich durch sein Plugin-System
+erweitern \cite{Strapi2021}. Das Plugin-System setzt in der Web-Oberfläche
+jedoch die Nutzung von React voraus.
+
+Alle aufgeführten Frameworks erfüllen die relevanten Anforderungen. Somit wurde
+sich dazu entschieden, die genutzten Frameworks der EMI-Award-App beizubehalten.
+
 \section{Interface-Design} \label{sec:interface-design}
 
 In diesem Abschnitt wird die Benutzeroberfläche aus Sicht der Veranstaltenden
@@ -174,6 +238,14 @@ und Teilnehmenden vorgestellt.
 
 
 \subsection{Veranstaltende}
+
+Das für die Verwaltung der veranstaltungsbezogenen Daten genutzte Framework
+\textit{Strapi} besitzt bereits eine fertige Oberfläche zum Eintragen, Ändern
+und Löschen von Daten. Zudem nutzt Strapi für Erweiterungen ein eigenes
+Designsystem. Zur einheitlichen Gestaltung der Benutzeroberfläche wird dieses
+Designsystem berücksichtigt. Da Designdetails wie z. B. Farbe und Rundungen
+somit vorgegeben und nicht relevant sind, wurden lediglich low-fidelity
+Prototypen angefertigt, welche im Folgenden präsentiert werden.
 
 
 
@@ -437,64 +509,6 @@ oberen Bildschirmrand angezeigt (s. \autoref{fig:prototype-notification}). Die
 Benachrichtigung verschwindet dabei nicht von allein und muss von Teilnehmenden
 manuell geschlossen werden. Somit wird sichergestellt, dass Teilnehmende die
 Benachrichtigung wahrnehmen.
-
-
-\section{Frameworks} \label{sec:frameworks}
-
-Da die Wahl von Frameworks aufgrund der unterschiedlich Arbeitsweisen und
-Funktionalitäten einen großen Einfluss auf die Systemarchitektur hat, werden an
-dieser Stelle die zu nutzenden Frameworks vorgestellt und begründet festgelegt.
-Die Grundlage der Auswahl bilden die genutzten Frameworks der EMI-Award-App,
-welche bereits in \ssecref{ssec:analysis-old-tech} aufgeführt wurden. Dabei wird
-überprüft, ob die genutzten Frameworks die neuen Anforderungen aus
-\autoref{sec:analysis-anf} berücksichtigen.
-
-Nach wie vor werden Web-Frameworks vorausgesetzt (\anfref{R10}). Auf der Seite
-des Teilnehmenden sollten diese zur offline Verfügbarkeit (\anfref{Q60}) die
-Nutzung von \acp{PWA} unterstützen. Da \acp{PWA} eine gesicherte Verbindung
-benötigen, ist die Unterstützung von HTTPS (\anfref{Q70}) ebenfalls nötig. Zudem
-muss die Darstellung von \ac{AR}/\ac{VR}-Inhalten (Ft-T3) möglich sein. Zusätzlich sollten
-die Frameworks ausgereift und umfassend getestet sein (\anfref{R60},
-\anfref{Q30}), sowie performant und kompakt (\anfref{R30}, \anfref{Q80}). Auf
-Seite der Veranstaltenden sollte der Framework das übersichtliche Verwalten der
-eingetragenen Informationen ermöglichen (\anfref{F10}) und um die vorgesehenen
-Funktionen aus \autoref{sec:concept-func} erweiterbar sein.
-
-\urldef\strapidep\url{https://github.com/strapi/strapi/network/dependents?package%5Fid=UGFja2FnZS0xODMyNjEwNQ%3D%3D}
-
-Unter Beachtung dieser Anforderungen werden die Frameworks der EMI-Award-App nun
-erneut betrachtet. Die Grundlage des Frontends bildet der progressive JavaScript
-Framework \textit{Vue.js}. Bei der Nutzung von Vue CLI kann die
-PWA-Funktionalität mithilfe des \textit{@vue/cli-plugin-pwa} Pakets schnell
-eingebunden werden. Zudem ist Vue.js mit 33.6kB \cite[{v3.2.29, minifiziert und
-            komprimiert}]{Kanodia2022} ein kompakter Framework und kleiner als die zwei
-größten Konkurrenten Angular (62.3kB) und React (42.2kB). Ebenfalls schneidet
-Vue.js in Leistungs-Benchmarks besser ab \cite{Krause2022}. Weiterhin ist Vue.js
-mit 192.814 GitHub-Sternen\footnote{Stand 05.02.2022,
-    https://github.com/vuejs/vue} der beliebteste Framework (React
-181.881\footnote{Stand 05.02.2022, \url{https://github.com/facebook/react}},
-Angular 79.393\footnote{Stand 05.02.2022,
-    \url{https://github.com/angular/angular}}), woraus sich eine ausgiebige Nutzung
-und Testung schließen lässt. \\
-Für die Einbindung der \ac{AR}/\ac{VR}-Inhalte wurde in der EMI-Award-App
-\textit{A-Frame} genutzt. Bei A-Frame handelt es sich um Web-Framework für
-\ac{XR} Erlebnisse, welcher auf der bekannten\footnote{Stand 06.02.2022: 78.787
-    GitHub-Sterne} JavaScript Bibliothek \textit{Three.js}\footnote{\url{https://github.com/mrdoob/three.js}} aufbaut. Mit 13.696
-GitHub-Sternen\footnote{Stand 06.02.2022,
-    \url{https://github.com/aframevr/aframe/}} ist A-Frame einer der beliebtesten
-Frameworks für \ac{VR}/\ac{AR}-Inhalte im Web-Kontext. Die Vorzeigeprojekte\footnote{\url{https://aframe.io/showcase/}} des Frameworks und Anzahl der
-GitHub-Sterne weißen hier ebenfalls auf seinen ausgereiften Status hin. \\
-Das Backend der EMI-Award-App baut auf dem \ac{CMS} \textit{Strapi} auf. Mit
-42.895 GitHub-Sternen\footnote{Stand 06.02.2022,
-    \url{https://github.com/strapi/strapi}} ist Strapi das beliebteste quelloffene
-\ac{CMS} auf GitHub und wird in 22.888\footnote{Stand 06.02.2022, \strapidep}
-Projekten verwendet. Das \ac{CMS} bietet eine Oberfläche zum Erstellen,
-Bearbeiten und Löschen von Informationen und lässt sich durch sein Plugin-System
-erweitern \cite{Strapi2021}. Das Plugin-System setzt in der Web-Oberfläche
-jedoch die Nutzung von React voraus.
-
-Alle aufgeführten Frameworks erfüllen die relevanten Anforderungen. Somit wurde
-sich dazu entschieden, die genutzten Frameworks der EMI-Award-App beizubehalten.
 
 \section{Systemarchitektur} \label{sec:system-architecture}
 

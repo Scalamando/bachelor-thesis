@@ -51,7 +51,7 @@ informellen Erfahrungsberichten hervor, dass Teilnehmende an Projektstandorten
 \section{Ziele dieser Arbeit} \label{sec:goals}
 
 Im Rahmen dieser Bachelorarbeit wurde eine Erweiterung und Verallgemeinerung der
-EMI-Award-App in Form eines flexiblen AR-Event-App-Frameworks für ortsbasierte
+EMI-Award-App in Form eines flexiblen Event-App-Frameworks für ortsbasierte
 Veranstaltungen konzipiert und entwickelt. Dabei wurde die Organisation von
 Veranstaltungen und Teilnahme näher analysiert. Zudem wurden die Vor- und
 Nachteile der bestehenden Anwendung einbezogen. Der Framework unterstützt
@@ -76,17 +76,48 @@ gewünschten Aktionen lenken.
 \section{Aufbau der Arbeit}
 
 Die Entwicklung des Frameworks orientiert sich am menschenzentrierten
-Gestaltungsprozess \citedin{DINISO9241}. Der Prozess gliedert sich im Rahmen
-dieser Arbeit in vier Phasen, welche sich wie in \autoref{fig:vorgehen}
-gliedern.
-
+Gestaltungsprozess \citedin{DINISO9241}. Der Prozess teilt im Rahmen dieser
+Arbeit in vier aufeinanderfolgende Phasen, welche sich wie in
+\autoref{fig:vorgehen} gliedern.
 
 \begin{figure}[htpb]
     \centering
     \includegraphics[width=\linewidth]{vorgehen.png}
-    \caption{Vorgehen in dieser Bachelorarbeit \citedin[][angelehnt an]{DINISO9241}}
+    \caption{Das Vorgehen dieser Bachelorarbeit}
     \label{fig:vorgehen}
 \end{figure}
+
+In der ersten Phase (s. \autoref{chapter:analysis}) wurden die Anforderungen an das zu erstellende Framework
+erarbeitet. Zuerst wurde Nutzungskontext des Frameworks analysiert. Hierzu
+wurden eine Literaturrecherche und Interviews mit Teilnehmenden und
+Veranstaltenden durchgeführt, um ein besseres Verständnis für die Planung und
+Durchführung von Veranstaltungen, sowie der Probleme in diesen Phasen, zu
+erlangen. Des Weiteren wurde das bestehende System, die EMI-Award-App,
+analysiert, um den Stand der Technik zu beleuchten. Abschließend wurden die
+gesammelten Erkenntnisse in Form von formalen Anforderungen festgehalten.
+
+Während der Konzeptionsphase (s. \autoref{chapter:conception}) wurden, auf Basis der formalen Anforderungen,
+Funktionalitäten des Frameworks konzipiert. Hierbei wurde auf den
+Funktionalitäten des bestehenden Systems aufgebaut und weitere Funktionalitäten
+hinzugefügt, um die Anforderungen abzudecken. Anschließend wurde das
+Interfacedesign der Frame\-work-Kom\-po\-nen\-ten entwickelt. Abschließend
+wurden auf Grundlage der Anforderungen die zu nutzenden Frameworks festgelegt
+und darauf aufbauend die Systemarchitektur festgelegt.
+
+Zur Implementierungsphase (s. \autoref{chapter:implementation}) wurden die zuvor konzipierten Entwürfe des Systems
+realisiert. Hierbei wurden die in der Konzeptionsphase festgelegten Frameworks
+genutzt. Im anschließenden Kapitel wurde das realisierte System anhand von
+Dialogbeispielen präsentiert (s. \autoref{chapter:dialog}).
+
+In der letzten Phase (s. \autoref{chapter:evaluation}) wurde das entwickelte System von Teilnehmenden und
+Veranstaltenden evaluiert. Für die Seite der Veranstaltenden wurde erhoben,
+inwieweit das System in der Organisation und Durchführung unterstützt. Ein
+besonderes Merkmal wird hierbei auf die Überwachung der Veranstaltung gesetzt.
+Durch die Teilnehmenden wurde erhoben, ob und wie sehr die implementierten
+Funktionalitäten zur Orientierung während des Besuchs der Veranstaltung
+unterstützen konnten. Abschließend werden die Ergebnisse diskutiert und ein
+Ausblick über offene Punkte, mögliche Erweiterungen und Weiterentwicklungen des
+Systems gegeben (s. \autoref{chapter:summary}).
 
 % \begin{figure}[htpb]
 %     \renewcommand\baselinestretch{1}
