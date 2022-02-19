@@ -1,9 +1,12 @@
 {
 	"folders": [
-		{
-			"path": "."
-		}
-	],
+        {
+            "path": "."
+        },
+        {
+            "path": "..\\LaTeX Template\\LaTeX Template"
+        }
+    ],
 	"settings": {
 		"workbench.colorCustomizations": {
 			"activityBar.activeBackground": "#1f6fd0",

@@ -1328,64 +1328,127 @@
 \def\uzl@make@titlepage{
   \pagenumbering{roman}  % but no page numbers are printed here because:
   \thispagestyle{empty}
+  \vspace*{-2.2cm}
+  \begin{center}
+  \includegraphics[width=12.2cm]{images/imislogo-de.pdf}\\
+%   \vspace{.3cm}
   {
-    \selectlanguage{german}
-    \parindent0pt
-    \parskip.25em
-    {%
-      \setbox0=\hbox{\kern-\uzl@x@offset\lower\uzl@y@offset\hbox{\includegraphics{\uzl@logo}}}%
-      \wd0=0pt
-      \ht0=5mm
-      \dp0=2cm
-      \leavevmode\box0
-      \par
-    }%
-    \UzLStyle{title page}%
+    \fontsize{12pt}{18pt}\selectfont
+    \sffamily
+    {\color{lightgray}\hspace*{2.375cm} Direktor: Prof. Dr. rer. nat. Michael Herczeg}\\
+  }
+  \vspace{0.7cm}
+  {
+    \fontsize{20pt}{22pt}\selectfont
+    \sffamily\bfseries
+    Event-App Framework für ortsbezogene Veranstaltungen
+
+  }
+  \vspace{0.3cm}
+  {
+    \fontsize{17pt}{19pt}\selectfont
+    \sffamily\mdseries
+    Event-App Framework for location-based Events
+
+  }
+
+  \vspace{1cm}
+  {
+    \fontsize{12pt}{12pt}\selectfont
+    \sffamily
+    \textbf{Bachelorarbeit}
+
+    \vspace{0.25cm}
+
+    im Rahmen des Studiengangs
+
+    \textbf{Medieninformatik}
+
+    der Universität zu Lübeck
+
+    \vspace{0.7cm}
+
+    vorgelegt von:
+
+    \textbf{Raimund Canzler}
+
+    \vspace{0.7cm}
+
+    ausgegeben und betreut von:
+
+    \textbf{Univ.-Prof. Dr.-Ing. Nicole Jochems Dipl.-Inform.}
+
+    \vspace{0.7cm}
+
+    mit Unterstützung von:
+
+    \textbf{Torben Volkmann, M.Sc.}
+
     \vfill
-    {
-      {\UzLStyle{title on title page}\ifuzl@german\foreignlanguage{german}{\ignorespaces\uzl@title@german}\else\foreignlanguage{english}{\ignorespaces\uzl@title@english}\fi\par}
-      \medskip
-      {\UzLStyle{translated title on title page}\ifuzl@german\foreignlanguage{english}{\ignorespaces\uzl@title@english}\else\foreignlanguage{german}{\ignorespaces\uzl@title@german}\fi\par}
-    }%
-    \vskip2.5em
-    {\UzLStyle{element on title page}\ignorespaces\uzl@degree}
-    \par
-    \vskip1.5em
-    verfasst \uzl@institute@am\\
-    {\UzLStyle{element on title page}\ignorespaces\uzl@institute}\par
-    \par
-    \vskip1.5em
-    im Rahmen des Studiengangs\\
-    {\UzLStyle{element on title page}\ignorespaces\uzl@programme}\\
-    der Universität zu Lübeck\par
-    \vskip1.5em
-    vorgelegt von\\
-    {\UzLStyle{element on title page}\ignorespaces\uzl@author}\par
-    \vskip1.5em
-    ausgegeben und betreut von\\
-    {\UzLStyle{element on title page}\ignorespaces\uzl@supervisor}%
-    \par
-    \vskip1.5em
-    \ifx\uzl@support@person\relax\else%
-      mit Unterstützung von\\
-      {\UzLStyle{element on title page}\ignorespaces\uzl@support@person}\par
-      \vskip1.5em
-    \fi
-    \ifx\uzl@support@further\relax\else%
-      \ignorespaces\uzl@support@further\par
-    \fi
-    \vfill
-    \vfill
-    Lübeck, den \ignorespaces\uzl@date\par
-    \vskip-2em
-    \raggedright
-    \noindent\hfill{%
-      \setbox0=\hbox{\lower2.1cm\hbox{\includegraphics{res/uzl-thesis-logo-slogan.pdf}}\kern-1.1cm}%
-      \dp0=0pt%
-      \box0%
-    }%
+
+    Lübeck, den \today
     \clearpage
   }
+\end{center}
+%   \thispagestyle{empty}
+%   {
+%     \selectlanguage{german}
+%     \parindent0pt
+%     \parskip.25em
+%     {%
+%       \setbox0=\hbox{\kern-\uzl@x@offset\lower\uzl@y@offset\hbox{\includegraphics{\uzl@logo}}}%
+%       \wd0=0pt
+%       \ht0=5mm
+%       \dp0=2cm
+%       \leavevmode\box0
+%       \par
+%     }%
+%     \UzLStyle{title page}%
+%     \vfill
+%     {
+%       {\UzLStyle{title on title page}\ifuzl@german\foreignlanguage{german}{\ignorespaces\uzl@title@german}\else\foreignlanguage{english}{\ignorespaces\uzl@title@english}\fi\par}
+%       \medskip
+%       {\UzLStyle{translated title on title page}\ifuzl@german\foreignlanguage{english}{\ignorespaces\uzl@title@english}\else\foreignlanguage{german}{\ignorespaces\uzl@title@german}\fi\par}
+%     }%
+%     \vskip2.5em
+%     {\UzLStyle{element on title page}\ignorespaces\uzl@degree}
+%     \par
+%     \vskip1.5em
+%     verfasst \uzl@institute@am\\
+%     {\UzLStyle{element on title page}\ignorespaces\uzl@institute}\par
+%     \par
+%     \vskip1.5em
+%     im Rahmen des Studiengangs\\
+%     {\UzLStyle{element on title page}\ignorespaces\uzl@programme}\\
+%     der Universität zu Lübeck\par
+%     \vskip1.5em
+%     vorgelegt von\\
+%     {\UzLStyle{element on title page}\ignorespaces\uzl@author}\par
+%     \vskip1.5em
+%     ausgegeben und betreut von\\
+%     {\UzLStyle{element on title page}\ignorespaces\uzl@supervisor}%
+%     \par
+%     \vskip1.5em
+%     \ifx\uzl@support@person\relax\else%
+%       mit Unterstützung von\\
+%       {\UzLStyle{element on title page}\ignorespaces\uzl@support@person}\par
+%       \vskip1.5em
+%     \fi
+%     \ifx\uzl@support@further\relax\else%
+%       \ignorespaces\uzl@support@further\par
+%     \fi
+%     \vfill
+%     \vfill
+%     Lübeck, den \ignorespaces\uzl@date\par
+%     \vskip-2em
+%     \raggedright
+%     \noindent\hfill{%
+%       \setbox0=\hbox{\lower2.1cm\hbox{\includegraphics{res/uzl-thesis-logo-slogan.pdf}}\kern-1.1cm}%
+%       \dp0=0pt%
+%       \box0%
+%     }%
+%     \clearpage
+%   }
 }
 
 
