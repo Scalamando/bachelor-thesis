@@ -6,7 +6,7 @@ ermitteln, ob Nutzergruppen Veranstaltende und Teilnehmende (vgl.
 \autoref{sec:analysis-user}) ihre Schnittstelle des Systems bedienen konnten und
 sich durch das System unterstützt gefühlt haben. Dieses Kapitel ist in einen
 Abschnitt pro Nutzergruppe unterteilt, in welchem das Vorgehen, die Methodik und
-Ergebnisse beschrieben werden. Anschließend werden die Ergebnisse diskutiert.
+Ergebnisse beschrieben werden.
 
 \section{Teilnehmende}
 
@@ -69,15 +69,6 @@ Auswahlmöglichkeiten \textit{nicht hilfreich, wenig hilfreich, hilfreich} und
 \textit{sehr hilfreich} als 0 bis 4 gewertet. Die schlechtestmögliche Wertung
 ist somit 0 und die bestmögliche Wertung 4. In der Tabelle werden Mittelwert (M)
 und Standardabweichung (SD) präsentiert.
-
-% - Teilnehmeranzahl Umfrage
-% - Abgeschlossen / Abgebrochen
-% - Anteil Veranstaltung
-
-% - Mittelwerte
-% - Standardabweichung
-%   - Hilfreichigkeit
-% -
 
 \newcolumntype{Y}{>{\centering\arraybackslash}X}
 
@@ -188,20 +179,66 @@ wurden als weitere Möglichkeiten angegeben:
 
 \section{Veranstaltende}
 
-% Beschreibung des Einsatzszenarios
-% - Media Moments / EMI-Award
-
-% Teilnehmeranzahl = 1
-
+Während die Stadt- und Campusrallye zur Evaluation durch Teilnehmende dient,
+wurde die Seite der Veranstaltenden im Rahmen der Media Moments des EMI-Awards
+getestet. Die Media Moments des EMI-Awards fanden vom 2.2.22 bis zum 20.02.22
+statt. Dort war es mithilfe der App möglich, verschiedene Stationen verteilt
+durch die Lübecker Innenstadt zu besuchen (vgl. \autoref{chapter:introduction}).
 
 \subsection{Vorgehen und Methodik}
-% - Interview
-% -
 
+Die Evaluation wurde mittels eines qualitativen Online-Interviews mit einem
+Verantwortlichen des EMI-Awards durchgeführt. Hierfür wurde ein
+Interviewleitfaden entwickelt (vgl. \autoref{appendix:evaluation}). Dieser soll
+die Gebrauchstauglichkeit des Systems während Organisations- und
+Durchführungsphase feststellen. Hierzu wurde die Bedienung der Strapi Oberfläche
+und des Dashboards evaluiert.
 
 \subsection{Ergebnisse}
 
-%
+Zunächst wurde die Organisationsphase erläutert, in welcher die
+veranstaltungsbezogenen Inhalte in das System integriert werden. Während des
+Erstellens der Stationen ist das neue Location-Picker Plugin und die Nutzung von
+Markdown zur Eintragung der Texte positiv aufgefallen. Jedoch wurde dem
+Location-Picker Plugin angemerkt, dass eine manuelle Eintragung von Breiten- und
+Längengrad hilfreich wäre, da die Karte in nahen Zoomstufen an Detail verliert.
+Zudem wurde sich eine Vorschaufunktion für die Stationen gewünscht. Dies sei
+besonders wichtig, da die Veranstaltung vor Start nicht einsehbar ist.
+Schließlich wurde bemängelt, dass es keinen Hinweis zur Zeichenbegrenzung der
+Kurzbeschreibung gab, weshalb Texte auf Verdacht gekürzt werden mussten, bis die
+Zeichenlänge eingehalten wurde. Die Einrichtung der neuen Abzeichen wurde als
+„ersichtlich“ beschrieben, wobei die Abschlussbedingung einiger Abzeichen nicht
+sofort ersichtlich war. Das Eintragen der Veranstaltungsdaten in der
+Konfigurationsansicht des Dashboards erschien ebenfalls ersichtlich. Jedoch
+wurde angemerkt, dass einige erzwungene Daten der Stationen das Speichern
+erschwerten, wenn zum Zeitpunkt des Eintragens nicht alle Informationen bekannt
+waren.
 
-\section{Diskussion}
-% - Folgerung
+In der Durchführung wurde das Dashboard als „deutlicher Mehrwert“ eingestuft.
+Besonders positiv aufgefallen sind die Statistiken. Die Aufteilung in
+Gesamtanzahl und pro Tag wurde als sinnvoll empfunden. Der Stationsstatistik
+wurde angemerkt, dass das Anklicken einer Station zu dieser führen sollte. Dies
+sei besonders praktisch, um stationsbezogene Probleme schneller ausfindig machen
+zu können. Auch die Abzeicheneinreichungen wurden als „sehr eingängig“
+beschrieben. Bemängelt wurde hierbei die fehlende Möglichkeit alte Einreichungen
+einzusehen. Zudem würde eine Benachrichtigung bei neuen Einreichungen hilfreich
+sein. Zu Feedback-Anfragen und Benachrichtigungen konnten keine Aussagen
+getroffen werden, da diese nicht genutzt wurden. Trotz dessen wurde angemerkt,
+dass die Funktionsweise der Feedback-Anfragen sich nicht aus der Beschreibung
+der Oberfläche ergibt.
+
+\section{Fazit}
+
+Die Evaluation beider Seiten des Systems verlief erfolgreich. Sowohl die
+Ergebnisse der Teilnehmendenbefragung als auch des Veranstaltendeninterviews
+zeigen, dass das System als Unterstützung wahrgenommen wurde. Auf Seite der
+Teilnehmenden wurden alle Funktionalitäten, trotz der teils schweren technischen
+Probleme, überwiegend als hilfreich und sehr hilfreich eingestuft. Zudem würden
+über 95\% der Teilnehmenden das System auch gerne in anderen
+Veranstaltungskontexten nutzen. Auch aus Sicht der Veranstaltenden war die
+Nutzung des Systems überwiegend positiv eingestuft worden. Beispielsweise wurde
+das Dashboard wurde durch die Statistiken als „deutlicher Mehrwert“ bezeichnet.
+
+
+% - positive Bewertung
+% - nutzungwunsch für andere systeme
