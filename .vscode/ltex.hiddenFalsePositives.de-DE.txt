@@ -44,3 +44,5 @@
 {"rule":"GERMAN_SPELLER_RULE","sentence":"^\\QHierbei wird die Komponente nach der Art ihrer Inhalte, der sogenannten „Options“, strukturiert.\\E$"}
 {"rule":"DE_AGREEMENT","sentence":"^\\QFür jede in der Liste vorhandene Station wird eine Map-Marker Komponente instanziert und mit den Daten der jeweiligen Station versorgt.\\E$"}
 {"rule":"GERMAN_SPELLER_RULE","sentence":"^\\QDafür füllt er die benötigten Felder auf der Benachrichtigungsseite aus\\E$"}
+{"rule":"DE_CASE","sentence":"^\\QDie Evaluation soll ermitteln, ob Veranstaltende und Teilnehmende sich durch das System unterstützt gefühlt haben.\\E$"}
+{"rule":"GERMAN_SPELLER_RULE","sentence":"^\\QAlle Teilnehmenden, bei denen die Nachrichten einging, stimmten zu, dass sie durch jene das Gefühl bekämen, nichts Veranstaltungsrelevantes zu verpassen.\\E$"}

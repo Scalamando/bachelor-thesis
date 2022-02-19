@@ -1,20 +1,207 @@
 \chapter{Evaluation} \label{chapter:evaluation}
 
-Darauf folgend wurde das Framework im Rahmen der Stadt- und Campusrallye der
-Vorwoche an der Universität zu Lübeck eingesetzt und anschließend evaluiert.
-Hierzu wurde für Teilnehmende eine quantitative Online-Befragung durchgeführt,
-während die Veranstaltenden im Anschluss zum Einsatz interviewt wurden.
+Zur Überprüfung der Gebrauchstauglichkeit und Nützlichkeit der Web-App und des
+Dashboards wurde eine summative Evaluation durchgeführt. Die Evaluation soll
+ermitteln, ob Nutzergruppen Veranstaltende und Teilnehmende (vgl.
+\autoref{sec:analysis-user}) ihre Schnittstelle des Systems bedienen konnten und
+sich durch das System unterstützt gefühlt haben. Dieses Kapitel ist in einen
+Abschnitt pro Nutzergruppe unterteilt, in welchem das Vorgehen, die Methodik und
+Ergebnisse beschrieben werden. Anschließend werden die Ergebnisse diskutiert.
 
 \section{Teilnehmende}
 
-\subsection{Methodik}
+Das System wurde insgesamt in drei Veranstaltungen eingesetzt und getestet. In
+zwei der drei Veranstaltungen wurde die App durch Teilnehmende evaluiert.
+Hierbei handelt es sich um die Stadt- und Campusrallye der Vorwoche an der
+Universität zu Lübeck. Die Stadtrallye fand am 9.10.21, von 9 Uhr bis 16 Uhr,
+auf der Lübecker Altstadt-Insel statt. Teilnehmende konnten über die gesamte
+Altstadt verteilt Stationen besuchen. Insgesamt nahmen ca. 800 Studierende teil,
+von denen ca. 500 die App genutzt haben. Die Campusrallye fand am 13.10.21, von
+9 Uhr bis 15 Uhr statt. Dort wurden Stationen über den gesamten Campus der
+Universität verteilt aufgebaut. Hierbei wurden die Studierenden in zwei Gruppen
+aufgeteilt, wobei Gruppe eins von 9 Uhr bis 12 Uhr und Gruppe zwei von 12 Uhr
+bis 15 Uhr vor Ort war. An der Campusrallye nahmen ebenfalls ca. 800 Studierende
+Teil, von denen etwa 400 die App verwendet haben.
+
+% Beschreiben des Einsatzszenarios
+% - Stadtrallye
+% - Campusrallye
+
+% Eigenschaften
+% - Teilnehmeranzahl
+% - räumliche Begrenzung
+% - zeitliche Begrenzung
+
+\subsection{Vorgehen und Methodik}
+
+Um die Gebrauchstauglichkeit und Nützlichkeit der Web-App festzustellen, wurde
+ein Online-Fragebogen entworfen (s. \autoref{appendix:cd}). Dieser enthielt
+Fragen zu beiden oben genannten Veranstaltungen. Zu Beginn des Fragebogens
+mussten Proband:innen die Veranstaltungen anzukreuzen, an denen sie teilgenommen
+haben. Von hier an enthielt der Fragebogen nur noch Fragen zu den gewählten
+Veranstaltungen. In beiden Fällen wurde zuerst die Nützlichkeit der eingesetzten
+Funktionalitäten bewertet. Dies geschah mit einer 4-Punkt Likert-Skala, welche
+mit \textit{nicht hilfreich, wenig hilfreich, hilfreich} und \textit{sehr
+    hilfreich} beschriftet wurde. Zu jeder Funktionalität wurde, je nach gewähltem
+Punkt auf der Likert-Skala, in Freitext-Form nachgefragt, wieso die bewertete
+Funktionalität weniger / nicht hilfreich oder (sehr) hilfreich war. Zudem wurden
+einige Fragen zum Einsatz der Abzeichen und Push-Benachrichtigungen gestellt,
+welche in Stadt- und Campusrallye unterschiedlich stark eingesetzt wurden.
+Schließlich wurden Proband:innen befragt, wie sie das System in seiner
+Gesamtheit bewerten würden und ob sie sich dieses System für andere
+Veranstaltungen vorstellen könnten.
 
 % Quantitative Befragung mit LimeSurvey
+% - Fragebogen ist im Anhang
+% - Gemeinsamer Fragebogen für Stadt- und Campusrallye
+% - Aufteilung durch Abfrage zu Beginn
+% - Likert-Skala „hilfreich“ zu Funktionalitäten, die jeweils im Einsatz waren
+% - Freitext Fragen, je nach „hilfreich“-Antwort (warum? / warum nicht?)
+% - Frage zu technischen Problemen
 
 \subsection{Ergebnisse}
+
+An dem Online-Fragebogen nahmen insgesamt 74 Proband:innen teil, wovon 63 die
+Stadtrallye besuchten und 58 die Campusrallye. 53 Proband:innen (71.6\%) füllten
+den Fragebogen vollständig aus. Die empfundene Nützlichkeit der Funktionalitäten
+ist in \autoref{table:evaluation-result-func} dargestellt. Hierbei wurden die
+Auswahlmöglichkeiten \textit{nicht hilfreich, wenig hilfreich, hilfreich} und
+\textit{sehr hilfreich} als 0 bis 4 gewertet. Die schlechtestmögliche Wertung
+ist somit 0 und die bestmögliche Wertung 4. In der Tabelle werden Mittelwert (M)
+und Standardabweichung (SD) präsentiert.
+
+% - Teilnehmeranzahl Umfrage
+% - Abgeschlossen / Abgebrochen
+% - Anteil Veranstaltung
+
+% - Mittelwerte
+% - Standardabweichung
+%   - Hilfreichigkeit
+% -
+
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+
+\begin{table}[htpb]
+    \def\arraystretch{1.5}
+    \renewcommand\baselinestretch{1}
+    \centering
+    \caption{Funktionalitäten der EMI-Award-App}
+    \label{table:evaluation-result-func}
+    \begin{tabularx}{\textwidth}{p{2.5cm}YYYY}
+        \uzlhline
+        \uzlemph{Veranstaltung}                                                 & \uzlemph{\textbf{Interaktive
+        Karte} \linebreak\linebreak M \linebreak (SD)}                          &
+        \uzlemph{\textbf{Stationsliste} \linebreak\linebreak M \linebreak (SD)} & \uzlemph{\textbf{Virtuelles Besuchen} \linebreak M \linebreak (SD)} &
+        \uzlemph{\textbf{Hilfe im FAQ-Stil} \linebreak\linebreak M \linebreak (SD)}                                                                                     \\
+        \uzlhline%
+        \vspace{-7pt}\parbox[b][][t]{2.5cm}{Stadtrallye (n=63)}
+                                                                                & 3,85
+        \linebreak (0,57)                                                       & 3,42
+        \linebreak (0,72)                                                       & 2,96
+        \linebreak (1,14)                                                       & 3,43
+        \linebreak (1,39)                                                                                                                                               \\
+        \parbox[t][][t]{2.5cm}{Campusrallye (n=58)}                             & 3,76
+        \linebreak (0,43)                                                       & 3,37
+        \linebreak (0,73)                                                       & 3,08
+        \linebreak (0,86)
+                                                                                & -                                                                                     \\
+        \parbox[t][][t]{2.5cm}{Insgesamt (n=74)}                                & 3,81                                                              & 3,4 & 3,02 & 3,43 \\
+        \uzlhline
+    \end{tabularx}
+\end{table}
+
+Die interaktive Karte misst mit 3,81 den höchsten Mittelwert. In den Freitext
+Abgaben der Proband:innen werden die Übersichtlichkeit der Stationen sowie das
+kenntlich Machen der besuchten Stationen als Gründe für die Nützlichkeit
+angeführt. Zudem unterstütze die Karte in der Routenplanung und somit der
+Orientierung während der Veranstaltung. Jedoch sei die Übersichtlichkeit bei
+mehreren Stationen innerhalb eines Gebäudes eingeschränkt. Ein:e Proband:in
+bevorzugte zudem die Nutzung von Google Maps.
+
+An dritter Stelle steht die Stationsübersicht mit einem Mittelwert von 3,42 (SD
+0,72). Hier wurde das schnelle Erkennen der Stationsnähe und die Vorschau der
+Stationen positiv gewertet. Zudem führte ein:e Proband:in an, dass die Anordnung
+der Liste von ihr, der Übersichtlichkeit halber, bevorzugt werden würde.
+
+Das virtuelle Besuchen besitzt, trotz eines hohen Mittelwerts von 2,96 (SD 1,14)
+den niedrigsten Mittelwert. Proband:innen gaben an, dass die Markierung der
+besuchten Stationen die Übersichtlichkeit fördere. Zudem wurde es als
+kontaktlose Alternative zur papierbasierten Besuchsnotierung gelobt. Jedoch
+wurde der Prozess des virtuellen Besuchens öfter vergessen und funktionierte aus
+technischer Sicht teilweise nicht.
+
+Der FAQ steht mit einem Mittelwert von 3,43 (SD 1,39) an zweiter Stelle, jedoch
+wurde es nur in der Stadtrallye genutzt. Besonders zur Erstbenutzung wurde der FAQ als hilfreiche Ergänzung gesehen, welcher eine schnelle Hilfe für häufige
+Probleme und Fragen bietet.
+
+Da Abzeichen keine Funktionalität darstellen, die Teilnehmende direkt
+unterstützt, wurde die empfundene Nützlichkeit in einer separaten Frage
+ermittelt. Hierzu sollten Proband:innen angeben, ob und welchen Mehrwert sie den
+Abzeichen zuweisen. Vordergründig wurde angeführt, dass die Abzeichen motivieren
+und das Abschließen Spaß macht, besonders als Zeitvertreib zwischen den
+Stationen. Zudem stärke es in Gruppen den Teamgeist. Anderseits ist das
+Abschließen der Abzeichen teils zeitintensiv.
+
+Die Push-Benachrichtigungen wurden nur in der Campusrallye genutzt. Aufgrund von
+technischen Schwierigkeiten erhielten nur wenige Proband:innen die
+Benachrichtigungen. Alle Proband:innen, bei denen die Nachrichten einging,
+stimmten zu, dass sie durch jene das Gefühl bekämen, nichts
+Veranstaltungsrelevantes zu verpassen.
+
+Des Weiteren wurden Proband:innen dazu befragt, welche
+Funktionalitäten ihnen gefehlt hätten. Hierbei wurden die folgenden
+Funktionalitäten genannt:
+
+\begin{itemize}[label=\bullet]
+    \item Routenplanung
+    \item Chat-Funktion mit Veranstaltenden
+    \item Stellen einer Fragen
+    \item Auslastungsindikator für Stationen
+    \item Countdown für Veranstaltungsende
+\end{itemize}
+
+Außerdem sollte berücksichtigt werden, dass während der Veranstaltungen einige
+technische Probleme auftraten. Um sicherzustellen, dass negative Erfahrungen
+aufgrund technischer Schwierigkeiten die Ergebnisse der Evaluation nicht
+verzerren, wurden Proband:innen gebeten, ihnen widerfahrene Schwierigkeiten
+aufzuführen. Häufig angemerkte Punkte sind hierbei:
+
+\begin{itemize}[label=\bullet]
+    \item Login nicht möglich
+    \item Langsames Laden der App
+    \item Funktionsunfähige Kamera
+\end{itemize}
+
+Abschließend wurden Proband:innen gefragt, ob und wo sie sich eine App dieser
+Art auch für andere Veranstaltungen wünschen würden. 95,24\% der Proband:innen
+beantworteten diese Frage mit Ja. Folgende Veranstaltungskontexte
+wurden als weitere Möglichkeiten angegeben:
+
+\begin{itemize}[label=\bullet]
+    \item Festivals (mit Workshopangeboten)
+    \item Weihnachtsmarkt
+    \item Veranstaltungen mit größeren Bereichen
+    \item Messen
+    \item Freizeitpark
+    \item Infoveranstaltungen
+\end{itemize}
 
 \section{Veranstaltende}
 
-\subsection{Methodik}
+% Beschreibung des Einsatzszenarios
+% - Media Moments / EMI-Award
+
+% Teilnehmeranzahl = 1
+
+
+\subsection{Vorgehen und Methodik}
+% - Interview
+% -
+
 
 \subsection{Ergebnisse}
+
+%
+
+\section{Diskussion}
+% - Folgerung
