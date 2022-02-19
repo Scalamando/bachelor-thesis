@@ -43,3 +43,4 @@
 {"rule":"DE_AGREEMENT","sentence":"^\\QSomit kann das Endgerät, im Gegensatz zur Push API, auch Nachrichten an den Server schicken.\\E$"}
 {"rule":"GERMAN_SPELLER_RULE","sentence":"^\\QHierbei wird die Komponente nach der Art ihrer Inhalte, der sogenannten „Options“, strukturiert.\\E$"}
 {"rule":"DE_AGREEMENT","sentence":"^\\QFür jede in der Liste vorhandene Station wird eine Map-Marker Komponente instanziert und mit den Daten der jeweiligen Station versorgt.\\E$"}
+{"rule":"GERMAN_SPELLER_RULE","sentence":"^\\QDafür füllt er die benötigten Felder auf der Benachrichtigungsseite aus\\E$"}

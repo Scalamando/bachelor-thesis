@@ -1862,7 +1862,8 @@
 }
 
 \lstdefinelanguage{bash}{
-  keywords={vue, cd, npm, node},
+  keywords={vue, cd, npm, node, yarn, npx, docker},
+  ndkeywords={install},
   sensitive=true,
   morestring=[b]',
   morestring=[b]"
