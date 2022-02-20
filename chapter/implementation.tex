@@ -542,13 +542,6 @@ Strukturierung ermöglicht einen einheitlichen Aufbau über große Projekte. Jed
 besitzt sie auch einige große Nachteile, wenn Teile der Komponente extrahiert
 und wiederverwendbar gestaltet werden sollen\footnote{\vuemixin}.
 
-\begin{figure}[htpb]
-    \centering
-    \includegraphics[width=0.65\linewidth]{impl/code_options.png}
-    \caption{Beispiel-Komponente mit der Options API (Nur Script)}
-    \label{fig:impl-frontend-vue-api-options}
-\end{figure}
-
 \urldef\vuecomp\url{https://vuejs.org/guide/extras/composition-api-faq.html#why-composition-api}
 \urldef\vuets\url{https://vuejs.org/guide/extras/composition-api-faq.html#better-type-inference}
 
@@ -562,7 +555,14 @@ unterstützt\footnote{\vuets}. In dieser Arbeit wird, aufgrund der vorgestellten
 Vorteile und Empfehlung der offiziellen Dokumentation\footnote{\vuecomp}, die
 Composition API genutzt.
 
-\begin{figure}[htpb]
+\begin{figure}[hp]
+    \centering
+    \includegraphics[width=0.65\linewidth]{impl/code_options.png}
+    \caption{Beispiel-Komponente mit der Options API (Nur Script)}
+    \label{fig:impl-frontend-vue-api-options}
+\end{figure}
+
+\begin{figure}[hp]
     \centering
     \includegraphics[width=0.65\linewidth]{impl/code_composition.png}
     \caption{Beispiel-Komponente mit der Composition API (Nur Script)}
