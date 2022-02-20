@@ -17,7 +17,7 @@ Funktionalitäten sind aus \autoref{sec:concept-func} zu entnehmen. Zunächst wi
 der Aufbau einer Strapi-Anwendung erläutert und wie diese um die benötigten
 Kern-Funktionalitäten erweitert wurde. Anschließend wird die Einbindung von
 Push-Benachrichtigungen näher beschrieben. Abschließend wird erklärt, wie die
-Feedback-Funktionalität aufbauend auf Push-Benachrichtigungen implementiert
+Feedback-Funktionalität aufbauend auf Push-Benachrichtig\-ung\-en implementiert
 wurde.
 
 \subsection{Struktur eines Strapi-Projekts} \label{ssec:impl-backend-structure}
@@ -327,19 +327,19 @@ zusammensetzt. Im Folgenden werden diese beiden Technologien näher vorgestellt
 und ihre Aufgabe und Interaktion im System präsentiert.
 
 Der Web-Push Standard ermöglicht das Versenden und Empfangen von
-Push-Benach\-richti\-gungen im Web-Kontext. Ein Endgerät, wie z. B. ein Smartphone
-mit Browser, kann durch die Push API einen Push-Dienst abonnieren. Durch das
-Abonnieren erhält das Endgerät eine eindeutige URL, welche von einem Server, wie
-z. B. dem Backend, genutzt werden kann, um jederzeit Nachrichten an das Endgerät
-zu senden. Ein besonderer Vorteil der Web-Push Standards ist das Versenden von
-Nachrichten außerhalb der Browsernutzung. Sollten Teilnehmende die Web-App zum
-Zeitpunkt des Versendens nicht ausführen, so wird die Nachricht trotzdem
-empfangen. Die Funktionsweise der URL birgt jedoch ein Sicherheitsrisiko, da
-jeder mit dieser URL beliebige Nachrichten an das entsprechende Endgerät senden
-kann. Um diese Sicherheitslücke zu schließen, muss jedes Abonnement
-verschlüsselt werden. Dies geschieht mit VAPID-Schlüsseln \cite{VAPID}, wodurch
-auf dem Endgerät sichergestellt werden kann, das die Nachricht vom richtigen
-Server stammt.
+Push-Benach\-richti\-gungen im Web-Kontext. Ein Endgerät, wie z. B. ein
+Smartphone mit Browser, kann durch die Push API einen Push-Dienst abonnieren.
+Durch das Abonnieren erhält das Endgerät eine eindeutige URL, welche von einem
+Server, wie z. B. dem Backend, genutzt werden kann, um jederzeit Nachrichten an
+das Endgerät zu senden. Ein besonderer Vorteil der Web-Push Standards ist das
+Versenden von Nachrichten außerhalb der Browsernutzung. Sollten Teilnehmende die
+Web-App zum Zeitpunkt des Versendens nicht ausführen, so wird die Nachricht
+trotzdem empfangen. Die Funktionsweise der URL birgt jedoch ein
+Sicherheitsrisiko, da jeder mit dieser URL beliebige Nachrichten an das
+entsprechende Endgerät senden kann. Um diese Sicherheitslücke zu schließen, muss
+jedes Abonnement verschlüsselt werden. Dies geschieht mit VAPID-Schlüsseln
+\cite{VAPID}, wodurch auf dem Endgerät sichergestellt werden kann, das die
+Nachricht vom richtigen Server stammt.
 
 Web-Sockets hingegen sind für die Echtzeit-Kommunikation zwischen Endgerät und
 Server gedacht. Sie ermöglichen das Senden und Empfangen von Nachrichten in
@@ -349,14 +349,15 @@ mit dem Server aufgebaut, welche jedoch mit dem Schließen der Web-App abbricht.
 Im Vergleich zum Web-Push Standard eigenen sich Nachrichten über Web-Sockets
 somit nur während der Nutzung der App. Jedoch werden für Web-Sockets keine
 weiteren Verschlüsselungsmethoden, neben der Nutzung von HTTPS, benötigt. Zudem
-vereinfachen JavaScript-Bibliotheken wie Socket.IO\footnote{\url{https://socket.io/}},
-welche in dieser Arbeit verwendet wurde, die Nutzung von Web-Sockets und
-verwenden intern weitere Methoden, um eine stabile Verbindung über eine
-breite Auswahl an Geräten zu garantieren \cite{SocketIO2022}.
+vereinfachen JavaScript-Bibliotheken wie
+Socket.IO\footnote{\url{https://socket.io/}}, welche in dieser Arbeit verwendet
+wurde, die Nutzung von Web-Sockets und verwenden intern weitere Methoden, um
+eine stabile Verbindung über eine breite Auswahl an Geräten zu garantieren
+\cite{SocketIO2022}.
 
 
 Basierend auf den Fähigkeiten der beiden vorgestellten Technologien wird ein
-drei-stufiges Verfahren zur Benachrichtigung entwickelt, welches durch
+dreistufiges Verfahren zur Benachrichtigung entwickelt, welches durch
 \autoref{fig:impl-backend-push} visualisiert wird. Wenn Veranstaltende eine
 Nachricht versenden, wird zunächst das Versenden mit Web-Push versucht. Sollte
 dies fehlschlagen, wird die Nachricht stattdessen über eine Web-Socket
@@ -408,23 +409,24 @@ Antwort als POST-Anfrage an \textit{/feedback/respond} gesendet.
 
 \section{Implementierung des Frontends}
 
-Dieser Abschnitt präsentiert die bedeutendsten technischen Aspekte des Frontends.
-Zunächst wird der Aufbau des Projekts und die Nutzung des Vue CLI betrachtet.
-Daraufhin wird die Komponentenstruktur am Beispiel der interaktiven Karte näher
-erläutert. Abschließend werden das native App-Erlebnis und die
+Dieser Abschnitt präsentiert die bedeutendsten technischen Aspekte des
+Frontends. Zunächst wird der Aufbau des Projekts und die Nutzung des Vue CLI
+betrachtet. Daraufhin wird die Komponentenstruktur am Beispiel der interaktiven
+Karte näher erläutert. Abschließend werden das native App-Erlebnis und die
 Fortschrittsspeicherung aufgegriffen.
 
 \subsection{Struktur mit Vue CLI} \label{ssec:impl-frontend-structure}
 
-Zur Erstellung und Verwaltung des Projekts wurde das \textit{Vue CLI} genutzt.
-Vue CLI ist ein Kommandozeilenprogramm, welches die Einrichtung und Verwaltung
-von komplexeren Vue Projekten stark vereinfacht. Das Erstellen eines Projekts
-erfolgt nach Installation des Vue CLI durch den Befehl \lstinline[style=code,
-    language=bash, style=inline]{vue create <projekt-name>}. Während der Erstellung
-des Projekts können zusätzliche Plugins ausgewählt werden, welche einige
-Vue-spezifische oder allgemeine Funktionalitäten hinzufügen. Für dieses Projekt
-wurden die Plugins aus \autoref{table:impl-frontend-vuecli-plugins} zur
-Installation ausgewählt. Die Struktur des Vue-Projekts dieser Arbeit wird in
+Zur Erstellung und Verwaltung des Projekts wurde das \textit{Vue
+CLI}\footnote{\url{https://cli.vuejs.org/}} genutzt. Vue CLI ist ein
+Kommandozeilenprogramm, welches die Einrichtung und Verwaltung von komplexeren
+Vue Projekten stark vereinfacht. Das Erstellen eines Projekts erfolgt nach
+Installation des Vue CLI durch den Befehl \lstinline[style=code, language=bash,
+style=inline]{vue create <projekt-name>}. Während der Erstellung des Projekts
+können zusätzliche Plugins ausgewählt werden, welche einige Vue-spezifische oder
+allgemeine Funktionalitäten hinzufügen. Für dieses Projekt wurden die Plugins
+aus \autoref{table:impl-frontend-vuecli-plugins} zur Installation ausgewählt.
+Die Struktur des Vue-Projekts dieser Arbeit wird in
 \autoref{fig:impl-frontend-vuecli-dir} präsentiert. Die fettgedruckten
 Verzeichnisse sind nicht durch das Vue CLI generiert worden, sondern wurden
 manuell erstellt. Nachfolgend wird die Struktur näher erläutert.
@@ -506,8 +508,7 @@ diese, sowie einige weitere Optionen, innerhalb der \textit{vue-router}
 Konfiguration im \textit{router} Ordner festgelegt. Zudem beinhaltet der
 \textit{store} Ordner den im vorherigen Abschnitt erwähnten globalen
 \textit{Vuex} Speicher. Dieser wird genutzt, um Daten wie die Position der
-Teilnehmenden oder Einstellungen abzuspeichern, da diese an vielen Stellen der
-Vue-App benötigt oder verändert werden.
+Teilnehmenden oder Einstellungen abzuspeichern.
 
 Alle bisher erwähnten Verzeichnisse und Dateien werden automatisch durch das Vue
 CLI generiert. Zur besseren Übersichtlichkeit wurden weitere Ordner angelegt, um
@@ -733,7 +734,7 @@ ein Datenverlust vermieden.
 
 \section{Implementierung des Dashboards} \label{sec:impl-dashboard}
 
-In diesem Abschnitt wird die Implementierung des Dashboards präsentiert. Da es
+In diesem Abschnitt wird die Implementierung des Dashboards erläutert. Da es
 sich hierbei um ein Strapi Plugin handelt, wird zunächst der Aufbau eines
 Plugins beschrieben. Daraufhin wird die Implementierung der visuellen
 Aufbereitung der Daten erläutert. Abschließend wird das Location-Picker Plugin
@@ -821,27 +822,27 @@ mit welchen die Diagramme modular erstellt werden können (\autoref{fig:impl-das
 \end{figure}
 
 Die für die Diagramme benötigten Daten werden von der \textit{Statistics API}
-des Backends angefragt, welche vor dem Bereitstellen bereits nach angegeben
-Merkmalen gruppiert oder sortiert. Im Fall der Statistiken zu Besuchenden,
-Stationen und Abzeichen wird beispielsweise nach Datum der Aktion sortiert, um
-diese korrekt im Diagramm wiederzugeben.
+des Backends angefragt, welche vor dem Bereitstellen der Daten diese bereits
+nach angegeben Merkmalen gruppiert oder sortiert. Im Fall der Statistiken zu
+Besuchenden, Stationen und Abzeichen wird beispielsweise nach Datum der Aktion
+sortiert, um diese korrekt im Diagramm wiederzugeben.
 
 \subsection{Implementierung des Location-Picker Plugins} \label{ssec:impl-dashboard-location-plugin}
 
-Der Standort einer Station ist eine seiner fundamentalen Informationen. Jedoch
-besitzt Strapi keine vorhandene Oberfläche oder Datentyp, um Standortdaten
-einzutragen. Um die mühsame Eintragung von Längengrad und Breitengrad zu
-vermeiden, wurde ein Plugin implementiert, welches das Setzen eines Standorts
-mithilfe einer interaktiven Karte ermöglicht. Hierfür wurde die Strapi
-\textit{Field API} genutzt, um das Location-Picker Plugin als Bearbeitungsfeld
-nutzen zu können (\autoref{fig:impl-dashboard-location-code}). Im Gegensatz
-zum Dashboard Plugin benötigt das Location-Picker Plugin keine Ansichten im
-\textit{src/containers} Verzeichnis, da eine Komponente aus dem
-\textit{src/components} Verzeichnis direkt importiert und genutzt wird. Die
-registrierte Komponente funktioniert anschließend ähnlich wie die internen
-Datentypen von Strapi (vgl. \ssecref{ssec:impl-backend-structure}). Jedoch kann
-sie nicht in Strapis Oberfläche ausgewählt werden, sondern muss manuell in der
-entsprechenden \textit{models/<model>.settings.json} eingetragen werden.
+Der Standort einer Station ist eine fundamentalen Informationen. Jedoch besitzt
+Strapi keine vorhandene Oberfläche oder Datentyp, um Standortdaten einzutragen.
+Um die mühsame Eintragung von Längengrad und Breitengrad zu vermeiden, wurde ein
+Plugin implementiert, welches das Setzen eines Standorts mithilfe einer
+interaktiven Karte ermöglicht. Hierfür wurde die Strapi \textit{Field API}
+genutzt, um das Location-Picker Plugin als Bearbeitungsfeld nutzen zu können
+(\autoref{fig:impl-dashboard-location-code}). Im Gegensatz zum Dashboard Plugin
+benötigt das Location-Picker Plugin keine Ansichten im \textit{src/containers}
+Verzeichnis, da eine Komponente aus dem \textit{src/components} Verzeichnis
+direkt importiert und genutzt wird. Die registrierte Komponente funktioniert
+anschließend ähnlich wie die internen Datentypen von Strapi (vgl.
+\ssecref{ssec:impl-backend-structure}). Jedoch kann sie nicht in Strapis
+Oberfläche ausgewählt werden, sondern muss manuell in der entsprechenden
+\textit{models/<model>.settings.json} eingetragen werden.
 
 \begin{figure}[htpb]
     \centering
@@ -911,7 +912,7 @@ Hierbei ist vor allem der Mapbox API Access Token von hoher Bedeutung, da ohne
 diesen die interaktiven Karten des Systems nicht funktionieren. Um ein Access
 Token zu generieren, wird ein Mapbox Account vorausgesetzt. Die VAPID Keys
 werden genutzt, um Push-Benachrichtigungen zu versenden (vgl.
-\ssecref{ssec:impl-backend-push}). Um ein paar zu generieren, kann
+\ssecref{ssec:impl-backend-push}). Um ein Paar an VAPId-Keys zu generieren, kann
 
 \lstinline[style=code, language=bash, style=inline]{npx web-push generate-vapid-keys --json}
 

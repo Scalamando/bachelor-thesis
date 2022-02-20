@@ -4,8 +4,8 @@ In diesem Abschnitt wurden, auf Basis der formalen Anforderungen,
 Funktionalitäten des Frameworks konzipiert. Hierbei wurde auf den
 Funktionalitäten des bestehenden Systems aufgebaut und weitere Funktionalitäten
 hinzugefügt, um die Anforderungen abzudecken. Anschließend wurde das
-Interface-Design der Frame\-work-Kom\-po\-nen\-ten entwickelt. Abschließend wurde
-auf Grundlage der Anforderungen die zu nutzenden Frameworks festgelegt und
+Interface-Design der Frame\-work-Kom\-po\-nen\-ten entwickelt. Abschließend
+wurde auf Grundlage der Anforderungen die zu nutzenden Frameworks festgelegt und
 darauf aufbauend die Systemarchitektur festgelegt.
 
 \section{Funktionalität} \label{sec:concept-func}
@@ -224,7 +224,7 @@ Anzahl der GitHub-Sterne weisen hier ebenfalls auf seinen ausgereiften Status
 hin. \\
 Das Backend der EMI-Award-App baut auf dem \ac{CMS} \textit{Strapi} auf. Mit
 42.895 GitHub-Sternen\footnote{Stand 06.02.2022,
-    \url{https://github.com/strapi/strapi}} ist Strapi das beliebteste quelloffene
+\url{https://github.com/strapi/strapi}} ist Strapi das beliebteste quelloffene
 \ac{CMS} auf GitHub und wird in 22.888\footnote{Stand 06.02.2022, \strapidep}
 Projekten verwendet. Das \ac{CMS} bietet eine Oberfläche zum Erstellen,
 Bearbeiten und Löschen von Informationen und lässt sich durch sein Plugin-System
@@ -258,10 +258,11 @@ low-fidelity Prototyp präsentiert.
     \label{fig:prototype-dashboard-main}
 \end{figure}
 
-Die Funktionalitäten des Dashboards wurden in vier Kategorien gruppiert:
-„Konfiguration“, „Benachrichtigungen“, „Abzeicheneinreichungen“ und „Evaluation
-und Statistiken“. Auf der Startansicht des Dashboards werden diese vier
-Kategorien in Form von Karten präsentiert (\autoref{fig:prototype-dashboard-main}). Jede Karte wird mit einem Icon
+Die Funktionalitäten des Dashboards (Ft-V-8) wurden in vier Kategorien
+gruppiert: „Konfiguration“, „Benachrichtigungen“, „Abzeicheneinreichungen“ und
+„Evaluation und Statistiken“. Auf der Startansicht des Dashboards werden diese
+vier Kategorien in Form von Karten präsentiert
+(\autoref{fig:prototype-dashboard-main}). Jede Karte wird mit einem Icon
 versehen, um die Kategorien visuell noch besser zu unterscheiden.
 
 \begin{figure}[htpb]
@@ -272,7 +273,8 @@ versehen, um die Kategorien visuell noch besser zu unterscheiden.
 \end{figure}
 
 Die Kategorie „Konfiguration“ beinhaltet die Einstellung der Rahmendaten der
-Veranstaltung. Diese werden als Formular präsentiert (\autoref{fig:prototype-dashboard-config}). Die anzugebenden Daten sind hierbei
+Veranstaltung. Diese werden als Formular präsentiert
+(\autoref{fig:prototype-dashboard-config}). Die anzugebenden Daten sind hierbei
 Titel, Logo, ein Link zu weiteren Informationen der Veranstaltung, die
 Aktivierung der Gruppen-Funktion und das Zentrum der Karte. Zudem werden das
 Impressum und die Datenschutzerklärung mithilfe von WYSIWYG-Editoren bearbeitet,
@@ -285,7 +287,7 @@ welche sich, nicht sichtbar, unter dem Zentrum der Karte befinden.
     \label{fig:prototype-dashboard-notifications}
 \end{figure}
 
-In der Kategorie „Benachrichtigungen“ können die Benachrichtigungen an
+In der Kategorie „Benachrichtigungen“ können die Benachrichtigungen (Ft-V-5) an
 Teilnehmende gesendet werden. Hierzu kann das Formular im oberen Bereich des
 Bildes genutzt werden (\autoref{fig:prototype-dashboard-notifications}).
 Benachrichtigungen benötigen einen Titel und den Inhalt der Nachricht. Vor dem
@@ -313,16 +315,17 @@ zusätzlich ein Pop-up geöffnet, welches den vollen Inhalt der Nachricht anzeig
 \end{figure}
 
 Die Kategorie „Abzeicheneinreichungen“ bietet einen Weg die Einreichungen der
-Teilnehmenden zu bewerten. Hierzu werden alle ausstehenden Bewertungen in Form
-einer Liste, ähnlich zu den Benachrichtigungen, angezeigt (\autoref{fig:prototype-dashboard-submissions}). Die Liste zeigt den Namen der
-Gruppe bzw. die ID der Besuchenden, das eingereichte Abzeichen und den
-Zeitpunkt der Einreichung an. Durch das Anklicken einer Einreichung wird diese
-geöffnet. Hier wird noch einmal das eingereichte Abzeichen und die
-eigentliche Abgabe angezeigt (\autoref{fig:prototype-dashboard-submission}).
-Die Abgabe kann je nach Text- oder Bildabzeichen, ein Text oder ein Bild sein.
-Unter der Abgabe werden die beiden Bewertungsmöglichkeiten „Akzeptieren“ und
-„Ablehnen“ angezeigt. Mit einem Klick auf eine der beiden Bewertungen wird die
-Abgabe wieder geschlossen und aus der Liste entfernt.
+Teilnehmenden zu bewerten (Ft-T-8). Hierzu werden alle ausstehenden Bewertungen
+in Form einer Liste, ähnlich zu den Benachrichtigungen, angezeigt
+(\autoref{fig:prototype-dashboard-submissions}). Die Liste zeigt den Namen der
+Gruppe bzw. die ID der Besuchenden, das eingereichte Abzeichen und den Zeitpunkt
+der Einreichung an. Durch das Anklicken einer Einreichung wird diese geöffnet.
+Hier wird noch einmal das eingereichte Abzeichen und die eigentliche Abgabe
+angezeigt (\autoref{fig:prototype-dashboard-submission}). Die Abgabe kann je
+nach Text- oder Bildabzeichen, ein Text oder ein Bild sein. Unter der Abgabe
+werden die beiden Bewertungsmöglichkeiten „Akzeptieren“ und „Ablehnen“
+angezeigt. Mit einem Klick auf eine der beiden Bewertungen wird die Abgabe
+wieder geschlossen und aus der Liste entfernt.
 
 \begin{figure}[htpb]
     \centering
@@ -332,9 +335,10 @@ Abgabe wieder geschlossen und aus der Liste entfernt.
 \end{figure}
 
 In der Kategorie „Evaluation und Statistiken“ finden sich zwei Funktionalitäten
-wieder: Feedback-Anfragen und detaillierte Statistiken. Im oberen Bereich
-befindet sich ein Formular zum Anfragen von Feedback (\autoref{fig:prototype-dashboard-statistics}). Dieses benötigt die Frage, zu der
-Feedback gegeben werden soll, und optional Auswahlmöglichkeiten, welche als
+wieder: Feedback-Anfragen (Ft-V-6) und detaillierte Statistiken (Ft-V-7). Im
+oberen Bereich befindet sich ein Formular zum Anfragen von Feedback
+(\autoref{fig:prototype-dashboard-statistics}). Dieses benötigt die Frage, zu
+der Feedback gegeben werden soll, und optional Auswahlmöglichkeiten, welche als
 Grund von negativem Feedback zur Auswahl stehen sollen. Auch dieses Formular
 muss vor dem Senden bestätigt werden, um keine unbeabsichtigten Absendungen
 zuzulassen. Unter dem Formular befinden sich Kacheln für die verschiedenen
@@ -350,8 +354,9 @@ das Antippen einer Kachel wird zur entsprechenden Seite navigiert.
 
 Auf der Seite der Besuchenden können drei verschiedene Statistiken eingesehen
 werden: die kumulative Gesamtanzahl an Besuchenden, die neuen Besuchenden pro
-Tag und die durchschnittliche Anzahl an neuen Besuchenden pro Tag (\autoref{fig:prototype-dashboard-statistics-visitors}). Die ersten
-beiden Statistiken werden hierbei in Form eines Flächendiagramms angezeigt.
+Tag und die durchschnittliche Anzahl an neuen Besuchenden pro Tag
+(\autoref{fig:prototype-dashboard-statistics-visitors}). Die ersten beiden
+Statistiken werden hierbei in Form eines Flächendiagramms angezeigt.
 
 \begin{figure}[htpb]
     \centering

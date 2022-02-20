@@ -1,3 +1,92 @@
-\chapter{Zusammenfassung} \label{chapter:summary}
+\chapter{Zusammenfassung und Ausblick} \label{chapter:summary}
 
-\section{Diskussion}
+Abschließend werden die wichtigsten Ergebnisse der Arbeit zusammengefasst.
+Außerdem wird auf die technischen Probleme der realisierten Funktionen während
+der Nutzung eingegangen. Zum Abschluss wird ein Ausblick für die möglichen
+Weiterentwicklungen des Frameworks gegeben.
+
+\section{Zusammenfassung}
+
+Im Rahmen dieser Arbeit wurde eine Erweiterung und Verallgemeinerung der
+EMI-Award-App in Form eines flexiblen Event-App-Frameworks für ortsbasierte
+Veranstaltungen konzipiert, entwickelt und evaluiert.
+\\
+Um ein Verständnis für den Veranstaltungskontext und die Herausforderungen der
+Nutzergruppen zu erlangen, wurden eine Literaturrecherche und Interviews mit
+Teilnehmenden und Veranstaltenden durchgeführt (vgl.
+\autoref{chapter:analysis}). Aus den Interviews und der Literatur ergab sich,
+dass beide Nutzergruppen in unterschiedlichen Veranstaltungphasen Unterstützung
+bedürfen. Des Weiteren wurde das bestehende System, die EMI-Award-App,
+analysiert, um den Stand der Technik zu beleuchten. Anschließend wurden die
+gesammelten Erkenntnisse in Form von formalen Anforderungen festgehalten.
+
+Auf Basis der formalen Anforderungen wurden die Funktionalitäten des Frameworks
+konzipiert. Hierbei wurde auf den Funktionalitäten des bestehenden Systems
+aufgebaut und weitere Funktionalitäten hinzugefügt, um die Anforderungen
+abzudecken. Anschließend wurde das Interfacedesign des Dashboards und der
+Web-App entwickelt. Weiterhin wurden auf Grundlage der Anforderungen die in
+dieser Arbeit verwendeten Frameworks festgelegt und darauf aufbauend die
+Systemarchitektur festgelegt.
+
+Anschließend wurden die zuvor konzipierten Entwürfe des Systems realisiert.
+Hierbei wurden die in der Konzeptionsphase festgelegten Frameworks
+\textit{Vue.js} und \textit{Strapi} verwendet. Darauf wurde das implementierte
+System anhand von Dialogbeispielen präsentiert.
+
+Abschließend wurde das entwickelte System von Teilnehmenden und
+Veranstaltenden evaluiert. Für die Seite der Veranstaltenden wurde erhoben,
+inwieweit das System in der Organisation und Durchführung unterstützt. Ein
+besonderes Merkmal wird hierbei auf die Überwachung der Veranstaltung gesetzt.
+Durch die Teilnehmenden wurde erhoben, ob und wie sehr die implementierten
+Funktionalitäten zur Orientierung während des Besuchs der Veranstaltung
+unterstützen konnten.
+
+\section{Offen Punkte}
+
+In der Evaluation des Systems wurden unterschiedliche technische Problemen
+festgestellt, welche in offen gebliebenen Punkten resultieren. Im Folgenden
+werden die Probleme und die daraus resultierenden offenen Punkte näher
+erläutert.
+
+Die Kamerafunktion zum virtuellen Besuchen und Senden von Bildabzeichen
+funktioniert bisher nicht zuverlässig. Bildabzeichen nutzen standardmäßig die
+erstgefundene Kamera des Systems. Da diese meist die Frontkamera des Geräts ist,
+erschwert dies die Aufnahme von Bildern für Teilnehmende. An dieser Stelle
+sollte in Zukunft die Auswahl der Kamera gegeben werden, um Teilnehmende nicht
+einzuschränken. Die Kamera zum virtuellen Besuchen hingegen lässt nach kurzer
+Zeit (> 3 min) die Web-App abstürzen. Dies ist ein bekanntes Problem des
+genutzten
+Paketes\footnote{\url{https://github.com/gruhn/vue-qrcode-reader/issues/233}}
+für die QR-Code-Reader Funktion. Da bisher keine vergleichsweisen Pakete
+existieren, sollte in Zukunft auf Aktualisierungen des Pakets gewartet
+werden.
+
+Ein weiteres Problem besteht in der Zustellung von Benachrichtigungen. Diese
+werden wie in \ssecref{ssec:impl-backend-push} beschrieben mit der Web-Push API
+umgesetzt. Diese wird von Safari auf iOS noch nicht unterstützt, weshalb zur
+Absicherung Web-Sockets genutzt werden. Jedoch ist somit bisher keine
+Benachrichtigung außerhalb der Nutzung der App für iOS Nutzende möglich. Auch
+hier sollte die Entwicklung der iOS Unterstützung geprüft werden und bei
+erfolgter Unterstützung die Implementierung angepasst werden.
+
+\section{Ausblick}
+
+In der Evaluation wurden Proband:innen nach Funktionalitäten gefragt, welche sie
+während der Nutzung vemisst hätten. Hierbei ist eine Aufzählung von potentiellen
+weiteren Funktionalitäten entstanden (vgl. \ssecref{ssec:eval-t-results}). Um
+den Beobachtungen der Proband:innen nachzukommen, sollten diese Vorschläge näher
+analysiert werden.
+
+Einige der potentiellen Funktionalitäten sind bereits in Form von
+formalisierten Anforderungen aufgestellt worden (vgl.
+\ssecref{ssec:analysis-anf-func}). Hierzu zählen die erweiterten
+Kontaktmöglichkeiten zwischen Teilnehmenden und Veranstaltenden. Aufgrund der
+Überschneidung, solle diesen Funktionalitäten Priorität gewährt werden.
+
+Einige Funktionalitäten des zuvor bestehenden Systems (vgl.
+\autoref{sec:analysis-old}) wurden bisher nicht auf diesen Framework übertragen.
+Hierzu zählt u. a. die AR-Interkation während des virtuellen Besuchens sowie die
+Bewertung der einzelnen Stationen. Die AR-Interaktion stellt im Kontext eines
+allgemeinen Frameworks eine besondere Herausforderung dar, aufgrund des mit der
+Konfiguration verbundenen Aufwands für Veranstaltende. Diese Funktionalitäten
+könnten im Rahmen einer Folgearbeit erneut aufgegriffen werden.
