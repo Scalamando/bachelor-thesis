@@ -816,16 +816,16 @@ mit welchen die Diagramme modular erstellt werden können (\autoref{fig:impl-das
 
 \begin{figure}[htpb]
     \centering
-    \includegraphics[width=0.7\linewidth]{impl/code_diagramms.png}
+    \includegraphics[width=0.6\linewidth]{impl/code_diagramms.png}
     \caption{Verwendung der Victory Komponenten}
     \label{fig:impl-dashboard-diagramm-code}
 \end{figure}
 
 Die für die Diagramme benötigten Daten werden von der \textit{Statistics API}
-des Backends angefragt, welche vor dem Bereitstellen der Daten diese bereits
-nach angegeben Merkmalen gruppiert oder sortiert. Im Fall der Statistiken zu
-Besuchenden, Stationen und Abzeichen wird beispielsweise nach Datum der Aktion
-sortiert, um diese korrekt im Diagramm wiederzugeben.
+des Backends angefragt. Diese API gruppiert oder sortiert Daten nach gewählten
+Merkmalen. Im Fall der Statistiken zu Besuchenden, Stationen und Abzeichen wird
+beispielsweise nach Datum der Aktion sortiert, um diese korrekt im Diagramm
+wiederzugeben.
 
 \subsection{Implementierung des Location-Picker Plugins} \label{ssec:impl-dashboard-location-plugin}
 
@@ -874,9 +874,9 @@ beschrieben.
 
 \subsection{Installation}
 
-Um das System nutzen zu können, wird eine funktionierende Installation von
+Um das System nutzen zu können, wird eine Installation von
 \textit{Node.js}\footnote{\url{https://nodejs.org/en/}} (Version 12.x.x oder
-neuer) und des beigelieferten Paket-Managers
+neuer) und des Paket-Managers
 \textit{npm}\footnote{\url{https://www.npmjs.com/}} benötigt. Zudem wird die
 Installation des Paket-Managers \textit{yarn} (\lstinline[style=code,
 language=bash, style=inline]{npm install -g yarn}) empfohlen, da dieser zur
